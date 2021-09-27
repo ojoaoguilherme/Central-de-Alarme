@@ -33,16 +33,34 @@ Version 4.0 HI-TECH Software Intermediate Code
 "1561 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1561: extern volatile unsigned char TRISE __attribute__((address(0x089)));
 [v _TRISE `Vuc ~T0 @X0 0 e@137 ]
+"1375
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1375: extern volatile unsigned char TRISB __attribute__((address(0x086)));
+[v _TRISB `Vuc ~T0 @X0 0 e@134 ]
 "402
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 402: extern volatile unsigned char PORTE __attribute__((address(0x009)));
 [v _PORTE `Vuc ~T0 @X0 0 e@9 ]
-"14 main.c
-[; ;main.c: 14: void liga_buzzer();
-[v _liga_buzzer `(v ~T0 @X0 0 e? ]
+"15 main.c
+[; ;main.c: 15: void teclado();
+[v _teclado `(v ~T0 @X0 0 e? ]
 [v F951 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF951 ~T0 @X0 0 e ]
 [p i __delay ]
+"216 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
+[v _PORTB `Vuc ~T0 @X0 0 e@6 ]
+"2674
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2674: extern volatile __bit RB0 __attribute__((address(0x30)));
+[v _RB0 `Vb ~T0 @X0 0 e@48 ]
+"2677
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2677: extern volatile __bit RB1 __attribute__((address(0x31)));
+[v _RB1 `Vb ~T0 @X0 0 e@49 ]
+"2680
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2680: extern volatile __bit RB2 __attribute__((address(0x32)));
+[v _RB2 `Vb ~T0 @X0 0 e@50 ]
+"2683
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2683: extern volatile __bit RB3 __attribute__((address(0x33)));
+[v _RB3 `Vb ~T0 @X0 0 e@51 ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -504,51 +522,357 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 106 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"16 main.c
-[; ;main.c: 16: void main(void) {
+"17 main.c
+[; ;main.c: 17: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"17
-[; ;main.c: 17:     TRISE = 0;
-[e = _TRISE -> -> 0 `i `uc ]
 "18
-[; ;main.c: 18:     TRISD = 0;
+[; ;main.c: 18:     TRISE = 0;
+[e = _TRISE -> -> 0 `i `uc ]
+"19
+[; ;main.c: 19:     TRISD = 0;
 [e = _TRISD -> -> 0 `i `uc ]
 "20
-[; ;main.c: 20:     PORTE = 0x01;
+[; ;main.c: 20:     TRISB = 0x0F;
+[e = _TRISB -> -> 15 `i `uc ]
+"22
+[; ;main.c: 22:     PORTE = 0x01;
 [e = _PORTE -> -> 1 `i `uc ]
-"23
-[; ;main.c: 23:     while (1){
+"24
+[; ;main.c: 24:     LCD_init();
+[e ( _LCD_init ..  ]
+"25
+[; ;main.c: 25:     LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"28
+[; ;main.c: 28:     while (1){
 [e :U 113 ]
 {
-"24
-[; ;main.c: 24:         liga_buzzer();
-[e ( _liga_buzzer ..  ]
-"26
-[; ;main.c: 26:     }
+"29
+[; ;main.c: 29:         teclado();
+[e ( _teclado ..  ]
+"31
+[; ;main.c: 31:     }
 }
 [e :U 112 ]
 [e $U 113  ]
 [e :U 114 ]
-"27
-[; ;main.c: 27: }
+"32
+[; ;main.c: 32: }
 [e :UE 111 ]
 }
-"29
-[; ;main.c: 29: void liga_buzzer(){
+"34
+[; ;main.c: 34: void liga_buzzer(){
 [v _liga_buzzer `(v ~T0 @X0 1 ef ]
 {
 [e :U _liga_buzzer ]
 [f ]
-"30
-[; ;main.c: 30:     _delay((unsigned long)((10)*(20000000/4000.0)));
+"35
+[; ;main.c: 35:     _delay((unsigned long)((10)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"31
-[; ;main.c: 31:     PORTE = 0;
+"36
+[; ;main.c: 36:     PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"33
-[; ;main.c: 33: }
+"38
+[; ;main.c: 38: }
 [e :UE 115 ]
+}
+"40
+[; ;main.c: 40: void teclado(){
+[v _teclado `(v ~T0 @X0 1 ef ]
+{
+[e :U _teclado ]
+[f ]
+"42
+[; ;main.c: 42:     PORTE = 0x01;
+[e = _PORTE -> -> 1 `i `uc ]
+"46
+[; ;main.c: 46:     PORTB = 0b11101111;
+[e = _PORTB -> -> 239 `i `uc ]
+"50
+[; ;main.c: 50:     if (RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 117  ]
+{
+"51
+[; ;main.c: 51:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"52
+[; ;main.c: 52:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"53
+[; ;main.c: 53:         LCD_escreve('0');
+[e ( _LCD_escreve (1 -> -> 48 `ui `uc ]
+"55
+[; ;main.c: 55:     }
+}
+[e :U 117 ]
+"59
+[; ;main.c: 59:     if (RB1 == 0){
+[e $ ! == -> _RB1 `i -> 0 `i 118  ]
+{
+"60
+[; ;main.c: 60:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"61
+[; ;main.c: 61:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"62
+[; ;main.c: 62:         LCD_escreve('1');
+[e ( _LCD_escreve (1 -> -> 49 `ui `uc ]
+"64
+[; ;main.c: 64:     }
+}
+[e :U 118 ]
+"69
+[; ;main.c: 69:     if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 119  ]
+{
+"70
+[; ;main.c: 70:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"71
+[; ;main.c: 71:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"72
+[; ;main.c: 72:         LCD_escreve('2');
+[e ( _LCD_escreve (1 -> -> 50 `ui `uc ]
+"74
+[; ;main.c: 74:     }
+}
+[e :U 119 ]
+"78
+[; ;main.c: 78:     if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 120  ]
+{
+"79
+[; ;main.c: 79:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"80
+[; ;main.c: 80:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"81
+[; ;main.c: 81:         LCD_escreve('3');
+[e ( _LCD_escreve (1 -> -> 51 `ui `uc ]
+"83
+[; ;main.c: 83:     }
+}
+[e :U 120 ]
+"88
+[; ;main.c: 88:     PORTB = 0b11011111;
+[e = _PORTB -> -> 223 `i `uc ]
+"93
+[; ;main.c: 93:     if (RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 121  ]
+{
+"94
+[; ;main.c: 94:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"95
+[; ;main.c: 95:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"96
+[; ;main.c: 96:         LCD_escreve('4');
+[e ( _LCD_escreve (1 -> -> 52 `ui `uc ]
+"98
+[; ;main.c: 98:     }
+}
+[e :U 121 ]
+"102
+[; ;main.c: 102:     if (RB1 == 0){
+[e $ ! == -> _RB1 `i -> 0 `i 122  ]
+{
+"103
+[; ;main.c: 103:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"104
+[; ;main.c: 104:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"105
+[; ;main.c: 105:         LCD_escreve('5');
+[e ( _LCD_escreve (1 -> -> 53 `ui `uc ]
+"107
+[; ;main.c: 107:     }
+}
+[e :U 122 ]
+"112
+[; ;main.c: 112:     if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 123  ]
+{
+"113
+[; ;main.c: 113:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"114
+[; ;main.c: 114:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"115
+[; ;main.c: 115:         LCD_escreve('6');
+[e ( _LCD_escreve (1 -> -> 54 `ui `uc ]
+"117
+[; ;main.c: 117:     }
+}
+[e :U 123 ]
+"121
+[; ;main.c: 121:     if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 124  ]
+{
+"122
+[; ;main.c: 122:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"123
+[; ;main.c: 123:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"124
+[; ;main.c: 124:         LCD_escreve('7');
+[e ( _LCD_escreve (1 -> -> 55 `ui `uc ]
+"126
+[; ;main.c: 126:     }
+}
+[e :U 124 ]
+"131
+[; ;main.c: 131:     PORTB = 0b10111111;
+[e = _PORTB -> -> 191 `i `uc ]
+"136
+[; ;main.c: 136:     if (RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 125  ]
+{
+"137
+[; ;main.c: 137:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"138
+[; ;main.c: 138:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"139
+[; ;main.c: 139:         LCD_escreve('8');
+[e ( _LCD_escreve (1 -> -> 56 `ui `uc ]
+"142
+[; ;main.c: 142:     }
+}
+[e :U 125 ]
+"146
+[; ;main.c: 146:     if (RB1 == 0){
+[e $ ! == -> _RB1 `i -> 0 `i 126  ]
+{
+"147
+[; ;main.c: 147:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"148
+[; ;main.c: 148:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"149
+[; ;main.c: 149:         LCD_escreve('9');
+[e ( _LCD_escreve (1 -> -> 57 `ui `uc ]
+"151
+[; ;main.c: 151:     }
+}
+[e :U 126 ]
+"156
+[; ;main.c: 156:     if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 127  ]
+{
+"157
+[; ;main.c: 157:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"158
+[; ;main.c: 158:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"159
+[; ;main.c: 159:         LCD_escreve('A');
+[e ( _LCD_escreve (1 -> -> 65 `ui `uc ]
+"161
+[; ;main.c: 161:     }
+}
+[e :U 127 ]
+"166
+[; ;main.c: 166:     if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 128  ]
+{
+"167
+[; ;main.c: 167:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"168
+[; ;main.c: 168:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"169
+[; ;main.c: 169:         LCD_escreve('B');
+[e ( _LCD_escreve (1 -> -> 66 `ui `uc ]
+"171
+[; ;main.c: 171:     }
+}
+[e :U 128 ]
+"176
+[; ;main.c: 176:     PORTB = 0b01111111;
+[e = _PORTB -> -> 127 `i `uc ]
+"181
+[; ;main.c: 181:     if (RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 129  ]
+{
+"182
+[; ;main.c: 182:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"183
+[; ;main.c: 183:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"184
+[; ;main.c: 184:         LCD_escreve('C');
+[e ( _LCD_escreve (1 -> -> 67 `ui `uc ]
+"186
+[; ;main.c: 186:     }
+}
+[e :U 129 ]
+"191
+[; ;main.c: 191:     if (RB1 == 0){
+[e $ ! == -> _RB1 `i -> 0 `i 130  ]
+{
+"192
+[; ;main.c: 192:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"193
+[; ;main.c: 193:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"194
+[; ;main.c: 194:         LCD_escreve('D');
+[e ( _LCD_escreve (1 -> -> 68 `ui `uc ]
+"196
+[; ;main.c: 196:     }
+}
+[e :U 130 ]
+"201
+[; ;main.c: 201:     if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 131  ]
+{
+"202
+[; ;main.c: 202:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"203
+[; ;main.c: 203:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"204
+[; ;main.c: 204:         LCD_escreve('E');
+[e ( _LCD_escreve (1 -> -> 69 `ui `uc ]
+"206
+[; ;main.c: 206:     }
+}
+[e :U 131 ]
+"211
+[; ;main.c: 211:     if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 132  ]
+{
+"212
+[; ;main.c: 212:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"213
+[; ;main.c: 213:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"214
+[; ;main.c: 214:         LCD_escreve('F');
+[e ( _LCD_escreve (1 -> -> 70 `ui `uc ]
+"216
+[; ;main.c: 216:     }
+}
+[e :U 132 ]
+"218
+[; ;main.c: 218: }
+[e :UE 116 ]
 }

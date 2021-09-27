@@ -1883,16 +1883,21 @@ extern __bank0 __bit __timeout;
 
 
 void liga_buzzer();
+void teclado();
 
 void main(void) {
     TRISE = 0;
     TRISD = 0;
+    TRISB = 0x0F;
 
     PORTE = 0x01;
 
+    LCD_init();
+    LCD_limpa();
+
 
     while (1){
-        liga_buzzer();
+        teclado();
 
     }
 }
@@ -1900,5 +1905,185 @@ void main(void) {
 void liga_buzzer(){
     _delay((unsigned long)((10)*(20000000/4000.0)));
     PORTE = 0;
+
+}
+
+void teclado(){
+
+    PORTE = 0x01;
+
+
+
+    PORTB = 0b11101111;
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('0');
+
+    }
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('1');
+
+    }
+
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('2');
+
+    }
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('3');
+
+    }
+
+
+
+
+    PORTB = 0b11011111;
+
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('4');
+
+    }
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('5');
+
+    }
+
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('6');
+
+    }
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('7');
+
+    }
+
+
+
+
+    PORTB = 0b10111111;
+
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('8');
+
+
+    }
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('9');
+
+    }
+
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('A');
+
+    }
+
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('B');
+
+    }
+
+
+
+
+    PORTB = 0b01111111;
+
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('C');
+
+    }
+
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('D');
+
+    }
+
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('E');
+
+    }
+
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer();
+        LCD_escreve('F');
+
+    }
 
 }
