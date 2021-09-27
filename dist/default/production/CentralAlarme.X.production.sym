@@ -1,19 +1,27 @@
+_RA1 29 0 ABS 0
+_RA3 2B 0 ABS 0
+_RA4 2C 0 ABS 0
+_RA5 2D 0 ABS 0
 __S0 800 0 ABS 0
 __S1 0 0 ABS 0
 __S2 0 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 7F9 0 CODE 0
+_main 7F8 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 7E 0 ABS 0
 start 0 0 CODE 0
+_TRISA 85 0 ABS 0
 reset_vec 0 0 CODE 0
+_TRISD 88 0 ABS 0
+_PORTD 8 0 ABS 0
 wtemp0 7E 0 ABS 0
 __Hram 0 0 ABS 0
 __Lram 0 0 ABS 0
 __Hfunctab 0 0 ENTRY 0
 __Lfunctab 0 0 ENTRY 0
+_ADCON1 9F 0 ABS 0
 __Hcommon 0 0 ABS 0
 __Lcommon 0 0 ABS 0
 __Heeprom_data 0 0 EEDATA 3
@@ -84,21 +92,21 @@ __pcstackCOMMON 0 0 COMMON 1
 start_initialization 7FC 0 CODE 0
 __Hmaintext 0 0 ABS 0
 __Lmaintext 0 0 ABS 0
-__pmaintext 7F9 0 CODE 0
+__pmaintext 7F8 0 CODE 0
 __initialization 7FC 0 CODE 0
 %segments
 reset_vec 0 5 CODE 0 0
 cinit FF8 FFF CODE FF8 0
-maintext FF2 FF7 CODE FF2 0
+maintext FF0 FF7 CODE FF0 0
 %locals
 dist/default/production\CentralAlarme.X.production.o
-C:\Users\joaog\AppData\Local\Temp\xcAsh18.s
-340 7FC 0 CODE 0
-343 7FC 0 CODE 0
-349 7FC 0 CODE 0
-351 7FC 0 CODE 0
-352 7FD 0 CODE 0
+C:\Users\joaog\AppData\Local\Temp\xcAs874.s
+356 7FC 0 CODE 0
+359 7FC 0 CODE 0
+365 7FC 0 CODE 0
+367 7FC 0 CODE 0
+368 7FD 0 CODE 0
 main.c
-11 7F9 0 CODE 0
-12 7F9 0 CODE 0
-13 7F9 0 CODE 0
+14 7F8 0 CODE 0
+15 7F8 0 CODE 0
+17 7F8 0 CODE 0

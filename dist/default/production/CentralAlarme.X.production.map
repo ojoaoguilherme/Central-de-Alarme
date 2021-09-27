@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=C:\Program Files\Microchip\xc8\v2.32\pic\dat\en_msgs.txt -cn \
   -h+dist/default/production\CentralAlarme.X.production.sym \
   --cmf=dist/default/production\CentralAlarme.X.production.cmf -z -Q16F877A \
-  -oC:\Users\joaog\AppData\Local\Temp\xcAsh18.4 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\joaog\AppData\Local\Temp\xcAs874.4 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/production/CentralAlarme.X.production.map -E1 \
   -ver=XC8 Compiler --acfsm=1493 -ASTACK=0110h-016Fh -pstack=STACK \
   -ACODE=00h-07FFhx4 -ASTRCODE=00h-01FFFh -ASTRING=00h-0FFhx32 \
@@ -18,7 +18,7 @@ Linker command line:
   -AEEDATA=00h-0FFh/02100h -peeprom_data=EEDATA -DEEDATA=2 -DCODE=2 \
   -DSTRCODE=2 -DSTRING=2 -DCONST=2 -DENTRY=2 \
   -preset_vec=00h,intentry,init,end_init -ppowerup=CODE -pcinit=CODE \
-  -pfunctab=ENTRY -k C:\Users\joaog\AppData\Local\Temp\xcAsh18.o \
+  -pfunctab=ENTRY -k C:\Users\joaog\AppData\Local\Temp\xcAs874.o \
   dist/default/production\CentralAlarme.X.production.o 
 
 Object code version is 3.11
@@ -28,11 +28,11 @@ Machine type is 16F877A
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\joaog\AppData\Local\Temp\xcAsh18.o
+C:\Users\joaog\AppData\Local\Temp\xcAs874.o
                 end_init                              0        0        3        0       0
 dist/default/production\CentralAlarme.X.production.o
                 cinit                               7FC      7FC        4      FF8       0
-                maintext                            7F9      7F9        3      FF2       0
+                maintext                            7F8      7F8        4      FF0       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -40,7 +40,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 end_init                              0        0        3         0
                 cinit                               7FC      7FC        4         0
-                maintext                            7F9      7F9        3         0
+                maintext                            7F8      7F8        4         0
 
         CLASS   STRCODE        
 
@@ -84,7 +84,7 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class     Delta
 
                 reset_vec                      000000  000003  000003         0       0  CODE        2
-                maintext                       0007F9  000003  0007FC       FF2       0  CODE        2
+                maintext                       0007F8  000004  0007FC       FF0       0  CODE        2
                 cinit                          0007FC  000004  000800       FF8       0  CODE        2
 
 
@@ -95,14 +95,14 @@ UNUSED ADDRESS RANGES
         BANK1            00A0-00EF             50           1
         BANK2            0110-016F             60           1
         BANK3            0190-01EF             60           1
-        CODE             0003-07F8            7F6           2
+        CODE             0003-07F7            7F5           2
                          0800-1FFF            800
         COMMON           0070-007D              E           1
         CONFIG           2007-2007              1           2
-        CONST            0003-07F8            100           2
+        CONST            0003-07F7            100           2
                          0800-1FFF            100
         EEDATA           2100-21FF            100           2
-        ENTRY            0003-07F8            100           2
+        ENTRY            0003-07F7            100           2
                          0800-1FFF            100
         IDLOC            2000-2003              4           2
         RAM              0020-006F             50           1
@@ -114,13 +114,21 @@ UNUSED ADDRESS RANGES
         SFR2             0100-010F             10           1
         SFR3             0180-018F             10           1
         STACK            0110-016F             60           1
-        STRCODE          0003-07F8            7F6           2
+        STRCODE          0003-07F7            7F5           2
                          0800-1FFF           1800
-        STRING           0003-07F8            100           2
+        STRING           0003-07F7            100           2
                          0800-1FFF            100
 
                                   Symbol Table
 
+_ADCON1                  (abs)        009F
+_PORTD                   (abs)        0008
+_RA1                     (abs)        0029
+_RA3                     (abs)        002B
+_RA4                     (abs)        002C
+_RA5                     (abs)        002D
+_TRISA                   (abs)        0085
+_TRISD                   (abs)        0088
 __Habs1                  abs1         0000
 __Hbank0                 bank0        0000
 __Hbank1                 bank1        0000
@@ -194,9 +202,9 @@ __end_of__initialization cinit        07FC
 __end_of_main            maintext     07FC
 __initialization         cinit        07FC
 __pcstackCOMMON          cstackCOMMON 0000
-__pmaintext              maintext     07F9
+__pmaintext              maintext     07F8
 __size_of_main           (abs)        0000
-_main                    maintext     07F9
+_main                    maintext     07F8
 btemp                    (abs)        007E
 end_of_initialization    cinit        07FC
 intlevel0                functab      0000
@@ -220,7 +228,7 @@ shared
 shared estimated size: 1
 
 main.c
-		_main          		CODE           	07F9	0000	3
+		_main          		CODE           	07F8	0000	4
 
-main.c estimated size: 3
+main.c estimated size: 4
 
