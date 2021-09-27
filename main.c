@@ -11,8 +11,26 @@
 #include "lcd.h"
 #include <xc.h>
 
+void liga_buzzer();
+
 void main(void) {
+    TRISE = 0; //Porta de saida para ligar o buzzer
+    TRISD = 0; //liga a porta do display
+    
+    PORTE = 0x01; //desligando o buzzer = 0000 0001
+    
+    LCD_init();
+    LCD_limpa();
+    
+    
     while (1){
+        liga_buzzer();
         
     }
+}
+
+void liga_buzzer(){
+    __delay_ms(10);
+    PORTE = 0;
+
 }

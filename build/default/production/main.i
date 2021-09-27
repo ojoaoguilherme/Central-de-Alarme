@@ -1882,8 +1882,23 @@ extern __bank0 __bit __timeout;
 # 12 "main.c" 2
 
 
+void liga_buzzer();
+
 void main(void) {
+    TRISE = 0;
+    TRISD = 0;
+
+    PORTE = 0x01;
+
+
     while (1){
+        liga_buzzer();
 
     }
+}
+
+void liga_buzzer(){
+    _delay((unsigned long)((10)*(20000000/4000.0)));
+    PORTE = 0;
+
 }

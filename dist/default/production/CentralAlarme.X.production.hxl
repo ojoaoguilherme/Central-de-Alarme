@@ -1,11 +1,11 @@
 ### HEXMate logfile and output summary ###
 ### Memory Usage ###
  Unused memory ranges:
-  6h - FEFh
+  6h - FBBh
   
  dist/default/production\CentralAlarme.X.production.hex ranges:
   0h - 5h
-  FF0h - FFFh
+  FBCh - FFFh
   
 ### Hex Memory Map ###
  Legend:
@@ -20,4 +20,5 @@
   X = Find & delete opcode
   1 = dist/default/production\CentralAlarme.X.production.hex
 00000000: 111111----------------------------------------------------------
-00000FC0: ------------------------------------------------1111111111111111
+00000F80: ------------------------------------------------------------1111
+00000FC0: 1111111111111111111111111111111111111111111111111111111111111111

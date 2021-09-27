@@ -19,14 +19,20 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"14 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"16 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _main main `(v  1 e 1 0 ]
+"29
+[v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
 "340 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
+"402
+[v _PORTE PORTE `VEuc  1 e 1 @9 ]
 "1325
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1499
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
+"1561
+[v _TRISE TRISE `VEuc  1 e 1 @137 ]
 "2229
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
 "2659
@@ -37,8 +43,13 @@
 [v _RA4 RA4 `VEb  1 e 0 @44 ]
 "2671
 [v _RA5 RA5 `VEb  1 e 0 @45 ]
-"14 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"16 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"18
+"27
+} 0
+"29
+[v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
+{
+"33
 } 0

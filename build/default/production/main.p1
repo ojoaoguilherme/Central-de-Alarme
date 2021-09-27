@@ -30,6 +30,19 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;./lcd.h: 14: void delay();
 [v _delay `(v ~T0 @X0 0 e? ]
 [p mainexit ]
+"1561 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 1561: extern volatile unsigned char TRISE __attribute__((address(0x089)));
+[v _TRISE `Vuc ~T0 @X0 0 e@137 ]
+"402
+[; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 402: extern volatile unsigned char PORTE __attribute__((address(0x009)));
+[v _PORTE `Vuc ~T0 @X0 0 e@9 ]
+"14 main.c
+[; ;main.c: 14: void liga_buzzer();
+[v _liga_buzzer `(v ~T0 @X0 0 e? ]
+[v F951 `(v ~T0 @X0 1 tf1`ul ]
+"92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
+[v __delay `JF951 ~T0 @X0 0 e ]
+[p i __delay ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 54: __asm("INDF equ 00h");
 [; <" INDF equ 00h ;# ">
@@ -491,23 +504,51 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :UE 106 ]
 }
 [v $root$_main `(v ~T0 @X0 0 e ]
-"14 main.c
-[; ;main.c: 14: void main(void) {
+"16 main.c
+[; ;main.c: 16: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"15
-[; ;main.c: 15:     while (1){
+"17
+[; ;main.c: 17:     TRISE = 0;
+[e = _TRISE -> -> 0 `i `uc ]
+"18
+[; ;main.c: 18:     TRISD = 0;
+[e = _TRISD -> -> 0 `i `uc ]
+"20
+[; ;main.c: 20:     PORTE = 0x01;
+[e = _PORTE -> -> 1 `i `uc ]
+"23
+[; ;main.c: 23:     while (1){
 [e :U 113 ]
 {
-"17
-[; ;main.c: 17:     }
+"24
+[; ;main.c: 24:         liga_buzzer();
+[e ( _liga_buzzer ..  ]
+"26
+[; ;main.c: 26:     }
 }
 [e :U 112 ]
 [e $U 113  ]
 [e :U 114 ]
-"18
-[; ;main.c: 18: }
+"27
+[; ;main.c: 27: }
 [e :UE 111 ]
+}
+"29
+[; ;main.c: 29: void liga_buzzer(){
+[v _liga_buzzer `(v ~T0 @X0 1 ef ]
+{
+[e :U _liga_buzzer ]
+[f ]
+"30
+[; ;main.c: 30:     _delay((unsigned long)((10)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"31
+[; ;main.c: 31:     PORTE = 0;
+[e = _PORTE -> -> 0 `i `uc ]
+"33
+[; ;main.c: 33: }
+[e :UE 115 ]
 }
