@@ -1884,6 +1884,14 @@ extern __bank0 __bit __timeout;
 
 void liga_buzzer();
 void teclado();
+void telaInicial();
+void Linha2();
+void espacoLivre();
+
+
+int state = 0;
+char msg[15] = "Digite a senha";
+char msg2[5] = "____";
 
 void main(void) {
     TRISE = 0;
@@ -1897,6 +1905,12 @@ void main(void) {
 
 
     while (1){
+        if (state == 0){
+            telaInicial();
+            Linha2();
+            state = 1;
+        }
+
         teclado();
 
     }
@@ -2085,5 +2099,35 @@ void teclado(){
         LCD_escreve('F');
 
     }
+
+}
+
+void telaInicial(){
+
+    LCD_linha1();
+    for (int i = 0; i <= strlen(msg)-1; i++){
+        LCD_escreve(msg[i]);
+    }
+
+}
+
+void Linha2(){
+    LCD_linha2();
+    espacoLivre();
+    for (int i = 0; i <= strlen(msg2)-1; i++){
+        LCD_escreve(msg2[i]);
+    }
+    espacoLivre();
+
+}
+
+void espacoLivre(){
+    LCD_linha2();
+    LCD_escreve(' ');
+    LCD_escreve(' ');
+    LCD_escreve(' ');
+    LCD_escreve(' ');
+    LCD_escreve(' ');
+    LCD_escreve(' ');
 
 }
