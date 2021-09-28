@@ -29,17 +29,17 @@
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"25 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"26 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"48
+"55
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
-"54
+"61
 [v _teclado teclado `(v  1 e 1 0 ]
-"234
+"241
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
-"243
-[v _Linha2 Linha2 `(v  1 e 1 0 ]
 "253
+[v _Linha2 Linha2 `(v  1 e 1 0 ]
+"263
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
 "216 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -74,44 +74,44 @@
 "2683
 [v _RB3 RB3 `VEb  1 e 0 @51 ]
 "21 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
-[v _state state `i  1 e 2 0 ]
-"22
-[v _msg msg `[15]uc  1 e 15 0 ]
+[v _painel painel `i  1 e 2 0 ]
 "23
+[v _msg msg `[15]uc  1 e 15 0 ]
+"24
 [v _msg2 msg2 `[5]uc  1 e 5 0 ]
-"25
+"26
 [v _main main `(v  1 e 1 0 ]
 {
-"46
+"53
 } 0
-"234
+"241
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
 {
-"237
+"245
 [v telaInicial@i i `i  1 a 2 7 ]
-"241
+"251
 } 0
 "65 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_linha1 LCD_linha1 `(v  1 e 1 0 ]
 {
 "72
 } 0
-"54 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"61 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _teclado teclado `(v  1 e 1 0 ]
 {
-"232
+"239
 } 0
-"48
+"55
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
 {
-"52
+"59
 } 0
-"243
+"253
 [v _Linha2 Linha2 `(v  1 e 1 0 ]
 {
-"246
+"256
 [v Linha2@i i `i  1 a 2 7 ]
-"251
+"261
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -125,10 +125,10 @@
 [v strlen@s s `*.4DCuc  1 a 1 4 ]
 "13
 } 0
-"253 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"263 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
 {
-"262
+"272
 } 0
 "73 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_linha2 LCD_linha2 `(v  1 e 1 0 ]

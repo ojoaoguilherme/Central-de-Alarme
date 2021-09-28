@@ -18,7 +18,8 @@ void Linha2();
 void espacoLivre();
 
 
-int state = 0;
+int painel = 0;
+int config = 0;
 char msg[15] = "Digite a senha";
 char msg2[5] = "____";
 
@@ -34,13 +35,19 @@ void main(void) {
     
     
     while (1){
-        if (state == 0){
+        
+        if (painel == 0){
             telaInicial();
             Linha2();
-            state = 1;
+            painel = 1;
         } 
         
-        teclado();
+        while(config){
+
+            teclado();
+        }
+        
+        
         
     }
 }
@@ -234,9 +241,12 @@ void teclado(){
 void telaInicial(){
     
     LCD_linha1();
+    LCD_escreve(' ');
     for (int i = 0; i <= strlen(msg)-1; i++){
         LCD_escreve(msg[i]);
     }
+    LCD_escreve(' ');
+    
     
 }
 
