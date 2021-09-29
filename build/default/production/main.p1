@@ -1132,8 +1132,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 312:     _delay((unsigned long)((100)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "313
-[; ;main.c: 313:     liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
+[; ;main.c: 313:     liga_buzzer(1);
+[e ( _liga_buzzer (1 -> -> 1 `i `f ]
 "315
 [; ;main.c: 315:     return valor;
 [e ) _valor ]

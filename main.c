@@ -310,7 +310,7 @@ void espacoLivre(){
 int validaUser(){
     int valor = 0;
     __delay_ms(100);
-    liga_buzzer(0.1);
+    liga_buzzer(1);
     
     return valor;
 }

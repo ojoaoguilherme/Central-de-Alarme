@@ -2169,7 +2169,7 @@ void espacoLivre(){
 int validaUser(){
     int valor = 0;
     _delay((unsigned long)((100)*(20000000/4000.0)));
-    liga_buzzer(0.1);
+    liga_buzzer(1);
 
     return valor;
 }
