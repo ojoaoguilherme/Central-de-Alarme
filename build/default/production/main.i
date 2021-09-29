@@ -1882,15 +1882,25 @@ extern __bank0 __bit __timeout;
 # 12 "main.c" 2
 
 
-void liga_buzzer();
+void liga_buzzer(float tempoSegundos);
 void teclado();
 void telaInicial();
 void Linha2();
 void espacoLivre();
+int validaUser();
 
 
-int painel = 0;
+
+char senhaUser[5];
+char senhaCoa[5];
+char senhaConfig[5];
+
+
+int painel = 1;
+int userFalse = 1;
 int config = 0;
+
+
 char msg[15] = "Digite a senha";
 char msg2[5] = "____";
 
@@ -1901,33 +1911,48 @@ void main(void) {
 
     PORTE = 0x01;
 
+
     LCD_init();
     LCD_limpa();
 
 
     while (1){
 
-        if (painel == 0){
+        if (painel){
             telaInicial();
             Linha2();
-            painel = 1;
+            painel = 0;
         }
 
-        while(config){
+        while(userFalse){
 
-            teclado();
+            userFalse = validaUser();
+
         }
+
+        teclado();
 
 
 
     }
 }
 
-void liga_buzzer(){
+void liga_buzzer(float tempoSegundos){
+    tempoSegundos = tempoSegundos * 1000;
     _delay((unsigned long)((10)*(20000000/4000.0)));
-    PORTE = 0;
+
+
+    while(tempoSegundos > 0){
+       PORTE = 0;
+        _delay((unsigned long)((1)*(20000000/4000.0)));
+        tempoSegundos--;
+
+    }
+
+    PORTE = 0x0F;
 
 }
+
 
 void teclado(){
 
@@ -1941,7 +1966,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('0');
 
     }
@@ -1950,7 +1975,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('1');
 
     }
@@ -1960,7 +1985,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('2');
 
     }
@@ -1969,7 +1994,7 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('3');
 
     }
@@ -1984,7 +2009,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('4');
 
     }
@@ -1993,7 +2018,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('5');
 
     }
@@ -2003,7 +2028,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('6');
 
     }
@@ -2012,7 +2037,7 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('7');
 
     }
@@ -2027,7 +2052,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('8');
 
 
@@ -2037,7 +2062,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('9');
 
     }
@@ -2047,7 +2072,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('A');
 
     }
@@ -2057,7 +2082,7 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('B');
 
     }
@@ -2072,7 +2097,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('C');
 
     }
@@ -2082,7 +2107,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('D');
 
     }
@@ -2092,7 +2117,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('E');
 
     }
@@ -2102,12 +2127,13 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('F');
 
     }
 
 }
+
 
 void telaInicial(){
 
@@ -2121,6 +2147,9 @@ void telaInicial(){
 
 }
 
+
+
+
 void Linha2(){
     LCD_linha2();
     espacoLivre();
@@ -2131,6 +2160,8 @@ void Linha2(){
 
 }
 
+
+
 void espacoLivre(){
     LCD_linha2();
     LCD_escreve(' ');
@@ -2140,4 +2171,12 @@ void espacoLivre(){
     LCD_escreve(' ');
     LCD_escreve(' ');
 
+}
+
+int validaUser(){
+    int valor = 0;
+    _delay((unsigned long)((100)*(20000000/4000.0)));
+    liga_buzzer(0.1);
+
+    return valor;
 }
