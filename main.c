@@ -1,12 +1,7 @@
 /*
  * File:   main.c
-<<<<<<< HEAD
- * Author: joaog / joaos
- *
-=======
  * Author 1: João Guilherme, RU: 2824600
- * Author 2: João Vitor, RU: -------
->>>>>>> 6e707d99e09842097be116995a87e8bc8f39a05a
+ * Author 2: João Vitor, RU: 2815080
  * Created on 27 de Setembro de 2021, 01:31
  */
 
