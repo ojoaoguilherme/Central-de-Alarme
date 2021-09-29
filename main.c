@@ -20,10 +20,10 @@ void validaUser();
 
 
 //Usuario
-int input;
+int input = 10;
 char *aux;
 char senhaUser[5] = "1212";
-char senhaUserConfere[5] = "1218";
+char senhaUserConfere[5];
 char senhaCoa[5];
 char senhaConfig[5];
 
@@ -57,12 +57,14 @@ void main(void) {
         }
 
         if (userFalse == 1){
-            LCD_limpa();
-            LCD_escreve('E');
-//            __delay_ms(3000);
-            validaUser();
-            
+            validaUser(); 
         }
+        int a = 3;
+        while (a > 0){
+            LCD_escreve('E');
+            a--;
+        }
+
 //        LCD_linha1();
 //        
 //        if(userFalse == 0){
@@ -363,79 +365,91 @@ void espacoLivre(){
 }
 
 void validaUser(){
-    
-    while(userFalse == 1){
-        
-//        teclado();
-//        switch (input){
-//			
-//			case 1: 
-//				aux = "1";
-//			break;
-//			case 2: 
-//				aux = "2";
-//			break;
-//			case 3: 
-//				aux = "3";
-//			break;
-//			case 4: 
-//				aux = "4";
-//			break;
-//			case 5: 
-//				aux = "5";
-//			break;
-//			case 6: 
-//				aux = "6";
-//			break;
-//			case 7: 
-//				aux = "7";
-//			break;
-//			case 8: 
-//				aux = "8";
-//			break;
-//			case 9: 
-//				aux = "9";
-//			break;
-//			case 0: 
-//				aux = "0";
-//			break;
-//
-//		};
-//        strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
-        if (strcmp(senhaUser, senhaUserConfere)==0){
-            userFalse = 0;
-            LCD_escreve('S');
-            LCD_escreve('e');
-            LCD_escreve('n');
-            LCD_escreve('h');
-            LCD_escreve('a');
-            LCD_escreve(' ');
-            LCD_escreve('c');
-            LCD_escreve('o');
-            LCD_escreve('r');
-            LCD_escreve('r');
-            LCD_escreve('e');
-            LCD_escreve('t');
-            LCD_escreve('a');
-            __delay_ms(2500);
-        }
-        else {
+    int n = 3;
+    while( userFalse == 1 ){
+        while(n > 0){
             
-            LCD_escreve('S');
-            LCD_escreve('e');
-            LCD_escreve('n');
-            LCD_escreve('h');
-            LCD_escreve('a');
-            LCD_escreve(' ');
-            LCD_escreve('e');
-            LCD_escreve('r');
-            LCD_escreve('r');
-            LCD_escreve('a');
-            LCD_escreve('d');
-            LCD_escreve('a');
+            if(n == 1){
+                LCD_escreve('U');
+                LCD_escreve('l');
+                LCD_escreve('t');
+                LCD_escreve('i');
+                LCD_escreve('m');
+                LCD_escreve('a');
+                LCD_escreve(' ');
+                LCD_escreve('C');
+                LCD_escreve('h');
+                LCD_escreve('a');
+                LCD_escreve('n');
+                LCD_escreve('c');
+                LCD_escreve('e');
+                liga_buzzer(2);
+            }
+            
+            while (input == 10){
+                teclado();
+            }
+        
+        
+            switch (input){
+
+                case 1: 
+                    aux = "1";
+                break;
+                case 2: 
+                    aux = "2";
+                break;
+                case 3: 
+                    aux = "3";
+                break;
+                case 4: 
+                    aux = "4";
+                break;
+                case 5: 
+                    aux = "5";
+                break;
+                case 6: 
+                    aux = "6";
+                break;
+                case 7: 
+                    aux = "7";
+                break;
+                case 8: 
+                    aux = "8";
+                break;
+                case 9: 
+                    aux = "9";
+                break;
+                case 0: 
+                    aux = "0";
+                break;
+
+            };
+            strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
+            
+            if (strcmp(senhaUser, senhaUserConfere) == 0){
+                userFalse = 0;
+                LCD_escreve('S');
+                LCD_escreve('e');
+                LCD_escreve('n');
+                LCD_escreve('h');
+                LCD_escreve('a');
+                LCD_escreve(' ');
+                LCD_escreve('c');
+                LCD_escreve('o');
+                LCD_escreve('r');
+                LCD_escreve('r');
+                LCD_escreve('e');
+                LCD_escreve('t');
+                LCD_escreve('a');
+                __delay_ms(2500);
+            }
+            
+            n--;
         }
         
     }
+    
     
 }
 
