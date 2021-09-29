@@ -24,7 +24,7 @@ CLEAN_SUBPROJECTS=${CLEAN_SUBPROJECTS_${SUBPROJECTS}}
 
 
 # Project Name
-PROJECTNAME=CentralAlarme.X
+PROJECTNAME=Central-de-Alarme
 
 # Active Configuration
 DEFAULTCONF=default

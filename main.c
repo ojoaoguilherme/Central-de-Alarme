@@ -1,6 +1,6 @@
 /*
  * File:   main.c
- * Author: joaog
+ * Author: joaog / joaos
  *
  * Created on 27 de Setembro de 2021, 01:31
  */
