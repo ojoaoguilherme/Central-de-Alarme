@@ -7,14 +7,7 @@
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
 # 1 "main.c" 2
-
-
-
-
-
-
-
-
+# 14 "main.c"
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\proc\\pic16f877a.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\proc\\pic16f877a.h" 3
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__at.h" 1 3
@@ -1654,7 +1647,7 @@ extern volatile __bit nW __attribute__((address(0x4A2)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x4A2)));
-# 9 "main.c" 2
+# 14 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
 
@@ -1707,7 +1700,7 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 10 "main.c" 2
+# 15 "main.c" 2
 
 # 1 "./lcd.h" 1
 # 10 "./lcd.h"
@@ -1809,7 +1802,7 @@ void LCD_escreveFrase(char *frase)
         LCD_escreve(frase[i]);
     }
 }
-# 11 "main.c" 2
+# 16 "main.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
@@ -1879,17 +1872,28 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 12 "main.c" 2
+# 17 "main.c" 2
 
 
-void liga_buzzer();
+void liga_buzzer(float tempoSegundos);
 void teclado();
 void telaInicial();
 void Linha2();
 void espacoLivre();
+int validaUser();
 
 
-int state = 0;
+
+char senhaUser[5];
+char senhaCoa[5];
+char senhaConfig[5];
+
+
+int painel = 1;
+int userFalse = 1;
+int config = 0;
+
+
 char msg[15] = "Digite a senha";
 char msg2[5] = "____";
 
@@ -1900,27 +1904,48 @@ void main(void) {
 
     PORTE = 0x01;
 
+
     LCD_init();
     LCD_limpa();
 
 
     while (1){
-        if (state == 0){
+
+        if (painel){
             telaInicial();
             Linha2();
-            state = 1;
+            painel = 0;
+        }
+
+        while(userFalse){
+
+            userFalse = validaUser();
+
         }
 
         teclado();
 
+
+
     }
 }
 
-void liga_buzzer(){
+void liga_buzzer(float tempoSegundos){
+    tempoSegundos = tempoSegundos * 1000;
     _delay((unsigned long)((10)*(20000000/4000.0)));
-    PORTE = 0;
+
+
+    while(tempoSegundos > 0){
+       PORTE = 0;
+        _delay((unsigned long)((1)*(20000000/4000.0)));
+        tempoSegundos--;
+
+    }
+
+    PORTE = 0x0F;
 
 }
+
 
 void teclado(){
 
@@ -1934,7 +1959,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('0');
 
     }
@@ -1943,7 +1968,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('1');
 
     }
@@ -1953,7 +1978,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('2');
 
     }
@@ -1962,7 +1987,7 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('3');
 
     }
@@ -1977,7 +2002,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('4');
 
     }
@@ -1986,7 +2011,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('5');
 
     }
@@ -1996,7 +2021,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('6');
 
     }
@@ -2005,7 +2030,7 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('7');
 
     }
@@ -2020,7 +2045,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('8');
 
 
@@ -2030,7 +2055,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('9');
 
     }
@@ -2040,7 +2065,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('A');
 
     }
@@ -2050,7 +2075,7 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('B');
 
     }
@@ -2065,7 +2090,7 @@ void teclado(){
 
     if (RB0 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('C');
 
     }
@@ -2075,7 +2100,7 @@ void teclado(){
 
     if (RB1 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('D');
 
     }
@@ -2085,7 +2110,7 @@ void teclado(){
 
     if (RB2 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('E');
 
     }
@@ -2095,21 +2120,28 @@ void teclado(){
 
     if (RB3 == 0){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer();
+        liga_buzzer(0.1);
         LCD_escreve('F');
 
     }
 
 }
 
+
 void telaInicial(){
 
     LCD_linha1();
+    LCD_escreve(' ');
     for (int i = 0; i <= strlen(msg)-1; i++){
         LCD_escreve(msg[i]);
     }
+    LCD_escreve(' ');
+
 
 }
+
+
+
 
 void Linha2(){
     LCD_linha2();
@@ -2121,6 +2153,8 @@ void Linha2(){
 
 }
 
+
+
 void espacoLivre(){
     LCD_linha2();
     LCD_escreve(' ');
@@ -2130,4 +2164,12 @@ void espacoLivre(){
     LCD_escreve(' ');
     LCD_escreve(' ');
 
+}
+
+int validaUser(){
+    int valor = 0;
+    _delay((unsigned long)((100)*(20000000/4000.0)));
+    liga_buzzer(0.1);
+
+    return valor;
 }

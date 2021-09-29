@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project>
-  <executable name="dist/default/production\CentralAlarme.X.production.hex">
+  <executable name="dist/default/production\Central-de-Alarme.production.hex">
     <memory name="program">
       <units>words</units>
       <length>8192</length>
-      <used>954</used>
-      <free>7238</free>
+      <used>3091</used>
+      <free>5101</free>
     </memory>
     <memory name="data">
       <units>bytes</units>
       <length>368</length>
-      <used>33</used>
-      <free>335</free>
+      <used>89</used>
+      <free>279</free>
     </memory>
   </executable>
 </project>

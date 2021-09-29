@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.32 build 20210201212658 
-                                                                                               Tue Sep 28 20:57:30 2021
+                                                                                               Tue Sep 28 23:08:39 2021
 
 Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1 
      1                           	processor	16F877A
@@ -597,7 +597,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    583 ;;
    584 ;; *************** function _main *****************
    585 ;; Defined at:
-   586 ;;		line 36 in file "main.c"
+   586 ;;		line 41 in file "main.c"
    587 ;; Parameters:    Size  Location     Type
    588 ;;		None
    589 ;; Auto vars:     Size  Location     Type
@@ -637,36 +637,36 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    623                           ; Regs used in _main: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
    624                           
    625                           
-   626                           ;main.c: 37:     TRISE = 0;
+   626                           ;main.c: 42:     TRISE = 0;
    627  0087  1683               	bsf	3,5	;RP0=1, select bank1
    628  0088  1303               	bcf	3,6	;RP1=0, select bank1
    629  0089  0189               	clrf	9	;volatile
    630                           
-   631                           ;main.c: 38:     TRISD = 0;
+   631                           ;main.c: 43:     TRISD = 0;
    632  008A  0188               	clrf	8	;volatile
    633  008B                     l2123:
    634                           
-   635                           ;main.c: 39:     TRISB = 0x0F;
+   635                           ;main.c: 44:     TRISB = 0x0F;
    636  008B  300F               	movlw	15
    637  008C  0086               	movwf	6	;volatile
    638  008D                     l2125:
    639                           
-   640                           ;main.c: 41:     PORTE = 0x01;
+   640                           ;main.c: 46:     PORTE = 0x01;
    641  008D  3001               	movlw	1
    642  008E  1283               	bcf	3,5	;RP0=0, select bank0
    643  008F  1303               	bcf	3,6	;RP1=0, select bank0
    644  0090  0089               	movwf	9	;volatile
    645  0091                     l2127:
    646                           
-   647                           ;main.c: 44:     LCD_init();
+   647                           ;main.c: 49:     LCD_init();
    648  0091  120A  158A  2535  120A  118A  	fcall	_LCD_init
    649  0096                     l2129:
    650                           
-   651                           ;main.c: 45:     LCD_limpa();
+   651                           ;main.c: 50:     LCD_limpa();
    652  0096  120A  158A  2403  120A  118A  	fcall	_LCD_limpa
    653  009B                     l2131:
    654                           
-   655                           ;main.c: 50:         if (painel){
+   655                           ;main.c: 55:         if (painel){
    656  009B  1283               	bcf	3,5	;RP0=0, select bank0
    657  009C  1303               	bcf	3,6	;RP1=0, select bank0
    658  009D  0842               	movf	_painel,w
@@ -679,14 +679,14 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    665  00A3                     u2330:
    666  00A3                     l2133:
    667                           
-   668                           ;main.c: 51:             telaInicial();
+   668                           ;main.c: 56:             telaInicial();
    669  00A3  120A  118A  204A  120A  118A  	fcall	_telaInicial
    670                           
-   671                           ;main.c: 52:             Linha2();
+   671                           ;main.c: 57:             Linha2();
    672  00A8  120A  118A  200F  120A  118A  	fcall	_Linha2
    673  00AD                     l2135:
    674                           
-   675                           ;main.c: 53:             painel = 0;
+   675                           ;main.c: 58:             painel = 0;
    676  00AD  1283               	bcf	3,5	;RP0=0, select bank0
    677  00AE  1303               	bcf	3,6	;RP1=0, select bank0
    678  00AF  01C2               	clrf	_painel
@@ -694,7 +694,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    680  00B1  28BD               	goto	l2139
    681  00B2                     l2137:
    682                           
-   683                           ;main.c: 58:             userFalse = validaUser();
+   683                           ;main.c: 63:             userFalse = validaUser();
    684  00B2  120A  158A  249E  120A  118A  	fcall	_validaUser
    685  00B7  1283               	bcf	3,5	;RP0=0, select bank0
    686  00B8  1303               	bcf	3,6	;RP1=0, select bank0
@@ -704,7 +704,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    690  00BC  00C0               	movwf	_userFalse
    691  00BD                     l2139:
    692                           
-   693                           ;main.c: 56:         while(userFalse){
+   693                           ;main.c: 61:         while(userFalse){
    694  00BD  0840               	movf	_userFalse,w
    695  00BE  0441               	iorwf	_userFalse+1,w
    696  00BF  1D03               	btfss	3,2
@@ -715,7 +715,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    701  00C3                     u2340:
    702  00C3                     l2141:
    703                           
-   704                           ;main.c: 62:         teclado();
+   704                           ;main.c: 67:         teclado();
    705  00C3  120A  118A  21EA  120A  118A  	fcall	_teclado
    706  00C8  289B               	goto	l2131
    707  00C9  120A  118A  2800   	ljmp	start
@@ -725,7 +725,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    711  0C9E                     __ptext1:	
    712 ;; *************** function _validaUser *****************
    713 ;; Defined at:
-   714 ;;		line 305 in file "main.c"
+   714 ;;		line 310 in file "main.c"
    715 ;; Parameters:    Size  Location     Type
    716 ;;		None
    717 ;; Auto vars:     Size  Location     Type
@@ -762,7 +762,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    748                           
    749  0C9E                     l1975:
    750                           
-   751                           ;main.c: 307:     _delay((unsigned long)((100)*(20000000/4000.0)));
+   751                           ;main.c: 312:     _delay((unsigned long)((100)*(20000000/4000.0)));
    752  0C9E  3003               	movlw	3
    753  0C9F  1283               	bcf	3,5	;RP0=0, select bank0
    754  0CA0  1303               	bcf	3,6	;RP1=0, select bank0
@@ -780,7 +780,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    766  0CAB  2CA6               	goto	u2357
    767  0CAC                     l1977:
    768                           
-   769                           ;main.c: 308:     liga_buzzer(0.1);
+   769                           ;main.c: 313:     liga_buzzer(0.1);
    770  0CAC  303D               	movlw	61
    771  0CAD  1283               	bcf	3,5	;RP0=0, select bank0
    772  0CAE  1303               	bcf	3,6	;RP1=0, select bank0
@@ -794,7 +794,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    780  0CB6  120A  118A  20CC  120A  158A  	fcall	_liga_buzzer
    781  0CBB                     l1979:
    782                           
-   783                           ;main.c: 310:     return valor;
+   783                           ;main.c: 315:     return valor;
    784  0CBB  1283               	bcf	3,5	;RP0=0, select bank0
    785  0CBC  1303               	bcf	3,6	;RP1=0, select bank0
    786  0CBD  01BB               	clrf	?_validaUser
@@ -807,7 +807,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    793  004A                     __ptext2:	
    794 ;; *************** function _telaInicial *****************
    795 ;; Defined at:
-   796 ;;		line 267 in file "main.c"
+   796 ;;		line 272 in file "main.c"
    797 ;; Parameters:    Size  Location     Type
    798 ;;		None
    799 ;; Auto vars:     Size  Location     Type
@@ -845,21 +845,21 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    831                           ; Regs used in _telaInicial: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
    832                           
    833                           
-   834                           ;main.c: 269:     LCD_linha1();
+   834                           ;main.c: 274:     LCD_linha1();
    835  004A  120A  158A  2423  120A  118A  	fcall	_LCD_linha1
    836                           
-   837                           ;main.c: 270:     LCD_escreve(' ');
+   837                           ;main.c: 275:     LCD_escreve(' ');
    838  004F  3020               	movlw	32
    839  0050  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
    840  0055                     l1951:
    841                           
-   842                           ;main.c: 271:     for (int i = 0; i <= strlen(msg)-1; i++){
+   842                           ;main.c: 276:     for (int i = 0; i <= strlen(msg)-1; i++){
    843  0055  01F7               	clrf	telaInicial@i
    844  0056  01F8               	clrf	telaInicial@i+1
    845  0057  2868               	goto	l1957
    846  0058                     l1953:
    847                           
-   848                           ;main.c: 272:         LCD_escreve(msg[i]);
+   848                           ;main.c: 277:         LCD_escreve(msg[i]);
    849  0058  0877               	movf	telaInicial@i,w
    850  0059  3E44               	addlw	(low (_msg| 0))& (0+255)
    851  005A  0084               	movwf	4
@@ -868,7 +868,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    854  005D  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
    855  0062                     l1955:
    856                           
-   857                           ;main.c: 273:     }
+   857                           ;main.c: 278:     }
    858  0062  3001               	movlw	1
    859  0063  07F7               	addwf	telaInicial@i,f
    860  0064  1803               	skipnc
@@ -901,7 +901,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    887  0080                     u2140:
    888  0080                     l1959:
    889                           
-   890                           ;main.c: 274:     LCD_escreve(' ');
+   890                           ;main.c: 279:     LCD_escreve(' ');
    891  0080  3020               	movlw	32
    892  0081  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
    893  0086                     l141:
@@ -983,7 +983,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
    969  01EA                     __ptext4:	
    970 ;; *************** function _teclado *****************
    971 ;; Defined at:
-   972 ;;		line 86 in file "main.c"
+   972 ;;		line 91 in file "main.c"
    973 ;; Parameters:    Size  Location     Type
    974 ;;		None
    975 ;; Auto vars:     Size  Location     Type
@@ -1020,18 +1020,18 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1006                           ; Regs used in _teclado: [wreg+status,2+status,0+btemp+1+pclath+cstack]
   1007                           
   1008                           
-  1009                           ;main.c: 88:     PORTE = 0x01;
+  1009                           ;main.c: 93:     PORTE = 0x01;
   1010  01EA  3001               	movlw	1
   1011  01EB  1283               	bcf	3,5	;RP0=0, select bank0
   1012  01EC  1303               	bcf	3,6	;RP1=0, select bank0
   1013  01ED  0089               	movwf	9	;volatile
   1014                           
-  1015                           ;main.c: 92:     PORTB = 0b11101111;
+  1015                           ;main.c: 97:     PORTB = 0b11101111;
   1016  01EE  30EF               	movlw	239
   1017  01EF  0086               	movwf	6	;volatile
   1018  01F0                     l1985:
   1019                           
-  1020                           ;main.c: 96:     if (RB0 == 0){
+  1020                           ;main.c: 101:     if (RB0 == 0){
   1021  01F0  1806               	btfsc	6,0	;volatile
   1022  01F1  29F3               	goto	u2161
   1023  01F2  29F4               	goto	u2160
@@ -1040,7 +1040,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1026  01F4                     u2160:
   1027  01F4                     l1987:
   1028                           
-  1029                           ;main.c: 97:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1029                           ;main.c: 102:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1030  01F4  3006               	movlw	6
   1031  01F5  1283               	bcf	3,5	;RP0=0, select bank0
   1032  01F6  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1058,7 +1058,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1044  0201  29FC               	goto	u2367
   1045  0202                     l1989:
   1046                           
-  1047                           ;main.c: 98:         liga_buzzer(0.1);
+  1047                           ;main.c: 103:         liga_buzzer(0.1);
   1048  0202  303D               	movlw	61
   1049  0203  1283               	bcf	3,5	;RP0=0, select bank0
   1050  0204  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1072,12 +1072,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1058  020C  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1059  0211                     l1991:
   1060                           
-  1061                           ;main.c: 99:         LCD_escreve('0');
+  1061                           ;main.c: 104:         LCD_escreve('0');
   1062  0211  3030               	movlw	48
   1063  0212  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1064  0217                     l1993:
   1065                           
-  1066                           ;main.c: 105:     if (RB1 == 0){
+  1066                           ;main.c: 110:     if (RB1 == 0){
   1067  0217  1283               	bcf	3,5	;RP0=0, select bank0
   1068  0218  1303               	bcf	3,6	;RP1=0, select bank0
   1069  0219  1886               	btfsc	6,1	;volatile
@@ -1088,7 +1088,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1074  021D                     u2170:
   1075  021D                     l1995:
   1076                           
-  1077                           ;main.c: 106:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1077                           ;main.c: 111:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1078  021D  3006               	movlw	6
   1079  021E  1283               	bcf	3,5	;RP0=0, select bank0
   1080  021F  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1106,7 +1106,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1092  022A  2A25               	goto	u2377
   1093  022B                     l1997:
   1094                           
-  1095                           ;main.c: 107:         liga_buzzer(0.1);
+  1095                           ;main.c: 112:         liga_buzzer(0.1);
   1096  022B  303D               	movlw	61
   1097  022C  1283               	bcf	3,5	;RP0=0, select bank0
   1098  022D  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1120,12 +1120,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1106  0235  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1107  023A                     l1999:
   1108                           
-  1109                           ;main.c: 108:         LCD_escreve('1');
+  1109                           ;main.c: 113:         LCD_escreve('1');
   1110  023A  3031               	movlw	49
   1111  023B  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1112  0240                     l2001:
   1113                           
-  1114                           ;main.c: 115:     if (RB2 == 0){
+  1114                           ;main.c: 120:     if (RB2 == 0){
   1115  0240  1283               	bcf	3,5	;RP0=0, select bank0
   1116  0241  1303               	bcf	3,6	;RP1=0, select bank0
   1117  0242  1906               	btfsc	6,2	;volatile
@@ -1136,7 +1136,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1122  0246                     u2180:
   1123  0246                     l2003:
   1124                           
-  1125                           ;main.c: 116:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1125                           ;main.c: 121:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1126  0246  3006               	movlw	6
   1127  0247  1283               	bcf	3,5	;RP0=0, select bank0
   1128  0248  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1154,7 +1154,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1140  0253  2A4E               	goto	u2387
   1141  0254                     l2005:
   1142                           
-  1143                           ;main.c: 117:         liga_buzzer(0.1);
+  1143                           ;main.c: 122:         liga_buzzer(0.1);
   1144  0254  303D               	movlw	61
   1145  0255  1283               	bcf	3,5	;RP0=0, select bank0
   1146  0256  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1168,12 +1168,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1154  025E  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1155  0263                     l2007:
   1156                           
-  1157                           ;main.c: 118:         LCD_escreve('2');
+  1157                           ;main.c: 123:         LCD_escreve('2');
   1158  0263  3032               	movlw	50
   1159  0264  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1160  0269                     l2009:
   1161                           
-  1162                           ;main.c: 124:     if (RB3 == 0){
+  1162                           ;main.c: 129:     if (RB3 == 0){
   1163  0269  1283               	bcf	3,5	;RP0=0, select bank0
   1164  026A  1303               	bcf	3,6	;RP1=0, select bank0
   1165  026B  1986               	btfsc	6,3	;volatile
@@ -1184,7 +1184,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1170  026F                     u2190:
   1171  026F                     l2011:
   1172                           
-  1173                           ;main.c: 125:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1173                           ;main.c: 130:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1174  026F  3006               	movlw	6
   1175  0270  1283               	bcf	3,5	;RP0=0, select bank0
   1176  0271  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1202,7 +1202,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1188  027C  2A77               	goto	u2397
   1189  027D                     l2013:
   1190                           
-  1191                           ;main.c: 126:         liga_buzzer(0.1);
+  1191                           ;main.c: 131:         liga_buzzer(0.1);
   1192  027D  303D               	movlw	61
   1193  027E  1283               	bcf	3,5	;RP0=0, select bank0
   1194  027F  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1216,21 +1216,21 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1202  0287  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1203  028C                     l2015:
   1204                           
-  1205                           ;main.c: 127:         LCD_escreve('3');
+  1205                           ;main.c: 132:         LCD_escreve('3');
   1206  028C  3033               	movlw	51
   1207  028D  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1208  0292                     l122:	
-  1209                           ;main.c: 129:     }
+  1209                           ;main.c: 134:     }
   1210                           
   1211                           
-  1212                           ;main.c: 134:     PORTB = 0b11011111;
+  1212                           ;main.c: 139:     PORTB = 0b11011111;
   1213  0292  30DF               	movlw	223
   1214  0293  1283               	bcf	3,5	;RP0=0, select bank0
   1215  0294  1303               	bcf	3,6	;RP1=0, select bank0
   1216  0295  0086               	movwf	6	;volatile
   1217  0296                     l2017:
   1218                           
-  1219                           ;main.c: 139:     if (RB0 == 0){
+  1219                           ;main.c: 144:     if (RB0 == 0){
   1220  0296  1806               	btfsc	6,0	;volatile
   1221  0297  2A99               	goto	u2201
   1222  0298  2A9A               	goto	u2200
@@ -1239,7 +1239,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1225  029A                     u2200:
   1226  029A                     l2019:
   1227                           
-  1228                           ;main.c: 140:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1228                           ;main.c: 145:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1229  029A  3006               	movlw	6
   1230  029B  1283               	bcf	3,5	;RP0=0, select bank0
   1231  029C  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1257,7 +1257,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1243  02A7  2AA2               	goto	u2407
   1244  02A8                     l2021:
   1245                           
-  1246                           ;main.c: 141:         liga_buzzer(0.1);
+  1246                           ;main.c: 146:         liga_buzzer(0.1);
   1247  02A8  303D               	movlw	61
   1248  02A9  1283               	bcf	3,5	;RP0=0, select bank0
   1249  02AA  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1271,12 +1271,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1257  02B2  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1258  02B7                     l2023:
   1259                           
-  1260                           ;main.c: 142:         LCD_escreve('4');
+  1260                           ;main.c: 147:         LCD_escreve('4');
   1261  02B7  3034               	movlw	52
   1262  02B8  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1263  02BD                     l2025:
   1264                           
-  1265                           ;main.c: 148:     if (RB1 == 0){
+  1265                           ;main.c: 153:     if (RB1 == 0){
   1266  02BD  1283               	bcf	3,5	;RP0=0, select bank0
   1267  02BE  1303               	bcf	3,6	;RP1=0, select bank0
   1268  02BF  1886               	btfsc	6,1	;volatile
@@ -1287,7 +1287,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1273  02C3                     u2210:
   1274  02C3                     l2027:
   1275                           
-  1276                           ;main.c: 149:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1276                           ;main.c: 154:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1277  02C3  3006               	movlw	6
   1278  02C4  1283               	bcf	3,5	;RP0=0, select bank0
   1279  02C5  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1305,7 +1305,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1291  02D0  2ACB               	goto	u2417
   1292  02D1                     l2029:
   1293                           
-  1294                           ;main.c: 150:         liga_buzzer(0.1);
+  1294                           ;main.c: 155:         liga_buzzer(0.1);
   1295  02D1  303D               	movlw	61
   1296  02D2  1283               	bcf	3,5	;RP0=0, select bank0
   1297  02D3  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1319,12 +1319,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1305  02DB  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1306  02E0                     l2031:
   1307                           
-  1308                           ;main.c: 151:         LCD_escreve('5');
+  1308                           ;main.c: 156:         LCD_escreve('5');
   1309  02E0  3035               	movlw	53
   1310  02E1  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1311  02E6                     l2033:
   1312                           
-  1313                           ;main.c: 158:     if (RB2 == 0){
+  1313                           ;main.c: 163:     if (RB2 == 0){
   1314  02E6  1283               	bcf	3,5	;RP0=0, select bank0
   1315  02E7  1303               	bcf	3,6	;RP1=0, select bank0
   1316  02E8  1906               	btfsc	6,2	;volatile
@@ -1335,7 +1335,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1321  02EC                     u2220:
   1322  02EC                     l2035:
   1323                           
-  1324                           ;main.c: 159:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1324                           ;main.c: 164:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1325  02EC  3006               	movlw	6
   1326  02ED  1283               	bcf	3,5	;RP0=0, select bank0
   1327  02EE  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1353,7 +1353,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1339  02F9  2AF4               	goto	u2427
   1340  02FA                     l2037:
   1341                           
-  1342                           ;main.c: 160:         liga_buzzer(0.1);
+  1342                           ;main.c: 165:         liga_buzzer(0.1);
   1343  02FA  303D               	movlw	61
   1344  02FB  1283               	bcf	3,5	;RP0=0, select bank0
   1345  02FC  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1367,12 +1367,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1353  0304  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1354  0309                     l2039:
   1355                           
-  1356                           ;main.c: 161:         LCD_escreve('6');
+  1356                           ;main.c: 166:         LCD_escreve('6');
   1357  0309  3036               	movlw	54
   1358  030A  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1359  030F                     l2041:
   1360                           
-  1361                           ;main.c: 167:     if (RB3 == 0){
+  1361                           ;main.c: 172:     if (RB3 == 0){
   1362  030F  1283               	bcf	3,5	;RP0=0, select bank0
   1363  0310  1303               	bcf	3,6	;RP1=0, select bank0
   1364  0311  1986               	btfsc	6,3	;volatile
@@ -1383,7 +1383,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1369  0315                     u2230:
   1370  0315                     l2043:
   1371                           
-  1372                           ;main.c: 168:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1372                           ;main.c: 173:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1373  0315  3006               	movlw	6
   1374  0316  1283               	bcf	3,5	;RP0=0, select bank0
   1375  0317  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1401,7 +1401,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1387  0322  2B1D               	goto	u2437
   1388  0323                     l2045:
   1389                           
-  1390                           ;main.c: 169:         liga_buzzer(0.1);
+  1390                           ;main.c: 174:         liga_buzzer(0.1);
   1391  0323  303D               	movlw	61
   1392  0324  1283               	bcf	3,5	;RP0=0, select bank0
   1393  0325  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1415,21 +1415,21 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1401  032D  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1402  0332                     l2047:
   1403                           
-  1404                           ;main.c: 170:         LCD_escreve('7');
+  1404                           ;main.c: 175:         LCD_escreve('7');
   1405  0332  3037               	movlw	55
   1406  0333  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1407  0338                     l126:	
-  1408                           ;main.c: 172:     }
+  1408                           ;main.c: 177:     }
   1409                           
   1410                           
-  1411                           ;main.c: 177:     PORTB = 0b10111111;
+  1411                           ;main.c: 182:     PORTB = 0b10111111;
   1412  0338  30BF               	movlw	191
   1413  0339  1283               	bcf	3,5	;RP0=0, select bank0
   1414  033A  1303               	bcf	3,6	;RP1=0, select bank0
   1415  033B  0086               	movwf	6	;volatile
   1416  033C                     l2049:
   1417                           
-  1418                           ;main.c: 182:     if (RB0 == 0){
+  1418                           ;main.c: 187:     if (RB0 == 0){
   1419  033C  1806               	btfsc	6,0	;volatile
   1420  033D  2B3F               	goto	u2241
   1421  033E  2B40               	goto	u2240
@@ -1438,7 +1438,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1424  0340                     u2240:
   1425  0340                     l2051:
   1426                           
-  1427                           ;main.c: 183:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1427                           ;main.c: 188:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1428  0340  3006               	movlw	6
   1429  0341  1283               	bcf	3,5	;RP0=0, select bank0
   1430  0342  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1456,7 +1456,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1442  034D  2B48               	goto	u2447
   1443  034E                     l2053:
   1444                           
-  1445                           ;main.c: 184:         liga_buzzer(0.1);
+  1445                           ;main.c: 189:         liga_buzzer(0.1);
   1446  034E  303D               	movlw	61
   1447  034F  1283               	bcf	3,5	;RP0=0, select bank0
   1448  0350  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1470,12 +1470,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1456  0358  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1457  035D                     l2055:
   1458                           
-  1459                           ;main.c: 185:         LCD_escreve('8');
+  1459                           ;main.c: 190:         LCD_escreve('8');
   1460  035D  3038               	movlw	56
   1461  035E  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1462  0363                     l2057:
   1463                           
-  1464                           ;main.c: 192:     if (RB1 == 0){
+  1464                           ;main.c: 197:     if (RB1 == 0){
   1465  0363  1283               	bcf	3,5	;RP0=0, select bank0
   1466  0364  1303               	bcf	3,6	;RP1=0, select bank0
   1467  0365  1886               	btfsc	6,1	;volatile
@@ -1486,7 +1486,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1472  0369                     u2250:
   1473  0369                     l2059:
   1474                           
-  1475                           ;main.c: 193:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1475                           ;main.c: 198:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1476  0369  3006               	movlw	6
   1477  036A  1283               	bcf	3,5	;RP0=0, select bank0
   1478  036B  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1504,7 +1504,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1490  0376  2B71               	goto	u2457
   1491  0377                     l2061:
   1492                           
-  1493                           ;main.c: 194:         liga_buzzer(0.1);
+  1493                           ;main.c: 199:         liga_buzzer(0.1);
   1494  0377  303D               	movlw	61
   1495  0378  1283               	bcf	3,5	;RP0=0, select bank0
   1496  0379  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1518,12 +1518,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1504  0381  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1505  0386                     l2063:
   1506                           
-  1507                           ;main.c: 195:         LCD_escreve('9');
+  1507                           ;main.c: 200:         LCD_escreve('9');
   1508  0386  3039               	movlw	57
   1509  0387  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1510  038C                     l2065:
   1511                           
-  1512                           ;main.c: 202:     if (RB2 == 0){
+  1512                           ;main.c: 207:     if (RB2 == 0){
   1513  038C  1283               	bcf	3,5	;RP0=0, select bank0
   1514  038D  1303               	bcf	3,6	;RP1=0, select bank0
   1515  038E  1906               	btfsc	6,2	;volatile
@@ -1534,7 +1534,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1520  0392                     u2260:
   1521  0392                     l2067:
   1522                           
-  1523                           ;main.c: 203:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1523                           ;main.c: 208:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1524  0392  3006               	movlw	6
   1525  0393  1283               	bcf	3,5	;RP0=0, select bank0
   1526  0394  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1552,7 +1552,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1538  039F  2B9A               	goto	u2467
   1539  03A0                     l2069:
   1540                           
-  1541                           ;main.c: 204:         liga_buzzer(0.1);
+  1541                           ;main.c: 209:         liga_buzzer(0.1);
   1542  03A0  303D               	movlw	61
   1543  03A1  1283               	bcf	3,5	;RP0=0, select bank0
   1544  03A2  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1566,12 +1566,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1552  03AA  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1553  03AF                     l2071:
   1554                           
-  1555                           ;main.c: 205:         LCD_escreve('A');
+  1555                           ;main.c: 210:         LCD_escreve('A');
   1556  03AF  3041               	movlw	65
   1557  03B0  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1558  03B5                     l2073:
   1559                           
-  1560                           ;main.c: 212:     if (RB3 == 0){
+  1560                           ;main.c: 217:     if (RB3 == 0){
   1561  03B5  1283               	bcf	3,5	;RP0=0, select bank0
   1562  03B6  1303               	bcf	3,6	;RP1=0, select bank0
   1563  03B7  1986               	btfsc	6,3	;volatile
@@ -1582,7 +1582,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1568  03BB                     u2270:
   1569  03BB                     l2075:
   1570                           
-  1571                           ;main.c: 213:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1571                           ;main.c: 218:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1572  03BB  3006               	movlw	6
   1573  03BC  1283               	bcf	3,5	;RP0=0, select bank0
   1574  03BD  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1600,7 +1600,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1586  03C8  2BC3               	goto	u2477
   1587  03C9                     l2077:
   1588                           
-  1589                           ;main.c: 214:         liga_buzzer(0.1);
+  1589                           ;main.c: 219:         liga_buzzer(0.1);
   1590  03C9  303D               	movlw	61
   1591  03CA  1283               	bcf	3,5	;RP0=0, select bank0
   1592  03CB  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1614,21 +1614,21 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1600  03D3  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1601  03D8                     l2079:
   1602                           
-  1603                           ;main.c: 215:         LCD_escreve('B');
+  1603                           ;main.c: 220:         LCD_escreve('B');
   1604  03D8  3042               	movlw	66
   1605  03D9  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1606  03DE                     l130:	
-  1607                           ;main.c: 217:     }
+  1607                           ;main.c: 222:     }
   1608                           
   1609                           
-  1610                           ;main.c: 222:     PORTB = 0b01111111;
+  1610                           ;main.c: 227:     PORTB = 0b01111111;
   1611  03DE  307F               	movlw	127
   1612  03DF  1283               	bcf	3,5	;RP0=0, select bank0
   1613  03E0  1303               	bcf	3,6	;RP1=0, select bank0
   1614  03E1  0086               	movwf	6	;volatile
   1615  03E2                     l2081:
   1616                           
-  1617                           ;main.c: 227:     if (RB0 == 0){
+  1617                           ;main.c: 232:     if (RB0 == 0){
   1618  03E2  1806               	btfsc	6,0	;volatile
   1619  03E3  2BE5               	goto	u2281
   1620  03E4  2BE6               	goto	u2280
@@ -1637,7 +1637,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1623  03E6                     u2280:
   1624  03E6                     l2083:
   1625                           
-  1626                           ;main.c: 228:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1626                           ;main.c: 233:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1627  03E6  3006               	movlw	6
   1628  03E7  1283               	bcf	3,5	;RP0=0, select bank0
   1629  03E8  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1655,7 +1655,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1641  03F3  2BEE               	goto	u2487
   1642  03F4                     l2085:
   1643                           
-  1644                           ;main.c: 229:         liga_buzzer(0.1);
+  1644                           ;main.c: 234:         liga_buzzer(0.1);
   1645  03F4  303D               	movlw	61
   1646  03F5  1283               	bcf	3,5	;RP0=0, select bank0
   1647  03F6  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1669,12 +1669,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1655  03FE  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1656  0403                     l2087:
   1657                           
-  1658                           ;main.c: 230:         LCD_escreve('C');
+  1658                           ;main.c: 235:         LCD_escreve('C');
   1659  0403  3043               	movlw	67
   1660  0404  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1661  0409                     l2089:
   1662                           
-  1663                           ;main.c: 237:     if (RB1 == 0){
+  1663                           ;main.c: 242:     if (RB1 == 0){
   1664  0409  1283               	bcf	3,5	;RP0=0, select bank0
   1665  040A  1303               	bcf	3,6	;RP1=0, select bank0
   1666  040B  1886               	btfsc	6,1	;volatile
@@ -1685,7 +1685,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1671  040F                     u2290:
   1672  040F                     l2091:
   1673                           
-  1674                           ;main.c: 238:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1674                           ;main.c: 243:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1675  040F  3006               	movlw	6
   1676  0410  1283               	bcf	3,5	;RP0=0, select bank0
   1677  0411  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1703,7 +1703,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1689  041C  2C17               	goto	u2497
   1690  041D                     l2093:
   1691                           
-  1692                           ;main.c: 239:         liga_buzzer(0.1);
+  1692                           ;main.c: 244:         liga_buzzer(0.1);
   1693  041D  303D               	movlw	61
   1694  041E  1283               	bcf	3,5	;RP0=0, select bank0
   1695  041F  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1717,12 +1717,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1703  0427  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1704  042C                     l2095:
   1705                           
-  1706                           ;main.c: 240:         LCD_escreve('D');
+  1706                           ;main.c: 245:         LCD_escreve('D');
   1707  042C  3044               	movlw	68
   1708  042D  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1709  0432                     l2097:
   1710                           
-  1711                           ;main.c: 247:     if (RB2 == 0){
+  1711                           ;main.c: 252:     if (RB2 == 0){
   1712  0432  1283               	bcf	3,5	;RP0=0, select bank0
   1713  0433  1303               	bcf	3,6	;RP1=0, select bank0
   1714  0434  1906               	btfsc	6,2	;volatile
@@ -1733,7 +1733,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1719  0438                     u2300:
   1720  0438                     l2099:
   1721                           
-  1722                           ;main.c: 248:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1722                           ;main.c: 253:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1723  0438  3006               	movlw	6
   1724  0439  1283               	bcf	3,5	;RP0=0, select bank0
   1725  043A  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1751,7 +1751,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1737  0445  2C40               	goto	u2507
   1738  0446                     l2101:
   1739                           
-  1740                           ;main.c: 249:         liga_buzzer(0.1);
+  1740                           ;main.c: 254:         liga_buzzer(0.1);
   1741  0446  303D               	movlw	61
   1742  0447  1283               	bcf	3,5	;RP0=0, select bank0
   1743  0448  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1765,12 +1765,12 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1751  0450  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1752  0455                     l2103:
   1753                           
-  1754                           ;main.c: 250:         LCD_escreve('E');
+  1754                           ;main.c: 255:         LCD_escreve('E');
   1755  0455  3045               	movlw	69
   1756  0456  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1757  045B                     l2105:
   1758                           
-  1759                           ;main.c: 257:     if (RB3 == 0){
+  1759                           ;main.c: 262:     if (RB3 == 0){
   1760  045B  1283               	bcf	3,5	;RP0=0, select bank0
   1761  045C  1303               	bcf	3,6	;RP1=0, select bank0
   1762  045D  1986               	btfsc	6,3	;volatile
@@ -1781,7 +1781,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1767  0461                     u2310:
   1768  0461                     l2107:
   1769                           
-  1770                           ;main.c: 258:         _delay((unsigned long)((200)*(20000000/4000.0)));
+  1770                           ;main.c: 263:         _delay((unsigned long)((200)*(20000000/4000.0)));
   1771  0461  3006               	movlw	6
   1772  0462  1283               	bcf	3,5	;RP0=0, select bank0
   1773  0463  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1799,7 +1799,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1785  046E  2C69               	goto	u2517
   1786  046F                     l2109:
   1787                           
-  1788                           ;main.c: 259:         liga_buzzer(0.1);
+  1788                           ;main.c: 264:         liga_buzzer(0.1);
   1789  046F  303D               	movlw	61
   1790  0470  1283               	bcf	3,5	;RP0=0, select bank0
   1791  0471  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1813,7 +1813,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1799  0479  120A  118A  20CC  120A  118A  	fcall	_liga_buzzer
   1800  047E                     l2111:
   1801                           
-  1802                           ;main.c: 260:         LCD_escreve('F');
+  1802                           ;main.c: 265:         LCD_escreve('F');
   1803  047E  3046               	movlw	70
   1804  047F  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   1805  0484                     l135:
@@ -1824,7 +1824,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1810  00CC                     __ptext5:	
   1811 ;; *************** function _liga_buzzer *****************
   1812 ;; Defined at:
-  1813 ;;		line 69 in file "main.c"
+  1813 ;;		line 74 in file "main.c"
   1814 ;; Parameters:    Size  Location     Type
   1815 ;;  tempoSegundo    4   21[BANK0 ] float 
   1816 ;; Auto vars:     Size  Location     Type
@@ -1863,7 +1863,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1849                           ; Regs used in _liga_buzzer: [wreg+status,2+status,0+btemp+1+pclath+cstack]
   1850                           
   1851                           
-  1852                           ;main.c: 70:     tempoSegundos = tempoSegundos * 1000;
+  1852                           ;main.c: 75:     tempoSegundos = tempoSegundos * 1000;
   1853  00CC  3044               	movlw	68
   1854  00CD  1283               	bcf	3,5	;RP0=0, select bank0
   1855  00CE  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1895,7 +1895,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1881  00EC  00B5               	movwf	liga_buzzer@tempoSegundos
   1882  00ED                     l1891:
   1883                           
-  1884                           ;main.c: 71:     _delay((unsigned long)((10)*(20000000/4000.0)));
+  1884                           ;main.c: 76:     _delay((unsigned long)((10)*(20000000/4000.0)));
   1885  00ED  3041               	movlw	65
   1886  00EE  1283               	bcf	3,5	;RP0=0, select bank0
   1887  00EF  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1909,17 +1909,17 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1895  00F6  28F3               	goto	u2527
   1896  00F7  28F8               	nop2
   1897                           
-  1898                           ;main.c: 74:     while(tempoSegundos > 0){
+  1898                           ;main.c: 79:     while(tempoSegundos > 0){
   1899  00F8  2928               	goto	l1899
   1900  00F9                     l1893:
   1901                           
-  1902                           ;main.c: 75:        PORTE = 0;
+  1902                           ;main.c: 80:        PORTE = 0;
   1903  00F9  1283               	bcf	3,5	;RP0=0, select bank0
   1904  00FA  1303               	bcf	3,6	;RP1=0, select bank0
   1905  00FB  0189               	clrf	9	;volatile
   1906  00FC                     l1895:
   1907                           
-  1908                           ;main.c: 76:         _delay((unsigned long)((1)*(20000000/4000.0)));
+  1908                           ;main.c: 81:         _delay((unsigned long)((1)*(20000000/4000.0)));
   1909  00FC  3007               	movlw	7
   1910  00FD  1283               	bcf	3,5	;RP0=0, select bank0
   1911  00FE  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1934,7 +1934,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1920  0106  0000               	nop
   1921  0107                     l1897:
   1922                           
-  1923                           ;main.c: 77:         tempoSegundos--;
+  1923                           ;main.c: 82:         tempoSegundos--;
   1924  0107  303F               	movlw	63
   1925  0108  1283               	bcf	3,5	;RP0=0, select bank0
   1926  0109  1303               	bcf	3,6	;RP1=0, select bank0
@@ -1966,7 +1966,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1952  0127  00B5               	movwf	liga_buzzer@tempoSegundos
   1953  0128                     l1899:
   1954                           
-  1955                           ;main.c: 74:     while(tempoSegundos > 0){
+  1955                           ;main.c: 79:     while(tempoSegundos > 0){
   1956  0128  3000               	movlw	0
   1957  0129  00F3               	movwf	___flge@ff1+3
   1958  012A  3000               	movlw	0
@@ -1994,7 +1994,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   1980  0143                     u2120:
   1981  0143                     l1901:
   1982                           
-  1983                           ;main.c: 81:     PORTE = 0x0F;
+  1983                           ;main.c: 86:     PORTE = 0x0F;
   1984  0143  300F               	movlw	15
   1985  0144  1283               	bcf	3,5	;RP0=0, select bank0
   1986  0145  1303               	bcf	3,6	;RP1=0, select bank0
@@ -4350,7 +4350,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4336  000F                     __ptext11:	
   4337 ;; *************** function _Linha2 *****************
   4338 ;; Defined at:
-  4339 ;;		line 282 in file "main.c"
+  4339 ;;		line 287 in file "main.c"
   4340 ;; Parameters:    Size  Location     Type
   4341 ;;		None
   4342 ;; Auto vars:     Size  Location     Type
@@ -4389,20 +4389,20 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4375                           ; Regs used in _Linha2: [wreg-fsr0h+status,2+status,0+btemp+1+pclath+cstack]
   4376                           
   4377                           
-  4378                           ;main.c: 283:     LCD_linha2();
+  4378                           ;main.c: 288:     LCD_linha2();
   4379  000F  120A  158A  2413  120A  118A  	fcall	_LCD_linha2
   4380                           
-  4381                           ;main.c: 284:     espacoLivre();
+  4381                           ;main.c: 289:     espacoLivre();
   4382  0014  120A  158A  250B  120A  118A  	fcall	_espacoLivre
   4383  0019                     l1963:
   4384                           
-  4385                           ;main.c: 285:     for (int i = 0; i <= strlen(msg2)-1; i++){
+  4385                           ;main.c: 290:     for (int i = 0; i <= strlen(msg2)-1; i++){
   4386  0019  01F7               	clrf	Linha2@i
   4387  001A  01F8               	clrf	Linha2@i+1
   4388  001B  282C               	goto	l1969
   4389  001C                     l1965:
   4390                           
-  4391                           ;main.c: 286:         LCD_escreve(msg2[i]);
+  4391                           ;main.c: 291:         LCD_escreve(msg2[i]);
   4392  001C  0877               	movf	Linha2@i,w
   4393  001D  3E53               	addlw	(low (_msg2| 0))& (0+255)
   4394  001E  0084               	movwf	4
@@ -4411,7 +4411,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4397  0021  120A  158A  2433  120A  118A  	fcall	_LCD_escreve
   4398  0026                     l1967:
   4399                           
-  4400                           ;main.c: 287:     }
+  4400                           ;main.c: 292:     }
   4401  0026  3001               	movlw	1
   4402  0027  07F7               	addwf	Linha2@i,f
   4403  0028  1803               	skipnc
@@ -4444,7 +4444,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4430  0044                     u2150:
   4431  0044                     l1971:
   4432                           
-  4433                           ;main.c: 288:     espacoLivre();
+  4433                           ;main.c: 293:     espacoLivre();
   4434  0044  120A  158A  250B  120A  118A  	fcall	_espacoLivre
   4435  0049                     l147:
   4436  0049  0008               	return
@@ -4531,7 +4531,7 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4517  0D0B                     __ptext13:	
   4518 ;; *************** function _espacoLivre *****************
   4519 ;; Defined at:
-  4520 ;;		line 294 in file "main.c"
+  4520 ;;		line 299 in file "main.c"
   4521 ;; Parameters:    Size  Location     Type
   4522 ;;		None
   4523 ;; Auto vars:     Size  Location     Type
@@ -4568,30 +4568,30 @@ Microchip MPLAB XC8 C Compiler v2.32 (Free license) build 20210201212658 Og1
   4554                           ; Regs used in _espacoLivre: [wreg+status,2+status,0+btemp+1+pclath+cstack]
   4555                           
   4556                           
-  4557                           ;main.c: 295:     LCD_linha2();
+  4557                           ;main.c: 300:     LCD_linha2();
   4558  0D0B  120A  158A  2413  120A  158A  	fcall	_LCD_linha2
   4559                           
-  4560                           ;main.c: 296:     LCD_escreve(' ');
+  4560                           ;main.c: 301:     LCD_escreve(' ');
   4561  0D10  3020               	movlw	32
   4562  0D11  120A  158A  2433  120A  158A  	fcall	_LCD_escreve
   4563                           
-  4564                           ;main.c: 297:     LCD_escreve(' ');
+  4564                           ;main.c: 302:     LCD_escreve(' ');
   4565  0D16  3020               	movlw	32
   4566  0D17  120A  158A  2433  120A  158A  	fcall	_LCD_escreve
   4567                           
-  4568                           ;main.c: 298:     LCD_escreve(' ');
+  4568                           ;main.c: 303:     LCD_escreve(' ');
   4569  0D1C  3020               	movlw	32
   4570  0D1D  120A  158A  2433  120A  158A  	fcall	_LCD_escreve
   4571                           
-  4572                           ;main.c: 299:     LCD_escreve(' ');
+  4572                           ;main.c: 304:     LCD_escreve(' ');
   4573  0D22  3020               	movlw	32
   4574  0D23  120A  158A  2433  120A  158A  	fcall	_LCD_escreve
   4575                           
-  4576                           ;main.c: 300:     LCD_escreve(' ');
+  4576                           ;main.c: 305:     LCD_escreve(' ');
   4577  0D28  3020               	movlw	32
   4578  0D29  120A  158A  2433  120A  158A  	fcall	_LCD_escreve
   4579                           
-  4580                           ;main.c: 301:     LCD_escreve(' ');
+  4580                           ;main.c: 306:     LCD_escreve(' ');
   4581  0D2E  3020               	movlw	32
   4582  0D2F  120A  158A  2433  120A  158A  	fcall	_LCD_escreve
   4583  0D34                     l150:
@@ -5341,7 +5341,7 @@ EEDATA             100      0       0       0        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.32 build 20210201212658 
-Symbol Table                                                                                   Tue Sep 28 20:57:30 2021
+Symbol Table                                                                                   Tue Sep 28 23:08:39 2021
 
                        pc 0002                        l53 000E                        l62 0C12  
                       l71 0C02                        l56 0D67                        l65 0C32  
