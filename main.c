@@ -16,11 +16,14 @@ void teclado();
 void telaInicial();
 void Linha2();
 void espacoLivre();
-int validaUser();
+void validaUser();
 
 
 //Usuario
-char senhaUser[5];
+int input;
+char *aux;
+char senhaUser[5] = "1212";
+char senhaUserConfere[5] = "1212";
 char senhaCoa[5];
 char senhaConfig[5];
 
@@ -53,16 +56,28 @@ void main(void) {
             painel = 0;
         }
 
-        while(userFalse){
-
-            userFalse = validaUser();
+        if (userFalse == 1){
+            LCD_limpa();
+            LCD_escreve('E');
+//            __delay_ms(3000);
+            validaUser();
             
         }
+//        LCD_linha1();
+//        
+//        if(userFalse == 0){
+//            LCD_escreve('X');
+//        }else {
+//            LCD_escreve('L');
+//            LCD_escreve('o');
+//            LCD_escreve('g');
+//            LCD_escreve('a');
+//            LCD_escreve('d');
+//            LCD_escreve('o');
+//            
+//        }
         
-        teclado();
-        
-        
-        
+          
     }
 }
 
@@ -97,6 +112,15 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('0');
+        
+        if(userFalse == 1){
+            input = 0;
+        }
+        
+        LCD_escreve('0');
+        LCD_escreve('0');
+        LCD_escreve('0');
+        LCD_escreve('0');
           
     }
     // ***
@@ -106,6 +130,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('1');
+        
+        if(userFalse == 1){
+            input = 1;
+        }
         
     }
 
@@ -117,6 +145,10 @@ void teclado(){
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('2');
         
+        if(userFalse == 1){
+            input = 2;
+        }
+        
     }
     // ***
     // Numero 3
@@ -125,6 +157,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('3');
+        
+        if(userFalse == 1){
+            input = 3;
+        }
        
     }
 
@@ -140,6 +176,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('4');
+        
+        if(userFalse == 1){
+            input = 4;
+        }
        
     }
     // ***
@@ -149,6 +189,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('5');
+        
+        if(userFalse == 1){
+            input = 5;
+        }
        
     }
 
@@ -159,6 +203,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('6');
+        
+        if(userFalse == 1){
+            input = 6;
+        }
 
     }
     // ***
@@ -168,6 +216,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('7');
+        
+        if(userFalse == 1){
+            input = 7;
+        }
         
     }
 
@@ -184,6 +236,10 @@ void teclado(){
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('8');
         
+        if(userFalse == 1){
+            input = 8;
+        }
+        
         
     }
     // ***
@@ -193,6 +249,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('9');
+        
+        if(userFalse == 1){
+            input = 9;
+        }
         
     }
     
@@ -302,11 +362,65 @@ void espacoLivre(){
     
 }
 
-int validaUser(){
-    int valor = 0;
-    __delay_ms(100);
-    liga_buzzer(1);
+void validaUser(){
     
-    return valor;
+    while(userFalse == 1){
+        
+//        teclado();
+//        switch (input){
+//			
+//			case 1: 
+//				aux = "1";
+//			break;
+//			case 2: 
+//				aux = "2";
+//			break;
+//			case 3: 
+//				aux = "3";
+//			break;
+//			case 4: 
+//				aux = "4";
+//			break;
+//			case 5: 
+//				aux = "5";
+//			break;
+//			case 6: 
+//				aux = "6";
+//			break;
+//			case 7: 
+//				aux = "7";
+//			break;
+//			case 8: 
+//				aux = "8";
+//			break;
+//			case 9: 
+//				aux = "9";
+//			break;
+//			case 0: 
+//				aux = "0";
+//			break;
+//
+//		};
+//        strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
+        if (strcmp(senhaUser, senhaUserConfere)==0){
+            userFalse = 0;
+            LCD_escreve('S');
+            LCD_escreve('e');
+            LCD_escreve('n');
+            LCD_escreve('h');
+            LCD_escreve('a');
+            LCD_escreve(' ');
+            LCD_escreve('c');
+            LCD_escreve('o');
+            LCD_escreve('r');
+            LCD_escreve('r');
+            LCD_escreve('e');
+            LCD_escreve('t');
+            LCD_escreve('a');
+            __delay_ms(2500);
+        }
+        
+    }
+    
 }
 
