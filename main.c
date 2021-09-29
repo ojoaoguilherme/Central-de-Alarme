@@ -23,7 +23,7 @@ void validaUser();
 int input;
 char *aux;
 char senhaUser[5] = "1212";
-char senhaUserConfere[5] = "1212";
+char senhaUserConfere[5] = "1218";
 char senhaCoa[5];
 char senhaConfig[5];
 
@@ -418,6 +418,21 @@ void validaUser(){
             LCD_escreve('t');
             LCD_escreve('a');
             __delay_ms(2500);
+        }
+        else {
+            
+            LCD_escreve('S');
+            LCD_escreve('e');
+            LCD_escreve('n');
+            LCD_escreve('h');
+            LCD_escreve('a');
+            LCD_escreve(' ');
+            LCD_escreve('e');
+            LCD_escreve('r');
+            LCD_escreve('r');
+            LCD_escreve('a');
+            LCD_escreve('d');
+            LCD_escreve('a');
         }
         
     }

@@ -555,14 +555,14 @@ Version 4.0 HI-TECH Software Intermediate Code
 ..
 ]
 "26
-[; ;main.c: 26: char senhaUserConfere[5] = "1212";
+[; ;main.c: 26: char senhaUserConfere[5] = "1218";
 [v _senhaUserConfere `uc ~T0 @X0 -> 5 `i e ]
 [i _senhaUserConfere
 :U ..
 -> 49 `c
 -> 50 `c
 -> 49 `c
--> 50 `c
+-> 56 `c
 -> 0 `c
 ..
 ]
@@ -1328,16 +1328,60 @@ Version 4.0 HI-TECH Software Intermediate Code
 "421
 [; ;main.c: 421:         }
 }
+[e $U 164  ]
+"422
+[; ;main.c: 422:         else {
 [e :U 163 ]
-"423
-[; ;main.c: 423:     }
+{
+"424
+[; ;main.c: 424:             LCD_escreve('S');
+[e ( _LCD_escreve (1 -> -> 83 `ui `uc ]
+"425
+[; ;main.c: 425:             LCD_escreve('e');
+[e ( _LCD_escreve (1 -> -> 101 `ui `uc ]
+"426
+[; ;main.c: 426:             LCD_escreve('n');
+[e ( _LCD_escreve (1 -> -> 110 `ui `uc ]
+"427
+[; ;main.c: 427:             LCD_escreve('h');
+[e ( _LCD_escreve (1 -> -> 104 `ui `uc ]
+"428
+[; ;main.c: 428:             LCD_escreve('a');
+[e ( _LCD_escreve (1 -> -> 97 `ui `uc ]
+"429
+[; ;main.c: 429:             LCD_escreve(' ');
+[e ( _LCD_escreve (1 -> -> 32 `ui `uc ]
+"430
+[; ;main.c: 430:             LCD_escreve('e');
+[e ( _LCD_escreve (1 -> -> 101 `ui `uc ]
+"431
+[; ;main.c: 431:             LCD_escreve('r');
+[e ( _LCD_escreve (1 -> -> 114 `ui `uc ]
+"432
+[; ;main.c: 432:             LCD_escreve('r');
+[e ( _LCD_escreve (1 -> -> 114 `ui `uc ]
+"433
+[; ;main.c: 433:             LCD_escreve('a');
+[e ( _LCD_escreve (1 -> -> 97 `ui `uc ]
+"434
+[; ;main.c: 434:             LCD_escreve('d');
+[e ( _LCD_escreve (1 -> -> 100 `ui `uc ]
+"435
+[; ;main.c: 435:             LCD_escreve('a');
+[e ( _LCD_escreve (1 -> -> 97 `ui `uc ]
+"436
+[; ;main.c: 436:         }
+}
+[e :U 164 ]
+"438
+[; ;main.c: 438:     }
 }
 [e :U 160 ]
 "367
 [; ;main.c: 367:     while(userFalse == 1){
 [e $ == _userFalse -> 1 `i 161  ]
 [e :U 162 ]
-"425
-[; ;main.c: 425: }
+"440
+[; ;main.c: 440: }
 [e :UE 159 ]
 }
