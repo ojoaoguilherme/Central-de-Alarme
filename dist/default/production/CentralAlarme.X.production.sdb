@@ -43,17 +43,17 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "39 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"86
+"76
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
-"103
+"93
 [v _teclado teclado `(v  1 e 1 0 ]
-"329
+"319
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
-"344
+"334
 [v _Linha2 Linha2 `(v  1 e 1 0 ]
-"356
+"346
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
-"367
+"357
 [v _validaUser validaUser `(v  1 e 1 0 ]
 "216 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -106,27 +106,27 @@
 "39
 [v _main main `(v  1 e 1 0 ]
 {
-"62
-[v main@a a `i  1 a 2 35 ]
-"84
+"74
 } 0
-"367
+"357
 [v _validaUser validaUser `(v  1 e 1 0 ]
 {
-"368
+"441
+[v validaUser@i i `i  1 a 2 35 ]
+"358
 [v validaUser@n n `i  1 a 2 33 ]
-"454
+"494
 } 0
-"103
+"93
 [v _teclado teclado `(v  1 e 1 0 ]
 {
-"326
+"316
 } 0
-"86
+"76
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
 {
 [v liga_buzzer@tempoSegundos tempoSegundos `f  1 p 4 21 ]
-"100
+"90
 } 0
 "242 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
 [v ___flsub __flsub `(d  1 e 4 0 ]
@@ -235,24 +235,29 @@
 [v strcat@to to `*.4uc  1 a 1 6 ]
 "26
 } 0
-"329 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"56 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
+[v _LCD_limpa LCD_limpa `(v  1 e 1 0 ]
+{
+"63
+} 0
+"319 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
 {
-"333
+"323
 [v telaInicial@i i `i  1 a 2 7 ]
-"339
+"329
 } 0
 "65 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_linha1 LCD_linha1 `(v  1 e 1 0 ]
 {
 "72
 } 0
-"344 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"334 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _Linha2 Linha2 `(v  1 e 1 0 ]
 {
-"347
+"337
 [v Linha2@i i `i  1 a 2 7 ]
-"352
+"342
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -266,10 +271,10 @@
 [v strlen@s s `*.4DCuc  1 a 1 4 ]
 "13
 } 0
-"356 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"346 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
 {
-"365
+"355
 } 0
 "73 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_linha2 LCD_linha2 `(v  1 e 1 0 ]
@@ -284,11 +289,6 @@
 "48
 [v LCD_escreve@x x `uc  1 a 1 2 ]
 "54
-} 0
-"56
-[v _LCD_limpa LCD_limpa `(v  1 e 1 0 ]
-{
-"63
 } 0
 "31
 [v _LCD_init LCD_init `(v  1 e 1 0 ]

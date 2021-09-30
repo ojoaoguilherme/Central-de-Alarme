@@ -56,30 +56,20 @@ void main(void) {
             painel = 0;
         }
 
-        if (userFalse == 1){
-            validaUser(); 
+        while (userFalse){
+           validaUser(); 
         }
-        int a = 3;
-        while (a > 0){
-            LCD_escreve('E');
-            a--;
-        }
-
-//        LCD_linha1();
-//        
-//        if(userFalse == 0){
-//            LCD_escreve('X');
-//        }else {
-//            LCD_escreve('L');
-//            LCD_escreve('o');
-//            LCD_escreve('g');
-//            LCD_escreve('a');
-//            LCD_escreve('d');
-//            LCD_escreve('o');
-//            
-//        }
         
-          
+        while (!userFalse){
+            
+            if (painel){
+                painel = 1;
+                telaInicial();
+                Linha2();
+                painel = 0;
+            }
+            
+        }
     }
 }
 
@@ -365,29 +355,16 @@ void espacoLivre(){
 }
 
 void validaUser(){
-    int n = 3;
-    while( userFalse == 1 ){
+    int n = 8; // 
+    while( userFalse ){
         while(n > 0){
-            
-            if(n == 1){
-                LCD_escreve('U');
-                LCD_escreve('l');
-                LCD_escreve('t');
-                LCD_escreve('i');
-                LCD_escreve('m');
-                LCD_escreve('a');
-                LCD_escreve(' ');
-                LCD_escreve('C');
-                LCD_escreve('h');
-                LCD_escreve('a');
-                LCD_escreve('n');
-                LCD_escreve('c');
-                LCD_escreve('e');
-                liga_buzzer(2);
-            }
+//            aux = '\0';
+            n--;
+            input = 10;
             
             while (input == 10){
                 teclado();
+                __delay_ms(60);
             }
         
         
@@ -395,40 +372,85 @@ void validaUser(){
 
                 case 1: 
                     aux = "1";
+                    
                 break;
                 case 2: 
                     aux = "2";
+                    
                 break;
                 case 3: 
                     aux = "3";
+                    
                 break;
                 case 4: 
                     aux = "4";
+                    
                 break;
                 case 5: 
                     aux = "5";
+                    
                 break;
                 case 6: 
                     aux = "6";
+                    
                 break;
                 case 7: 
                     aux = "7";
+                    
                 break;
                 case 8: 
                     aux = "8";
+                    
                 break;
                 case 9: 
                     aux = "9";
+                    
                 break;
                 case 0: 
                     aux = "0";
+                    
                 break;
+                
+                
 
             };
+            
             strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
             
+            if (n == 4){
+                if (strcmp(senhaUser, senhaUserConfere) != 0){
+                    LCD_limpa();
+                    LCD_linha1();
+                    LCD_escreve(' ');
+                    LCD_escreve('S');
+                    LCD_escreve('e');
+                    LCD_escreve('n');
+                    LCD_escreve('h');
+                    LCD_escreve('a');
+                    LCD_escreve(' ');
+                    LCD_escreve('e');
+                    LCD_escreve('r');
+                    LCD_escreve('r');
+                    LCD_escreve('a');
+                    LCD_escreve('d');
+                    LCD_escreve('a');
+                    __delay_ms(2500);
+                    liga_buzzer(0.5);
+                    liga_buzzer(0.5);
+                    
+                    for (int i = 0; i <= strlen(senhaUserConfere) -1; i++){
+                        senhaUserConfere[i] = '\0';
+                    }
+                }
+            }
+
             if (strcmp(senhaUser, senhaUserConfere) == 0){
                 userFalse = 0;
+                
+                LCD_limpa();
+                LCD_linha1();
+                
+                LCD_escreve(' ');
                 LCD_escreve('S');
                 LCD_escreve('e');
                 LCD_escreve('n');
@@ -445,11 +467,29 @@ void validaUser(){
                 __delay_ms(2500);
             }
             
-            n--;
         }
         
+//        if (strcmp(senhaUser, senhaUserConfere) != 0){
+//            LCD_limpa();
+//            LCD_linha1();
+//            LCD_escreve(' ');
+//            LCD_escreve('S');
+//            LCD_escreve('e');
+//            LCD_escreve('n');
+//            LCD_escreve('h');
+//            LCD_escreve('a');
+//            LCD_escreve(' ');
+//            LCD_escreve('e');
+//            LCD_escreve('r');
+//            LCD_escreve('r');
+//            LCD_escreve('a');
+//            LCD_escreve('d');
+//            LCD_escreve('a');
+//            __delay_ms(2500);
+//            LCD_limpa();
+//        }
+ 
     }
-    
     
 }
 
