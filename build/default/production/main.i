@@ -1888,7 +1888,7 @@ void telaInicial();
 void Linha2();
 void espacoLivre();
 void validaUser();
-
+void listaZonas(int valor);
 
 
 int input = 10;
@@ -1902,6 +1902,7 @@ char senhaConfig[5];
 int painel = 1;
 int userFalse = 1;
 int config = 0;
+int valorSensor;
 
 
 char msg[15] = "Digite a senha";
@@ -1918,8 +1919,8 @@ void main(void) {
     LCD_init();
     LCD_limpa();
 
-
     while (1){
+
 
         if (painel){
             telaInicial();
@@ -1927,22 +1928,24 @@ void main(void) {
             painel = 0;
         }
 
+
         while (userFalse){
            validaUser();
         }
 
-        while (!userFalse){
-
-            if (painel){
-                painel = 1;
-                telaInicial();
-                Linha2();
-                painel = 0;
+        if (userFalse == 0){
+            int i;
+# 75 "main.c"
+            for (i = 0; i < 10; i++){
+                valorSensor = i;
+                listaZonas(valorSensor);
+                _delay((unsigned long)((2500)*(20000000/4000.0)));
             }
-
         }
     }
 }
+
+
 
 void liga_buzzer(float tempoSegundos){
     tempoSegundos = tempoSegundos * 1000;
@@ -1979,11 +1982,6 @@ void teclado(){
         if(userFalse == 1){
             input = 0;
         }
-
-        LCD_escreve('0');
-        LCD_escreve('0');
-        LCD_escreve('0');
-        LCD_escreve('0');
 
     }
 
@@ -2225,19 +2223,20 @@ void espacoLivre(){
 
 }
 
+
 void validaUser(){
     int n = 8;
-    while( userFalse ){
+    while(userFalse){
         while(n > 0){
-
             n--;
-            input = 10;
 
-            while (input == 10){
-                teclado();
-                _delay((unsigned long)((60)*(20000000/4000.0)));
+            if (n > 0){
+                input = 10;
+                while (input == 10){
+                    teclado();
+                    _delay((unsigned long)((60)*(20000000/4000.0)));
+                }
             }
-
 
             switch (input){
 
@@ -2282,41 +2281,13 @@ void validaUser(){
 
                 break;
 
-
-
             };
 
             strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
 
-            if (n == 4){
-                if (strcmp(senhaUser, senhaUserConfere) != 0){
-                    LCD_limpa();
-                    LCD_linha1();
-                    LCD_escreve(' ');
-                    LCD_escreve('S');
-                    LCD_escreve('e');
-                    LCD_escreve('n');
-                    LCD_escreve('h');
-                    LCD_escreve('a');
-                    LCD_escreve(' ');
-                    LCD_escreve('e');
-                    LCD_escreve('r');
-                    LCD_escreve('r');
-                    LCD_escreve('a');
-                    LCD_escreve('d');
-                    LCD_escreve('a');
-                    _delay((unsigned long)((2500)*(20000000/4000.0)));
-                    liga_buzzer(0.5);
-                    liga_buzzer(0.5);
-
-                    for (int i = 0; i <= strlen(senhaUserConfere) -1; i++){
-                        senhaUserConfere[i] = '\0';
-                    }
-                }
-            }
-
             if (strcmp(senhaUser, senhaUserConfere) == 0){
                 userFalse = 0;
+                n = -1;
 
                 LCD_limpa();
                 LCD_linha1();
@@ -2335,11 +2306,243 @@ void validaUser(){
                 LCD_escreve('e');
                 LCD_escreve('t');
                 LCD_escreve('a');
-                _delay((unsigned long)((2500)*(20000000/4000.0)));
+
+                _delay((unsigned long)((2000)*(20000000/4000.0)));
+                liga_buzzer(0.7);
+            }
+
+            if (n == 4){
+                if (strcmp(senhaUser, senhaUserConfere) != 0){
+                    LCD_limpa();
+                    LCD_linha1();
+                    userFalse = 1;
+
+                    LCD_escreve(' ');
+                    LCD_escreve('S');
+                    LCD_escreve('e');
+                    LCD_escreve('n');
+                    LCD_escreve('h');
+                    LCD_escreve('a');
+                    LCD_escreve(' ');
+                    LCD_escreve('e');
+                    LCD_escreve('r');
+                    LCD_escreve('r');
+                    LCD_escreve('a');
+                    LCD_escreve('d');
+                    LCD_escreve('a');
+
+                    _delay((unsigned long)((1000)*(20000000/4000.0)));
+                    liga_buzzer(0.5);
+                    _delay((unsigned long)((600)*(20000000/4000.0)));
+                    liga_buzzer(0.5);
+
+                    for (int i = 0; i <= strlen(senhaUserConfere) -1; i++){
+                        senhaUserConfere[i] = '\0';
+                    }
+                }
             }
 
         }
-# 492 "main.c"
+
     }
 
+}
+
+
+void listaZonas(int valorSensor){
+    LCD_limpa();
+    if (valorSensor == 1){
+        LCD_linha1();
+        LCD_escreve('>');
+        LCD_escreve('S');
+        LCD_escreve('e');
+        LCD_escreve('n');
+        LCD_escreve('h');
+        LCD_escreve('a');
+        LCD_escreve(' ');
+        LCD_escreve('C');
+        LCD_escreve('o');
+        LCD_escreve('n');
+        LCD_escreve('f');
+        LCD_escreve('i');
+        LCD_escreve('i');
+        LCD_escreve('g');
+
+        LCD_linha2();
+        LCD_escreve(' ');
+        LCD_escreve('S');
+        LCD_escreve('e');
+        LCD_escreve('n');
+        LCD_escreve('h');
+        LCD_escreve('a');
+        LCD_escreve(' ');
+        LCD_escreve('U');
+        LCD_escreve('s');
+        LCD_escreve('u');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve('i');
+        LCD_escreve('o');
+
+    }
+
+    if (valorSensor == 2){
+        LCD_linha1();
+        LCD_escreve('>');
+        LCD_escreve('S');
+        LCD_escreve('e');
+        LCD_escreve('n');
+        LCD_escreve('h');
+        LCD_escreve('a');
+        LCD_escreve(' ');
+        LCD_escreve('U');
+        LCD_escreve('s');
+        LCD_escreve('u');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve('i');
+        LCD_escreve('o');
+
+        LCD_linha2();
+        LCD_escreve(' ');
+        LCD_escreve('S');
+        LCD_escreve('e');
+        LCD_escreve('n');
+        LCD_escreve('h');
+        LCD_escreve('a');
+        LCD_escreve(' ');
+        LCD_escreve('C');
+        LCD_escreve('o');
+        LCD_escreve('a');
+        LCD_escreve('c');
+        LCD_escreve('a');
+        LCD_escreve('o');
+
+    }
+
+    if (valorSensor == 3){
+        LCD_linha1();
+        LCD_escreve('>');
+        LCD_escreve('S');
+        LCD_escreve('e');
+        LCD_escreve('n');
+        LCD_escreve('h');
+        LCD_escreve('a');
+        LCD_escreve(' ');
+        LCD_escreve('C');
+        LCD_escreve('o');
+        LCD_escreve('a');
+        LCD_escreve('c');
+        LCD_escreve('a');
+        LCD_escreve('o');
+
+        LCD_linha2();
+        LCD_escreve(' ');
+        LCD_escreve('C');
+        LCD_escreve('o');
+        LCD_escreve('n');
+        LCD_escreve('f');
+        LCD_escreve('i');
+        LCD_escreve('g');
+        LCD_escreve(' ');
+        LCD_escreve('D');
+        LCD_escreve('i');
+        LCD_escreve('s');
+        LCD_escreve('p');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve('o');
+
+    }
+
+    if (valorSensor == 4){
+        LCD_linha1();
+        LCD_escreve('>');
+        LCD_escreve('C');
+        LCD_escreve('o');
+        LCD_escreve('n');
+        LCD_escreve('f');
+        LCD_escreve('i');
+        LCD_escreve('g');
+        LCD_escreve(' ');
+        LCD_escreve('D');
+        LCD_escreve('i');
+        LCD_escreve('s');
+        LCD_escreve('p');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve('o');
+
+        LCD_linha2();
+        LCD_escreve(' ');
+        LCD_escreve('D');
+        LCD_escreve('e');
+        LCD_escreve('s');
+        LCD_escreve('a');
+        LCD_escreve('t');
+        LCD_escreve('i');
+        LCD_escreve('v');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve(' ');
+        LCD_escreve('Z');
+        LCD_escreve('o');
+        LCD_escreve('n');
+        LCD_escreve('a');
+
+    }
+
+    if (valorSensor == 5){
+        LCD_linha1();
+        LCD_escreve('>');
+        LCD_escreve('D');
+        LCD_escreve('e');
+        LCD_escreve('s');
+        LCD_escreve('a');
+        LCD_escreve('t');
+        LCD_escreve('i');
+        LCD_escreve('v');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve(' ');
+        LCD_escreve('Z');
+        LCD_escreve('o');
+        LCD_escreve('n');
+        LCD_escreve('a');
+
+        LCD_linha2();
+        LCD_escreve(' ');
+        LCD_escreve('R');
+        LCD_escreve('e');
+        LCD_escreve('a');
+        LCD_escreve('t');
+        LCD_escreve('i');
+        LCD_escreve('v');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve(' ');
+        LCD_escreve('Z');
+        LCD_escreve('o');
+        LCD_escreve('n');
+        LCD_escreve('a');
+
+    }
+
+    if (valorSensor == 6){
+        LCD_linha1();
+        LCD_escreve('>');
+        LCD_escreve('R');
+        LCD_escreve('e');
+        LCD_escreve('a');
+        LCD_escreve('t');
+        LCD_escreve('i');
+        LCD_escreve('v');
+        LCD_escreve('a');
+        LCD_escreve('r');
+        LCD_escreve(' ');
+        LCD_escreve('z');
+        LCD_escreve('o');
+        LCD_escreve('n');
+        LCD_escreve('a');
+    }
 }
