@@ -12,6 +12,7 @@
 #include <xc.h>
 
 void liga_buzzer(float tempoSegundos);
+void escreveMesagem(char *texto);
 void teclado();
 void telaInicial();
 void Linha2();
@@ -23,9 +24,9 @@ void listaZonas(int valor);
 int input = 10;
 char *aux;
 char senhaUser[5] = "1212";
-char senhaUserConfere[5];
-char senhaCoa[5];
-char senhaConfig[5];
+char senhaUserConfere[5] = "0000";
+char senhaCoa[5] = "5555";
+char senhaConfig[5] = "0000";
 
 //Config
 int painel = 1;
@@ -34,8 +35,22 @@ int config = 0;
 int valorSensor;
 
 //Interface
-char msg[15] = "Digite a senha";
-char msg2[5] = "____";
+char msgSenhaErrada[13] = "Senha errada";
+char msgSenhaCorreta[14] = "Senha correta";
+char msgSenhaConfigActive[14] = ">Senha Config";
+char msgSenhaConfig[13] = "Senha Config";
+char msgSenhaUsuarioActive[15] = ">Senha Usuario";
+char msgSenhaUsuario[14] = "Senha Usuario";
+char msgSenhaCoacaoActive[14] = ">Senha Coacao";
+char msgSenhaCoacao[13] = "Senha Coacao";
+char msgSenhaDisparoActive[15] = ">Senha Disparo";
+char msgSenhaDisparo[14] = "Senha Disparo";
+char msgDesativarZonaActive[16] = ">Desativar Zona";
+char msgDesativarZona[15] = "Desativar Zona";
+char msgReativarActive[10] = ">Reativar";
+char msgReativar[9] = "Reativar";
+char msgDigiteSenha[15] = "Digite a senha";
+char msgMascara[5] = "____";
 
 void main(void) {
     TRISE = 0; //Porta de saida para ligar o buzzer
@@ -47,11 +62,11 @@ void main(void) {
     //Sequencia de inicialização do LCD
     LCD_init();
     LCD_limpa();
-
+    
     while (1){
         
         //Painel inicial da central
-        if (painel){
+        while (painel){
             telaInicial();
             Linha2();
             painel = 0;
@@ -62,22 +77,24 @@ void main(void) {
            validaUser();
         }
 
-        if (userFalse == 0){
-            int i;
-            //implementar o painel das zonas em forma de menu
-            // e rolagem de acordo com o potenciometro
-            // sentido horario - faz o menu descer
-            // sentido anti-horario - faz subir
-
-            //esse for é uma simulação para ajustar a lista de zonas
-            // a cada 2segundos o menu muda simulando o potenciometro girando
-            // sentido horario então a setinha desce.
-            for (i = 0; i < 10; i++){
-                valorSensor = i;
-                listaZonas(valorSensor);
-                __delay_ms(2500);
-            }
-        }
+//        if (userFalse == 0){
+//            int i;
+//            //implementar o painel das zonas em forma de menu
+//            // e rolagem de acordo com o potenciometro
+//            // sentido horario - faz o menu descer
+//            // sentido anti-horario - faz subir
+//
+//            //esse for é uma simulação para ajustar a lista de zonas
+//            // a cada 2segundos o menu muda simulando o potenciometro girando
+//            // sentido horario então a setinha desce.
+//            for (i = 0; i < 10; i++){
+//                valorSensor = i;
+//                listaZonas(valorSensor);
+//                __delay_ms(2500);
+//            }
+//        }
+        
+        teclado();
     }
 }
 
@@ -96,7 +113,6 @@ void liga_buzzer(float tempoSegundos){
     }
     
     PORTE = 0x0F;
-
 }
 
 // Mapeamento dos teclados
@@ -325,12 +341,11 @@ void telaInicial(){
     
     LCD_linha1();
     LCD_escreve(' ');
-    for (int i = 0; i <= strlen(msg)-1; i++){
-        LCD_escreve(msg[i]);
+    for (int i = 0; i <= strlen(msgDigiteSenha)-1; i++){
+        LCD_escreve(msgDigiteSenha[i]);
     }
     LCD_escreve(' ');
-    
-    
+     
 }
 
 // Para fundionar o teclado e atualização da função espaçoLivre 
@@ -339,8 +354,8 @@ void telaInicial(){
 void Linha2(){
     LCD_linha2();
     espacoLivre();
-    for (int i = 0; i <= strlen(msg2)-1; i++){
-        LCD_escreve(msg2[i]);  
+    for (int i = 0; i <= strlen(msgMascara)-1; i++){
+        LCD_escreve(msgMascara[i]);  
     }
     espacoLivre();
     
@@ -350,335 +365,132 @@ void Linha2(){
 // exemplo: "_ _ _ _" quando inserir = "1 _ _ _"
 void espacoLivre(){
     LCD_linha2();
-    LCD_escreve(' ');
-    LCD_escreve(' ');
-    LCD_escreve(' ');
-    LCD_escreve(' ');
-    LCD_escreve(' ');
-    LCD_escreve(' ');
-    
+    for (int i = 0; i < 6; i++){
+        LCD_escreve(' ');
+    }
+
 }
 
 //Função que valida a senha do usuario
 void validaUser(){
-    int n = 8; // 
-    while(userFalse){
-        while(n > 0){
-            n--;
-            
-            if (n > 0){
-                input = 10;
-                while (input == 10){
-                    teclado();
-                    __delay_ms(60);
-                }
-            }
-
-            switch (input){
-
-                case 1: 
-                    aux = "1";
-                    
-                break;
-                case 2: 
-                    aux = "2";
-                    
-                break;
-                case 3: 
-                    aux = "3";
-                    
-                break;
-                case 4: 
-                    aux = "4";
-                    
-                break;
-                case 5: 
-                    aux = "5";
-                    
-                break;
-                case 6: 
-                    aux = "6";
-                    
-                break;
-                case 7: 
-                    aux = "7";
-                    
-                break;
-                case 8: 
-                    aux = "8";
-                    
-                break;
-                case 9: 
-                    aux = "9";
-                    
-                break;
-                case 0: 
-                    aux = "0";
-                    
-                break;
-                
-            };
-            
-            strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
-            
-            if (strcmp(senhaUser, senhaUserConfere) == 0){
-                userFalse = 0; // para sair do laço principal
-                n = -1; // para sair do laço
-                
-                LCD_limpa();
-                LCD_linha1();
-                
-                LCD_escreve(' ');
-                LCD_escreve('S');
-                LCD_escreve('e');
-                LCD_escreve('n');
-                LCD_escreve('h');
-                LCD_escreve('a');
-                LCD_escreve(' ');
-                LCD_escreve('c');
-                LCD_escreve('o');
-                LCD_escreve('r');
-                LCD_escreve('r');
-                LCD_escreve('e');
-                LCD_escreve('t');
-                LCD_escreve('a');
-                
-                __delay_ms(2000);
-                liga_buzzer(0.7);
-            }
-            
-            if (n == 4){
-                if (strcmp(senhaUser, senhaUserConfere) != 0){
-                    LCD_limpa();
-                    LCD_linha1();
-                    userFalse = 1;
-                    
-                    LCD_escreve(' ');
-                    LCD_escreve('S');
-                    LCD_escreve('e');
-                    LCD_escreve('n');
-                    LCD_escreve('h');
-                    LCD_escreve('a');
-                    LCD_escreve(' ');
-                    LCD_escreve('e');
-                    LCD_escreve('r');
-                    LCD_escreve('r');
-                    LCD_escreve('a');
-                    LCD_escreve('d');
-                    LCD_escreve('a');
-                    
-                    __delay_ms(1000);
-                    liga_buzzer(0.5);
-                    __delay_ms(600);
-                    liga_buzzer(0.5);
-                    
-                    for (int i = 0; i <= strlen(senhaUserConfere) -1; i++){
-                        senhaUserConfere[i] = '\0';
-                    }
-                }
-            }
-            
-        }
- 
+    int n = 0;
+    for(int i =0; senhaUserConfere[i] != '\0'; i++){
+        senhaUserConfere[i] = '\0';
     }
     
+    while(userFalse){
+        while(n < 8){
+            n++;
+            input = 10;
+            LCD_limpa();
+            LCD_escreve('N');
+            LCD_escreve(':');
+            LCD_escreve(n + 48);
+            
+            while (input == 10){
+                teclado();
+            }
+            switch (input){
+                case 1: 
+                    aux = '1';
+                break;
+                case 2: 
+                    aux = '2';
+                break;
+                case 3: 
+                    aux = '3';
+                break;
+                case 4: 
+                    aux = '4';
+                break;
+                case 5: 
+                    aux = '5';
+                break;
+                case 6: 
+                    aux = '6';
+                break;
+                case 7: 
+                    aux = '7';
+                break;
+                case 8: 
+                    aux = '8';
+                break;
+                case 9: 
+                    aux = '9';
+                break;
+                case 0: 
+                    aux = '0';
+                break;
+            }
+            
+            LCD_escreve('A');      
+            LCD_escreve(':');      
+            LCD_escreve(aux);
+            __delay_ms(3000);
+        }
+    
+    }
 }
 
 //Listagem das zonas no display
 void listaZonas(int valorSensor){
     LCD_limpa();
+    
     if (valorSensor == 1){
         LCD_linha1();
-        LCD_escreve('>');
-        LCD_escreve('S');
-        LCD_escreve('e');
-        LCD_escreve('n');
-        LCD_escreve('h');
-        LCD_escreve('a');
-        LCD_escreve(' ');
-        LCD_escreve('C');
-        LCD_escreve('o');
-        LCD_escreve('n');
-        LCD_escreve('f');
-        LCD_escreve('i');
-        LCD_escreve('i');
-        LCD_escreve('g');
+        escreveMesagem(msgSenhaConfigActive);
         
         LCD_linha2();
-        LCD_escreve(' ');
-        LCD_escreve('S');
-        LCD_escreve('e');
-        LCD_escreve('n');
-        LCD_escreve('h');
-        LCD_escreve('a');
-        LCD_escreve(' ');
-        LCD_escreve('U');
-        LCD_escreve('s');
-        LCD_escreve('u');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve('i');
-        LCD_escreve('o');
+        escreveMesagem(msgSenhaUsuario);
         
     }
     
     if (valorSensor == 2){
         LCD_linha1();
-        LCD_escreve('>');
-        LCD_escreve('S');
-        LCD_escreve('e');
-        LCD_escreve('n');
-        LCD_escreve('h');
-        LCD_escreve('a');
-        LCD_escreve(' ');
-        LCD_escreve('U');
-        LCD_escreve('s');
-        LCD_escreve('u');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve('i');
-        LCD_escreve('o');
+        escreveMesagem(msgSenhaConfig);
         
         LCD_linha2();
-        LCD_escreve(' ');
-        LCD_escreve('S');
-        LCD_escreve('e');
-        LCD_escreve('n');
-        LCD_escreve('h');
-        LCD_escreve('a');
-        LCD_escreve(' ');
-        LCD_escreve('C');
-        LCD_escreve('o');
-        LCD_escreve('a');
-        LCD_escreve('c');
-        LCD_escreve('a');
-        LCD_escreve('o');
+        escreveMesagem(msgSenhaUsuarioActive);
         
     }
     
     if (valorSensor == 3){
         LCD_linha1();
-        LCD_escreve('>');
-        LCD_escreve('S');
-        LCD_escreve('e');
-        LCD_escreve('n');
-        LCD_escreve('h');
-        LCD_escreve('a');
-        LCD_escreve(' ');
-        LCD_escreve('C');
-        LCD_escreve('o');
-        LCD_escreve('a');
-        LCD_escreve('c');
-        LCD_escreve('a');
-        LCD_escreve('o');
+        escreveMesagem(msgSenhaCoacaoActive);
         
         LCD_linha2();
-        LCD_escreve(' ');
-        LCD_escreve('C');
-        LCD_escreve('o');
-        LCD_escreve('n');
-        LCD_escreve('f');
-        LCD_escreve('i');
-        LCD_escreve('g');
-        LCD_escreve(' ');
-        LCD_escreve('D');
-        LCD_escreve('i');
-        LCD_escreve('s');
-        LCD_escreve('p');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve('o');
-        
+        escreveMesagem(msgSenhaDisparo);
     }
     
     if (valorSensor == 4){
         LCD_linha1();
-        LCD_escreve('>');
-        LCD_escreve('C');
-        LCD_escreve('o');
-        LCD_escreve('n');
-        LCD_escreve('f');
-        LCD_escreve('i');
-        LCD_escreve('g');
-        LCD_escreve(' ');
-        LCD_escreve('D');
-        LCD_escreve('i');
-        LCD_escreve('s');
-        LCD_escreve('p');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve('o');
+        escreveMesagem(msgSenhaCoacao);
         
         LCD_linha2();
-        LCD_escreve(' ');
-        LCD_escreve('D');
-        LCD_escreve('e');
-        LCD_escreve('s');
-        LCD_escreve('a');
-        LCD_escreve('t');
-        LCD_escreve('i');
-        LCD_escreve('v');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve(' ');
-        LCD_escreve('Z');
-        LCD_escreve('o');
-        LCD_escreve('n');
-        LCD_escreve('a');
-        
+        escreveMesagem(msgSenhaDisparoActive);
     }
     
     if (valorSensor == 5){
         LCD_linha1();
-        LCD_escreve('>');
-        LCD_escreve('D');
-        LCD_escreve('e');
-        LCD_escreve('s');
-        LCD_escreve('a');
-        LCD_escreve('t');
-        LCD_escreve('i');
-        LCD_escreve('v');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve(' ');
-        LCD_escreve('Z');
-        LCD_escreve('o');
-        LCD_escreve('n');
-        LCD_escreve('a');
+        escreveMesagem(msgDesativarZonaActive);
         
         LCD_linha2();
-        LCD_escreve(' ');
-        LCD_escreve('R');
-        LCD_escreve('e');
-        LCD_escreve('a');
-        LCD_escreve('t');
-        LCD_escreve('i');
-        LCD_escreve('v');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve(' ');
-        LCD_escreve('Z');
-        LCD_escreve('o');
-        LCD_escreve('n');
-        LCD_escreve('a');
-        
+        escreveMesagem(msgReativar);
     }
     
     if (valorSensor == 6){
         LCD_linha1();
-        LCD_escreve('>');
-        LCD_escreve('R');
-        LCD_escreve('e');
-        LCD_escreve('a');
-        LCD_escreve('t');
-        LCD_escreve('i');
-        LCD_escreve('v');
-        LCD_escreve('a');
-        LCD_escreve('r');
-        LCD_escreve(' ');
-        LCD_escreve('z');
-        LCD_escreve('o');
-        LCD_escreve('n');
-        LCD_escreve('a');
+        escreveMesagem(msgDesativarZona);
+        
+        LCD_linha2();
+        escreveMesagem(msgReativarActive);
     }
+}
+
+void escreveMesagem(char *texto){
+    
+    for (int i = 0; texto[i] != '\0'; i++){
+        LCD_escreve(texto[i]);
+    }
+
 }
