@@ -76,7 +76,13 @@ Version 4.0 HI-TECH Software Intermediate Code
 "19 main.c
 [; ;main.c: 19: void espacoLivre();
 [v _espacoLivre `(v ~T0 @X0 0 e? ]
-"15
+"36 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h: 36: extern char * strcat(char *, const char *);
+[v _strcat `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+"37
+[; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h: 37: extern char * strcpy(char *, const char *);
+[v _strcpy `(*uc ~T0 @X0 0 ef2`*uc`*Cuc ]
+"15 main.c
 [; ;main.c: 15: void escreveMesagem(char *texto);
 [v _escreveMesagem `(v ~T0 @X0 0 ef1`*uc ]
 "54 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
@@ -1615,135 +1621,132 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U 175 ]
 {
 "383
-[; ;main.c: 383:             n++;
-[e ++ _n -> 1 `i ]
-"384
-[; ;main.c: 384:             input = 10;
+[; ;main.c: 383:             input = 10;
 [e = _input -> 10 `i ]
-"385
-[; ;main.c: 385:             LCD_limpa();
+"384
+[; ;main.c: 384:             LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"386
-[; ;main.c: 386:             LCD_escreve('N');
+"385
+[; ;main.c: 385:             LCD_escreve('N');
 [e ( _LCD_escreve (1 -> -> 78 `ui `uc ]
-"387
-[; ;main.c: 387:             LCD_escreve(':');
+"386
+[; ;main.c: 386:             LCD_escreve(':');
 [e ( _LCD_escreve (1 -> -> 58 `ui `uc ]
-"388
-[; ;main.c: 388:             LCD_escreve(n + 48);
+"387
+[; ;main.c: 387:             LCD_escreve(n + 48);
 [e ( _LCD_escreve (1 -> + _n -> 48 `i `uc ]
-"390
-[; ;main.c: 390:             while (input == 10){
+"389
+[; ;main.c: 389:             while (input == 10){
 [e $U 177  ]
 [e :U 178 ]
 {
-"391
-[; ;main.c: 391:                 teclado();
+"390
+[; ;main.c: 390:                 teclado();
 [e ( _teclado ..  ]
-"392
-[; ;main.c: 392:             }
+"391
+[; ;main.c: 391:             }
 }
 [e :U 177 ]
-"390
-[; ;main.c: 390:             while (input == 10){
+"389
+[; ;main.c: 389:             while (input == 10){
 [e $ == _input -> 10 `i 178  ]
 [e :U 179 ]
-"393
-[; ;main.c: 393:             switch (input){
+"392
+[; ;main.c: 392:             switch (input){
 [e $U 181  ]
 {
-"394
-[; ;main.c: 394:                 case 1:
+"393
+[; ;main.c: 393:                 case 1:
 [e :U 182 ]
-"395
-[; ;main.c: 395:                     aux = '1';
+"394
+[; ;main.c: 394:                     aux = '1';
 [e = _aux -> -> 49 `ui `*uc ]
+"395
+[; ;main.c: 395:                 break;
+[e $U 180  ]
 "396
-[; ;main.c: 396:                 break;
-[e $U 180  ]
-"397
-[; ;main.c: 397:                 case 2:
+[; ;main.c: 396:                 case 2:
 [e :U 183 ]
-"398
-[; ;main.c: 398:                     aux = '2';
+"397
+[; ;main.c: 397:                     aux = '2';
 [e = _aux -> -> 50 `ui `*uc ]
+"398
+[; ;main.c: 398:                 break;
+[e $U 180  ]
 "399
-[; ;main.c: 399:                 break;
-[e $U 180  ]
-"400
-[; ;main.c: 400:                 case 3:
+[; ;main.c: 399:                 case 3:
 [e :U 184 ]
-"401
-[; ;main.c: 401:                     aux = '3';
+"400
+[; ;main.c: 400:                     aux = '3';
 [e = _aux -> -> 51 `ui `*uc ]
+"401
+[; ;main.c: 401:                 break;
+[e $U 180  ]
 "402
-[; ;main.c: 402:                 break;
-[e $U 180  ]
-"403
-[; ;main.c: 403:                 case 4:
+[; ;main.c: 402:                 case 4:
 [e :U 185 ]
-"404
-[; ;main.c: 404:                     aux = '4';
+"403
+[; ;main.c: 403:                     aux = '4';
 [e = _aux -> -> 52 `ui `*uc ]
+"404
+[; ;main.c: 404:                 break;
+[e $U 180  ]
 "405
-[; ;main.c: 405:                 break;
-[e $U 180  ]
-"406
-[; ;main.c: 406:                 case 5:
+[; ;main.c: 405:                 case 5:
 [e :U 186 ]
-"407
-[; ;main.c: 407:                     aux = '5';
+"406
+[; ;main.c: 406:                     aux = '5';
 [e = _aux -> -> 53 `ui `*uc ]
+"407
+[; ;main.c: 407:                 break;
+[e $U 180  ]
 "408
-[; ;main.c: 408:                 break;
-[e $U 180  ]
-"409
-[; ;main.c: 409:                 case 6:
+[; ;main.c: 408:                 case 6:
 [e :U 187 ]
-"410
-[; ;main.c: 410:                     aux = '6';
+"409
+[; ;main.c: 409:                     aux = '6';
 [e = _aux -> -> 54 `ui `*uc ]
+"410
+[; ;main.c: 410:                 break;
+[e $U 180  ]
 "411
-[; ;main.c: 411:                 break;
-[e $U 180  ]
-"412
-[; ;main.c: 412:                 case 7:
+[; ;main.c: 411:                 case 7:
 [e :U 188 ]
-"413
-[; ;main.c: 413:                     aux = '7';
+"412
+[; ;main.c: 412:                     aux = '7';
 [e = _aux -> -> 55 `ui `*uc ]
+"413
+[; ;main.c: 413:                 break;
+[e $U 180  ]
 "414
-[; ;main.c: 414:                 break;
-[e $U 180  ]
-"415
-[; ;main.c: 415:                 case 8:
+[; ;main.c: 414:                 case 8:
 [e :U 189 ]
-"416
-[; ;main.c: 416:                     aux = '8';
+"415
+[; ;main.c: 415:                     aux = '8';
 [e = _aux -> -> 56 `ui `*uc ]
+"416
+[; ;main.c: 416:                 break;
+[e $U 180  ]
 "417
-[; ;main.c: 417:                 break;
-[e $U 180  ]
-"418
-[; ;main.c: 418:                 case 9:
+[; ;main.c: 417:                 case 9:
 [e :U 190 ]
-"419
-[; ;main.c: 419:                     aux = '9';
+"418
+[; ;main.c: 418:                     aux = '9';
 [e = _aux -> -> 57 `ui `*uc ]
+"419
+[; ;main.c: 419:                 break;
+[e $U 180  ]
 "420
-[; ;main.c: 420:                 break;
-[e $U 180  ]
-"421
-[; ;main.c: 421:                 case 0:
+[; ;main.c: 420:                 case 0:
 [e :U 191 ]
-"422
-[; ;main.c: 422:                     aux = '0';
+"421
+[; ;main.c: 421:                     aux = '0';
 [e = _aux -> -> 48 `ui `*uc ]
-"423
-[; ;main.c: 423:                 break;
+"422
+[; ;main.c: 422:                 break;
 [e $U 180  ]
-"424
-[; ;main.c: 424:             }
+"423
+[; ;main.c: 423:             }
 }
 [e $U 180  ]
 [e :U 181 ]
@@ -1759,199 +1762,199 @@ Version 4.0 HI-TECH Software Intermediate Code
  , $ -> 0 `i 191
  180 ]
 [e :U 180 ]
+"424
+[; ;main.c: 424:             strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
+[e ( _strcat (2 , ( _strcpy (2 , &U _senhaUserConfere -> &U _senhaUserConfere `*Cuc -> _aux `*Cuc ]
+"425
+[; ;main.c: 425:             LCD_escreve(senhaUserConfere[n]);
+[e ( _LCD_escreve (1 *U + &U _senhaUserConfere * -> -> _n `ui `ux -> -> # *U &U _senhaUserConfere `ui `ux ]
 "426
-[; ;main.c: 426:             LCD_escreve('A');
-[e ( _LCD_escreve (1 -> -> 65 `ui `uc ]
-"427
-[; ;main.c: 427:             LCD_escreve(':');
-[e ( _LCD_escreve (1 -> -> 58 `ui `uc ]
-"428
-[; ;main.c: 428:             LCD_escreve(aux);
-[e ( _LCD_escreve (1 -> _aux `uc ]
-"429
-[; ;main.c: 429:             _delay((unsigned long)((3000)*(20000000/4000.0)));
+[; ;main.c: 426:             _delay((unsigned long)((3000)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"430
-[; ;main.c: 430:         }
+"428
+[; ;main.c: 428:              n++;
+[e ++ _n -> 1 `i ]
+"429
+[; ;main.c: 429:         }
 }
 [e :U 174 ]
 "382
 [; ;main.c: 382:         while(n < 8){
 [e $ < _n -> 8 `i 175  ]
 [e :U 176 ]
-"432
-[; ;main.c: 432:     }
+"431
+[; ;main.c: 431:     }
 }
 [e :U 171 ]
 "381
 [; ;main.c: 381:     while(userFalse){
 [e $ != _userFalse -> 0 `i 172  ]
 [e :U 173 ]
-"433
-[; ;main.c: 433: }
+"432
+[; ;main.c: 432: }
 [e :UE 166 ]
 }
-"436
-[; ;main.c: 436: void listaZonas(int valorSensor){
+"435
+[; ;main.c: 435: void listaZonas(int valorSensor){
 [v _listaZonas `(v ~T0 @X0 1 ef1`i ]
 {
 [e :U _listaZonas ]
 [v _valorSensor `i ~T0 @X0 1 r1 ]
 [f ]
-"437
-[; ;main.c: 437:     LCD_limpa();
+"436
+[; ;main.c: 436:     LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"439
-[; ;main.c: 439:     if (valorSensor == 1){
+"438
+[; ;main.c: 438:     if (valorSensor == 1){
 [e $ ! == _valorSensor -> 1 `i 193  ]
 {
-"440
-[; ;main.c: 440:         LCD_linha1();
+"439
+[; ;main.c: 439:         LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"441
-[; ;main.c: 441:         escreveMesagem(msgSenhaConfigActive);
+"440
+[; ;main.c: 440:         escreveMesagem(msgSenhaConfigActive);
 [e ( _escreveMesagem (1 &U _msgSenhaConfigActive ]
-"443
-[; ;main.c: 443:         LCD_linha2();
+"442
+[; ;main.c: 442:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"444
-[; ;main.c: 444:         escreveMesagem(msgSenhaUsuario);
+"443
+[; ;main.c: 443:         escreveMesagem(msgSenhaUsuario);
 [e ( _escreveMesagem (1 &U _msgSenhaUsuario ]
-"446
-[; ;main.c: 446:     }
+"445
+[; ;main.c: 445:     }
 }
 [e :U 193 ]
-"448
-[; ;main.c: 448:     if (valorSensor == 2){
+"447
+[; ;main.c: 447:     if (valorSensor == 2){
 [e $ ! == _valorSensor -> 2 `i 194  ]
 {
-"449
-[; ;main.c: 449:         LCD_linha1();
+"448
+[; ;main.c: 448:         LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"450
-[; ;main.c: 450:         escreveMesagem(msgSenhaConfig);
+"449
+[; ;main.c: 449:         escreveMesagem(msgSenhaConfig);
 [e ( _escreveMesagem (1 &U _msgSenhaConfig ]
-"452
-[; ;main.c: 452:         LCD_linha2();
+"451
+[; ;main.c: 451:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"453
-[; ;main.c: 453:         escreveMesagem(msgSenhaUsuarioActive);
+"452
+[; ;main.c: 452:         escreveMesagem(msgSenhaUsuarioActive);
 [e ( _escreveMesagem (1 &U _msgSenhaUsuarioActive ]
-"455
-[; ;main.c: 455:     }
+"454
+[; ;main.c: 454:     }
 }
 [e :U 194 ]
-"457
-[; ;main.c: 457:     if (valorSensor == 3){
+"456
+[; ;main.c: 456:     if (valorSensor == 3){
 [e $ ! == _valorSensor -> 3 `i 195  ]
 {
-"458
-[; ;main.c: 458:         LCD_linha1();
+"457
+[; ;main.c: 457:         LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"459
-[; ;main.c: 459:         escreveMesagem(msgSenhaCoacaoActive);
+"458
+[; ;main.c: 458:         escreveMesagem(msgSenhaCoacaoActive);
 [e ( _escreveMesagem (1 &U _msgSenhaCoacaoActive ]
-"461
-[; ;main.c: 461:         LCD_linha2();
+"460
+[; ;main.c: 460:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"462
-[; ;main.c: 462:         escreveMesagem(msgSenhaDisparo);
+"461
+[; ;main.c: 461:         escreveMesagem(msgSenhaDisparo);
 [e ( _escreveMesagem (1 &U _msgSenhaDisparo ]
-"463
-[; ;main.c: 463:     }
+"462
+[; ;main.c: 462:     }
 }
 [e :U 195 ]
-"465
-[; ;main.c: 465:     if (valorSensor == 4){
+"464
+[; ;main.c: 464:     if (valorSensor == 4){
 [e $ ! == _valorSensor -> 4 `i 196  ]
 {
-"466
-[; ;main.c: 466:         LCD_linha1();
+"465
+[; ;main.c: 465:         LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"467
-[; ;main.c: 467:         escreveMesagem(msgSenhaCoacao);
+"466
+[; ;main.c: 466:         escreveMesagem(msgSenhaCoacao);
 [e ( _escreveMesagem (1 &U _msgSenhaCoacao ]
-"469
-[; ;main.c: 469:         LCD_linha2();
+"468
+[; ;main.c: 468:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"470
-[; ;main.c: 470:         escreveMesagem(msgSenhaDisparoActive);
+"469
+[; ;main.c: 469:         escreveMesagem(msgSenhaDisparoActive);
 [e ( _escreveMesagem (1 &U _msgSenhaDisparoActive ]
-"471
-[; ;main.c: 471:     }
+"470
+[; ;main.c: 470:     }
 }
 [e :U 196 ]
-"473
-[; ;main.c: 473:     if (valorSensor == 5){
+"472
+[; ;main.c: 472:     if (valorSensor == 5){
 [e $ ! == _valorSensor -> 5 `i 197  ]
 {
-"474
-[; ;main.c: 474:         LCD_linha1();
+"473
+[; ;main.c: 473:         LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"475
-[; ;main.c: 475:         escreveMesagem(msgDesativarZonaActive);
+"474
+[; ;main.c: 474:         escreveMesagem(msgDesativarZonaActive);
 [e ( _escreveMesagem (1 &U _msgDesativarZonaActive ]
-"477
-[; ;main.c: 477:         LCD_linha2();
+"476
+[; ;main.c: 476:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"478
-[; ;main.c: 478:         escreveMesagem(msgReativar);
+"477
+[; ;main.c: 477:         escreveMesagem(msgReativar);
 [e ( _escreveMesagem (1 &U _msgReativar ]
-"479
-[; ;main.c: 479:     }
+"478
+[; ;main.c: 478:     }
 }
 [e :U 197 ]
-"481
-[; ;main.c: 481:     if (valorSensor == 6){
+"480
+[; ;main.c: 480:     if (valorSensor == 6){
 [e $ ! == _valorSensor -> 6 `i 198  ]
 {
-"482
-[; ;main.c: 482:         LCD_linha1();
+"481
+[; ;main.c: 481:         LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"483
-[; ;main.c: 483:         escreveMesagem(msgDesativarZona);
+"482
+[; ;main.c: 482:         escreveMesagem(msgDesativarZona);
 [e ( _escreveMesagem (1 &U _msgDesativarZona ]
-"485
-[; ;main.c: 485:         LCD_linha2();
+"484
+[; ;main.c: 484:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"486
-[; ;main.c: 486:         escreveMesagem(msgReativarActive);
+"485
+[; ;main.c: 485:         escreveMesagem(msgReativarActive);
 [e ( _escreveMesagem (1 &U _msgReativarActive ]
-"487
-[; ;main.c: 487:     }
+"486
+[; ;main.c: 486:     }
 }
 [e :U 198 ]
-"488
-[; ;main.c: 488: }
+"487
+[; ;main.c: 487: }
 [e :UE 192 ]
 }
-"490
-[; ;main.c: 490: void escreveMesagem(char *texto){
+"489
+[; ;main.c: 489: void escreveMesagem(char *texto){
 [v _escreveMesagem `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _escreveMesagem ]
 [v _texto `*uc ~T0 @X0 1 r1 ]
 [f ]
-"492
-[; ;main.c: 492:     for (int i = 0; texto[i] != '\0'; i++){
+"491
+[; ;main.c: 491:     for (int i = 0; texto[i] != '\0'; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 203  ]
 [e :U 200 ]
 {
-"493
-[; ;main.c: 493:         LCD_escreve(texto[i]);
+"492
+[; ;main.c: 492:         LCD_escreve(texto[i]);
 [e ( _LCD_escreve (1 *U + _texto * -> _i `x -> -> # *U _texto `i `x ]
-"494
-[; ;main.c: 494:     }
+"493
+[; ;main.c: 493:     }
 }
 [e ++ _i -> 1 `i ]
 [e :U 203 ]
 [e $ != -> *U + _texto * -> _i `x -> -> # *U _texto `i `x `ui -> 0 `ui 200  ]
 [e :U 201 ]
 }
-"496
-[; ;main.c: 496: }
+"495
+[; ;main.c: 495: }
 [e :UE 199 ]
 }

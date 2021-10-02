@@ -27,6 +27,10 @@
 [v ___flsub __flsub `(d  1 e 4 0 ]
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strcat.c
+[v _strcat strcat `(*.4uc  1 e 1 0 ]
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strcpy.c
+[v _strcpy strcpy `(*.4uc  1 e 1 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8_16.c
@@ -49,7 +53,7 @@
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
 "375
 [v _validaUser validaUser `(v  1 e 1 0 ]
-"490
+"489
 [v _escreveMesagem escreveMesagem `(v  1 e 1 0 ]
 "216 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
@@ -128,10 +132,10 @@
 [v _validaUser validaUser `(v  1 e 1 0 ]
 {
 "377
-[v validaUser@i i `i  1 a 2 35 ]
+[v validaUser@i i `i  1 a 2 33 ]
 "376
-[v validaUser@n n `i  1 a 2 33 ]
-"433
+[v validaUser@n n `i  1 a 2 35 ]
+"432
 } 0
 "119
 [v _teclado teclado `(v  1 e 1 0 ]
@@ -170,17 +174,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S448 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S460 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S453 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S456 . 4 `l 1 i 4 0 `d 1 f 4 0 `S448 1 fAsBytes 4 0 `S453 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S456  1 a 4 15 ]
+[s S465 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S468 . 4 `l 1 i 4 0 `d 1 f 4 0 `S460 1 fAsBytes 4 0 `S465 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S468  1 a 4 15 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 9 ]
-[s S525 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S537 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S528 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S525 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S528  1 a 2 19 ]
+[u S540 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S537 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S540  1 a 2 19 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 14 ]
 "11
@@ -212,6 +216,32 @@
 [v ___flge@ff1 ff1 `d  1 p 4 0 ]
 [v ___flge@ff2 ff2 `d  1 p 4 4 ]
 "19
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strcpy.c
+[v _strcpy strcpy `(*.4uc  1 e 1 0 ]
+{
+[v strcpy@to to `*.4uc  1 a 1 wreg ]
+"15
+[v strcpy@cp cp `*.4uc  1 a 1 2 ]
+"8
+[v strcpy@to to `*.4uc  1 a 1 wreg ]
+[v strcpy@from from `*.4DCuc  1 p 1 0 ]
+"18
+[v strcpy@to to `*.4uc  1 a 1 3 ]
+"24
+} 0
+"8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strcat.c
+[v _strcat strcat `(*.4uc  1 e 1 0 ]
+{
+[v strcat@to to `*.4uc  1 a 1 wreg ]
+"15
+[v strcat@cp cp `*.4uc  1 a 1 8 ]
+"8
+[v strcat@to to `*.4uc  1 a 1 wreg ]
+[v strcat@from from `*.39DCuc  1 p 2 4 ]
+"18
+[v strcat@to to `*.4uc  1 a 1 7 ]
+"26
 } 0
 "56 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_limpa LCD_limpa `(v  1 e 1 0 ]

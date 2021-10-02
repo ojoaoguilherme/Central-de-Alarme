@@ -2234,7 +2234,6 @@ void validaUser(){
 
     while(userFalse){
         while(n < 8){
-            n++;
             input = 10;
             LCD_limpa();
             LCD_escreve('N');
@@ -2276,11 +2275,11 @@ void validaUser(){
                     aux = '0';
                 break;
             }
-
-            LCD_escreve('A');
-            LCD_escreve(':');
-            LCD_escreve(aux);
+            strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
+            LCD_escreve(senhaUserConfere[n]);
             _delay((unsigned long)((3000)*(20000000/4000.0)));
+
+             n++;
         }
 
     }
