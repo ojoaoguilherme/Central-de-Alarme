@@ -1943,15 +1943,17 @@ void main(void) {
             painel = 0;
         }
 
-
         while (userFalse){
            validaUser();
         }
-        LCD_limpa();
-        LCD_linha1();
-        LCD_escreve('O');
-        LCD_escreve('k');
-# 101 "main.c"
+# 86 "main.c"
+        for (int i = 0; i < 10; i++){
+            valorSensor = i;
+            listaZonas(valorSensor);
+            _delay((unsigned long)((2500)*(20000000/4000.0)));
+        }
+
+
         teclado();
     }
 }
@@ -2289,54 +2291,40 @@ void validaUser(){
 
 
 void listaZonas(int valorSensor){
-    LCD_limpa();
 
     if (valorSensor == 1){
         LCD_linha1();
         escreveMesagem(msgSenhaConfigActive);
-
         LCD_linha2();
         escreveMesagem(msgSenhaUsuario);
-
     }
-
     if (valorSensor == 2){
         LCD_linha1();
         escreveMesagem(msgSenhaConfig);
-
         LCD_linha2();
         escreveMesagem(msgSenhaUsuarioActive);
-
     }
-
     if (valorSensor == 3){
         LCD_linha1();
         escreveMesagem(msgSenhaCoacaoActive);
-
         LCD_linha2();
         escreveMesagem(msgSenhaDisparo);
     }
-
     if (valorSensor == 4){
         LCD_linha1();
         escreveMesagem(msgSenhaCoacao);
-
         LCD_linha2();
         escreveMesagem(msgSenhaDisparoActive);
     }
-
     if (valorSensor == 5){
         LCD_linha1();
         escreveMesagem(msgDesativarZonaActive);
-
         LCD_linha2();
         escreveMesagem(msgReativar);
     }
-
     if (valorSensor == 6){
         LCD_linha1();
         escreveMesagem(msgDesativarZona);
-
         LCD_linha2();
         escreveMesagem(msgReativarActive);
     }

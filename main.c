@@ -71,32 +71,24 @@ void main(void) {
             Linha2();
             painel = 0;
         }
-
         //Enquanto o usuario não digitar a senha não tem acesso
         while (userFalse){
            validaUser();
         }
-        LCD_limpa();
-        LCD_linha1();
-        LCD_escreve('O');
-        LCD_escreve('k');
+        //implementar o painel das zonas em forma de menu
+        // e rolagem de acordo com o potenciometro
+        // sentido horario - faz o menu descer
+        // sentido anti-horario - faz subir
 
-//        if (userFalse == 0){
-//            int i;
-//            //implementar o painel das zonas em forma de menu
-//            // e rolagem de acordo com o potenciometro
-//            // sentido horario - faz o menu descer
-//            // sentido anti-horario - faz subir
-//
-//            //esse for é uma simulação para ajustar a lista de zonas
-//            // a cada 2segundos o menu muda simulando o potenciometro girando
-//            // sentido horario então a setinha desce.
-//            for (i = 0; i < 10; i++){
-//                valorSensor = i;
-//                listaZonas(valorSensor);
-//                __delay_ms(2500);
-//            }
-//        }
+        //esse for é uma simulação para ajustar a lista de zonas
+        // a cada 2segundos o menu muda simulando o potenciometro girando
+        // sentido horario então a setinha desce.
+        for (int i = 0; i < 10; i++){
+            valorSensor = i;
+            listaZonas(valorSensor);
+            __delay_ms(2500);
+        }
+
         
         teclado();
     }
@@ -435,54 +427,40 @@ void validaUser(){
 
 //Listagem das zonas no display
 void listaZonas(int valorSensor){
-    LCD_limpa();
-    
+//    LCD_limpa();
     if (valorSensor == 1){
         LCD_linha1();
         escreveMesagem(msgSenhaConfigActive);
-        
         LCD_linha2();
         escreveMesagem(msgSenhaUsuario);
-        
     }
-    
     if (valorSensor == 2){
         LCD_linha1();
         escreveMesagem(msgSenhaConfig);
-        
         LCD_linha2();
         escreveMesagem(msgSenhaUsuarioActive);
-        
     }
-    
     if (valorSensor == 3){
         LCD_linha1();
         escreveMesagem(msgSenhaCoacaoActive);
-        
         LCD_linha2();
         escreveMesagem(msgSenhaDisparo);
     }
-    
     if (valorSensor == 4){
         LCD_linha1();
         escreveMesagem(msgSenhaCoacao);
-        
         LCD_linha2();
         escreveMesagem(msgSenhaDisparoActive);
     }
-    
     if (valorSensor == 5){
         LCD_linha1();
         escreveMesagem(msgDesativarZonaActive);
-        
         LCD_linha2();
         escreveMesagem(msgReativar);
     }
-    
     if (valorSensor == 6){
         LCD_linha1();
         escreveMesagem(msgDesativarZona);
-        
         LCD_linha2();
         escreveMesagem(msgReativarActive);
     }
