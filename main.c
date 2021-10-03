@@ -88,8 +88,6 @@ void main(void) {
             listaZonas(valorSensor);
             __delay_ms(2500);
         }
-
-        
         teclado();
     }
 }
@@ -99,7 +97,6 @@ void main(void) {
 void liga_buzzer(float tempoSegundos){
     tempoSegundos = tempoSegundos * 1000;
     __delay_ms(10);
-    
     //defini quanto tempo queremos o buzzer ligado
     while(tempoSegundos > 0){
        PORTE = 0;
@@ -111,7 +108,6 @@ void liga_buzzer(float tempoSegundos){
 
 // Mapeamento dos teclados
 void teclado(){
-    
     PORTE = 0x01;
     // ***
     // Verificação da primeira linha do teclado
@@ -124,11 +120,9 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('0');
-        
         if(userFalse == 1){
             input = 0;
         }
-          
     }
     // ***
     // Numero 1
@@ -137,13 +131,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('1');
-        
         if(userFalse == 1){
             input = 1;
         }
-        
     }
-
     // ***
     // Numero 2
     // ***
@@ -151,11 +142,9 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('2');
-        
         if(userFalse == 1){
             input = 2;
         }
-        
     }
     // ***
     // Numero 3
@@ -164,18 +153,14 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('3');
-        
         if(userFalse == 1){
             input = 3;
         }
-       
     }
-
     // ***
     // Verificação da segunda linha do teclado
     // ***
     PORTB = 0b11011111; // verificando a segunda linha
-
     // ***
     // Numero 4
     // ***
@@ -183,11 +168,9 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('4');
-        
         if(userFalse == 1){
             input = 4;
         }
-       
     }
     // ***
     // Numero 5
@@ -196,13 +179,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('5');
-        
         if(userFalse == 1){
             input = 5;
         }
-       
     }
-
     // ***
     // Numero 6
     // ***
@@ -210,11 +190,9 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('6');
-        
         if(userFalse == 1){
             input = 6;
         }
-
     }
     // ***
     // Numero 7
@@ -223,18 +201,14 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('7');
-        
         if(userFalse == 1){
             input = 7;
         }
-        
     }
-
     // ***
     // Verificação da terceira linha do teclado
     // ***
     PORTB = 0b10111111;
-
     // ***
     // Numero 8
     // ***
@@ -242,12 +216,9 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('8');
-        
         if(userFalse == 1){
             input = 8;
         }
-        
-        
     }
     // ***
     // Numero 9
@@ -256,13 +227,10 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('9');
-        
         if(userFalse == 1){
             input = 9;
         }
-        
     }
-    
     // ***
     // Letra A
     // ***
@@ -270,9 +238,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('A');
-        
     }
-    
     // ***
     // Letra B
     // ***
@@ -280,14 +246,11 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('B');
-        
     }
-    
     // ***
     // Verificação da quarta linha do teclado
     // ***
     PORTB = 0b01111111;
-
     // ***
     // Letra C
     // ***
@@ -295,9 +258,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('C');
-        
     }
-    
     // ***
     // Letra D
     // ***
@@ -305,9 +266,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('D');
-        
     }
-    
     // ***
     // Letra E
     // ***
@@ -315,9 +274,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('E');
-        
     }
-    
     // ***
     // Letra F
     // ***
@@ -325,21 +282,17 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('F');
-        
     }
-    
 }
 
 //Função que escreve na tela "Digite sua senha" centralizado no LCD
 void telaInicial(){
-    
     LCD_linha1();
     LCD_escreve(' ');
     for (int i = 0; i <= strlen(msgDigiteSenha)-1; i++){
         LCD_escreve(msgDigiteSenha[i]);
     }
     LCD_escreve(' ');
-     
 }
 
 // Para fundionar o teclado e atualização da função espaçoLivre 
@@ -352,7 +305,6 @@ void Linha2(){
         LCD_escreve(msgMascara[i]);  
     }
     espacoLivre();
-    
 }
 
 // Usado para centralizar os digitos quando inseridos no painel
@@ -362,7 +314,6 @@ void espacoLivre(){
     for (int i = 0; i < 6; i++){
         LCD_escreve(' ');
     }
-
 }
 
 //Função que valida a senha do usuario
