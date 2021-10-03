@@ -1947,7 +1947,11 @@ void main(void) {
         while (userFalse){
            validaUser();
         }
-# 97 "main.c"
+        LCD_limpa();
+        LCD_linha1();
+        LCD_escreve('O');
+        LCD_escreve('k');
+# 101 "main.c"
         teclado();
     }
 }
@@ -1963,9 +1967,7 @@ void liga_buzzer(float tempoSegundos){
        PORTE = 0;
         _delay((unsigned long)((1)*(20000000/4000.0)));
         tempoSegundos--;
-
     }
-
     PORTE = 0x0F;
 }
 
@@ -2227,19 +2229,9 @@ void espacoLivre(){
 
 
 void validaUser(){
-    int n = 0;
-    for(int i =0; senhaUserConfere[i] != '\0'; i++){
-        senhaUserConfere[i] = '\0';
-    }
-
     while(userFalse){
-        while(n < 8){
+        for(int n = 0; n < 8; n++){
             input = 10;
-            LCD_limpa();
-            LCD_escreve('N');
-            LCD_escreve(':');
-            LCD_escreve(n + 48);
-
             while (input == 10){
                 teclado();
             }
@@ -2275,13 +2267,23 @@ void validaUser(){
                     aux = '0';
                 break;
             }
-            strcat(strcpy(senhaUserConfere, senhaUserConfere), aux);
-            LCD_escreve(senhaUserConfere[n]);
-            _delay((unsigned long)((3000)*(20000000/4000.0)));
-
-             n++;
+            senhaUserConfere[n] = aux;
+            if (n == 3){
+                if (strcmp(senhaUser, senhaUserConfere) != 0){
+                    userFalse = 1;
+                    LCD_limpa();
+                    LCD_linha1();
+                    escreveMesagem(msgSenhaErrada);
+                }
+            }
+            if (strcmp(senhaUser, senhaUserConfere)==0){
+                userFalse = 0;
+                n = 10;
+                LCD_limpa();
+                LCD_linha1();
+                escreveMesagem(msgSenhaCorreta);
+            }
         }
-
     }
 }
 
@@ -2341,9 +2343,7 @@ void listaZonas(int valorSensor){
 }
 
 void escreveMesagem(char *texto){
-
     for (int i = 0; texto[i] != '\0'; i++){
         LCD_escreve(texto[i]);
     }
-
 }
