@@ -1,16 +1,9 @@
-/*
- * File:   main.c
- * Author 1: João Guilherme, RU: 2824600
- * Author 2: João Vitor, RU: 2815080
- * Created on 27 de Setembro de 2021, 01:31
- */
-
 #define _XTAL_FREQ 20000000
 #include <pic16f877a.h>
 #include <string.h>
 #include "lcd.h"
 #include <xc.h>
-
+void alteraSenhaUser(unsigned int opConfig);
 void liga_buzzer(float tempoSegundos);
 void escreveMesagem(char *texto);
 void teclado();
@@ -19,28 +12,23 @@ void Linha2();
 void espacoLivre();
 void validaUser();
 void listaZonas(unsigned int valor);
-
-// conversor ADC
+void alteraSenhaUser();
 void inicioADC ();
 unsigned int leituraADC (unsigned char canal);
 unsigned int auxSensor = 204;
 unsigned int valorSensor = 0;
 unsigned int valorSensorAux = 0;
-
-//Usuario
 int input = 10;
+unsigned int alteraSenha = 0; 
 char *aux;
 char senhaUser[5] = "1212";
 char senhaUserConfere[5] = "0000";
 char senhaCoa[5] = "5555";
 char senhaConfig[5] = "0000";
-
-//Config
 int painel = 1;
 int userFalse = 1;
 int menu = 1;
-
-//Interface
+unsigned int opConfig = 0;
 char msgSenhaErrada[13] = "Senha errada";
 char msgSenhaCorreta[14] = "Senha correta";
 char msgSenhaConfigActive[14] = ">Senha Config";
@@ -56,55 +44,86 @@ char msgDesativarZona[15] = "Desativar Zona";
 char msgReativarActive[10] = ">Reativar";
 char msgReativar[9] = "Reativar";
 char msgDigiteSenha[15] = "Digite a senha";
+char msgDigiteNovaSenha[14] = "   Nova senha";
 char msgMascara[5] = "____";
-
 void main(void) {
-    TRISE = 0x00; //Porta de saida para ligar o buzzer
-    TRISD = 0x00; //liga a porta do display
-    TRISB = 0x0F; //pinagem do teclado
-    PORTE = 0x01; //desligando o buzzer = 0000 0001
-    
+    TRISE = 0x00; 
+    TRISD = 0x00; 
+    TRISB = 0x0F; 
+    PORTE = 0x01;
     inicioADC();
-    
     while (1){
+//        while (painel){
+//            LCD_init();
+//            LCD_limpa();
+//            telaInicial();
+//            Linha2();
+//            painel = 0;
+//        }
+//        __delay_ms(100);
+//        
+//        while (userFalse){
+//           validaUser();
+//        }
         
-        //Painel inicial da central
-        while (painel){
-            LCD_init();
-            LCD_limpa();
-            telaInicial();
-            Linha2();
-            painel = 0;
-        }
-        __delay_ms(100);
-        //Enquanto o usuario não digitar a senha não tem acesso
-        while (userFalse){
-           validaUser();
-        }
-        
-        //implementar o painel das zonas em forma de menu
-        // e rolagem de acordo com o potenciometro
-        // sentido horario - faz o menu descer
-        // sentido anti-horario - faz subir
-
-        //esse for é uma simulação para ajustar a lista de zonas
-        // a cada 2segundos o menu muda simulando o potenciometro girando
-        // sentido horario então a setinha desce.
-        
+        userFalse = 0;
         while (menu){
             valorSensor = leituraADC(2);
             listaZonas(valorSensor);
             __delay_ms(100); 
+            opConfig = 2;
+            
+            if (opConfig > 0){
+                LCD_limpa();
+                switch (opConfig){
+                    case 1:
+                        // alterar a senha config
+                        break;
+                    case 2:
+                        alteraSenhaUser(opConfig);
+                        break;
+                    case 3:
+                        //alterar senha coação
+                        break;
+                    case 4:
+                        //config disparo
+                        break;
+                    case 5:
+                        //desativar zona
+                        break;
+                    case 6:
+                        //reativar zona
+                        break;
+
+                }
+            }  
         }
     }
 }
 
-//Aciona o buzzer com a quantidade de segundos que quisermos
-//passando por parametro.
+void alteraSenhaUser(unsigned int opConfig){
+    LCD_init();
+    LCD_limpa();
+    escreveMesagem(msgDigiteNovaSenha);
+    Linha2();
+    __delay_ms(3000);
+    if (opConfig == 1){
+        for (int i = 0; i <= 4; i++){
+            while (input == 10){teclado();}
+            senhaUser[i] = aux;
+        }
+    }
+//    else if (opConfig == 2){
+//        for (unsigned int i = 0; i <= 4; i++){;
+//            while (input == 10){teclado();}
+//            senhaUser[i] = aux;
+//        }
+//    }
+    
+}
 void liga_buzzer(float tempoSegundos){
     tempoSegundos = tempoSegundos * 1000;
     __delay_ms(10);
-    //defini quanto tempo queremos o buzzer ligado
     while(tempoSegundos > 0){
        PORTE = 0;
         __delay_ms(1);
@@ -112,8 +131,6 @@ void liga_buzzer(float tempoSegundos){
     }
     PORTE = 0x0F;
 }
-
-// Mapeamento dos teclados
 void teclado(){
     PORTE = 0x01;
     // ***
@@ -127,8 +144,11 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('0');
-        if(userFalse == 1){
+        if(userFalse){
             input = 0;
+        }
+        if (alteraSenha){
+            aux = '1';
         }
     }
     // ***
@@ -138,7 +158,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('1');
-        if(userFalse == 1){
+        if(userFalse){
             input = 1;
         }
     }
@@ -149,7 +169,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('2');
-        if(userFalse == 1){
+        if(userFalse){
             input = 2;
         }
     }
@@ -160,7 +180,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('3');
-        if(userFalse == 1){
+        if(userFalse){
             input = 3;
         }
     }
@@ -175,7 +195,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('4');
-        if(userFalse == 1){
+        if(userFalse){
             input = 4;
         }
     }
@@ -186,7 +206,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('5');
-        if(userFalse == 1){
+        if(userFalse){
             input = 5;
         }
     }
@@ -197,7 +217,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('6');
-        if(userFalse == 1){
+        if(userFalse){
             input = 6;
         }
     }
@@ -208,7 +228,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('7');
-        if(userFalse == 1){
+        if(userFalse){
             input = 7;
         }
     }
@@ -223,7 +243,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('8');
-        if(userFalse == 1){
+        if(userFalse){
             input = 8;
         }
     }
@@ -234,7 +254,7 @@ void teclado(){
         __delay_ms(200);
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('9');
-        if(userFalse == 1){
+        if(userFalse){
             input = 9;
         }
     }
@@ -291,8 +311,6 @@ void teclado(){
         LCD_escreve('F');
     }
 }
-
-//Função que escreve na tela "Digite sua senha" centralizado no LCD
 void telaInicial(){
     LCD_linha1();
     LCD_escreve(' ');
@@ -301,10 +319,6 @@ void telaInicial(){
     }
     LCD_escreve(' ');
 }
-
-// Para fundionar o teclado e atualização da função espaçoLivre 
-// deve separar o painel em duas partes como "Digite sua senha" sendo estatico
-// e "_ _ _ _" sendo atualizada a cada numero inserido 
 void Linha2(){
     LCD_linha2();
     espacoLivre();
@@ -313,17 +327,12 @@ void Linha2(){
     }
     espacoLivre();
 }
-
-// Usado para centralizar os digitos quando inseridos no painel
-// exemplo: "_ _ _ _" quando inserir = "1 _ _ _"
 void espacoLivre(){
     LCD_linha2();
     for (int i = 0; i < 6; i++){
         LCD_escreve(' ');
     }
 }
-
-//Função que valida a senha do usuario
 void validaUser(){
     while(userFalse){
         for(int n = 0; n < 8; n++){
@@ -386,8 +395,6 @@ void validaUser(){
         }
     }
 }
-
-//Listagem das zonas no display
 void listaZonas(unsigned int valorSensor){
     if (valorSensor <= auxSensor){
         LCD_init();
@@ -396,6 +403,12 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaConfigActive);
         LCD_linha2();
         escreveMesagem(msgSenhaUsuario);
+        PORTB = 0b10111111;
+        if (RB2 == 0){
+            __delay_ms(200);
+            liga_buzzer(0.1);
+            opConfig = 1;
+        }
     }
     else if (valorSensor <= 2*auxSensor){
         LCD_init();
@@ -404,6 +417,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaConfig);
         LCD_linha2();
         escreveMesagem(msgSenhaUsuarioActive);
+        if (RB2 == 0){
+            __delay_ms(200);
+            liga_buzzer(0.1);
+            opConfig = 2;
+        }
     }
     else if (valorSensor <= 3*auxSensor){
         LCD_init();
@@ -412,6 +430,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaCoacaoActive);
         LCD_linha2();
         escreveMesagem(msgSenhaDisparo);
+        if (RB2 == 0){
+            __delay_ms(200);
+            liga_buzzer(0.1);
+            opConfig = 3;
+        }
     }
     else if (valorSensor <= 4*auxSensor){
         LCD_init();
@@ -420,6 +443,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaCoacao);
         LCD_linha2();
         escreveMesagem(msgSenhaDisparoActive);
+        if (RB2 == 0){
+            __delay_ms(200);
+            liga_buzzer(0.1);
+            opConfig = 4;
+        }
     }
     else if (valorSensor <= 5*auxSensor){
         LCD_init();
@@ -428,6 +456,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgDesativarZonaActive);
         LCD_linha2();
         escreveMesagem(msgReativar);
+        if (RB2 == 0){
+            __delay_ms(200);
+            liga_buzzer(0.1);
+            opConfig = 5;
+        }
     }
     else if (valorSensor <= 6*auxSensor){
         LCD_init();
@@ -436,15 +469,18 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgDesativarZona);
         LCD_linha2();
         escreveMesagem(msgReativarActive);
+        if (RB2 == 0){
+            __delay_ms(200);
+            liga_buzzer(0.1);
+            opConfig = 6;
+        }
     }
 }
-
 void escreveMesagem(char *texto){
     for (int i = 0; texto[i] != '\0'; i++){
         LCD_escreve(texto[i]);
     }
 }
-
 void inicioADC (){
     TRISA = 0xFF;
     // pino 0 = 1 (liga) && pino = 1 (divisão de clock 32)
@@ -454,7 +490,6 @@ void inicioADC (){
     // pino 8 = 1 (dados justificados para direita)
     ADCON1 = 0x80; //0b10000000
 }
-
 unsigned int leituraADC (unsigned char canal){
     unsigned int leitura;
     //limpa o registrador para futura validação

@@ -8,13 +8,6 @@
 # 2 "<built-in>" 2
 # 1 "main.c" 2
 
-
-
-
-
-
-
-
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\proc\\pic16f877a.h" 1 3
 # 44 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\proc\\pic16f877a.h" 3
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\__at.h" 1 3
@@ -1654,7 +1647,7 @@ extern volatile __bit nW __attribute__((address(0x4A2)));
 
 
 extern volatile __bit nWRITE __attribute__((address(0x4A2)));
-# 9 "main.c" 2
+# 2 "main.c" 2
 
 # 1 "C:\\Program Files\\Microchip\\xc8\\v2.32\\pic\\include\\c90\\string.h" 1 3
 
@@ -1707,7 +1700,7 @@ extern char * strchr(const char *, int);
 extern char * strichr(const char *, int);
 extern char * strrchr(const char *, int);
 extern char * strrichr(const char *, int);
-# 10 "main.c" 2
+# 3 "main.c" 2
 
 # 1 "./lcd.h" 1
 # 10 "./lcd.h"
@@ -1809,7 +1802,7 @@ void LCD_escreveFrase(char *frase)
         LCD_escreve(frase[i]);
     }
 }
-# 11 "main.c" 2
+# 4 "main.c" 2
 
 # 1 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 1 3
 # 18 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 3
@@ -1879,9 +1872,9 @@ extern __bank0 unsigned char __resetbits;
 extern __bank0 __bit __powerdown;
 extern __bank0 __bit __timeout;
 # 28 "C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\\pic\\include\\xc.h" 2 3
-# 12 "main.c" 2
+# 5 "main.c" 2
 
-
+void alteraSenhaUser(unsigned int opConfig);
 void liga_buzzer(float tempoSegundos);
 void escreveMesagem(char *texto);
 void teclado();
@@ -1890,28 +1883,23 @@ void Linha2();
 void espacoLivre();
 void validaUser();
 void listaZonas(unsigned int valor);
-
-
+void alteraSenhaUser();
 void inicioADC ();
 unsigned int leituraADC (unsigned char canal);
 unsigned int auxSensor = 204;
 unsigned int valorSensor = 0;
 unsigned int valorSensorAux = 0;
-
-
 int input = 10;
+unsigned int alteraSenha = 0;
 char *aux;
 char senhaUser[5] = "1212";
 char senhaUserConfere[5] = "0000";
 char senhaCoa[5] = "5555";
 char senhaConfig[5] = "0000";
-
-
 int painel = 1;
 int userFalse = 1;
 int menu = 1;
-
-
+unsigned int opConfig = 0;
 char msgSenhaErrada[13] = "Senha errada";
 char msgSenhaCorreta[14] = "Senha correta";
 char msgSenhaConfigActive[14] = ">Senha Config";
@@ -1927,46 +1915,74 @@ char msgDesativarZona[15] = "Desativar Zona";
 char msgReativarActive[10] = ">Reativar";
 char msgReativar[9] = "Reativar";
 char msgDigiteSenha[15] = "Digite a senha";
+char msgDigiteNovaSenha[14] = "   Nova senha";
 char msgMascara[5] = "____";
-
 void main(void) {
     TRISE = 0x00;
     TRISD = 0x00;
     TRISB = 0x0F;
     PORTE = 0x01;
-
     inicioADC();
-
     while (1){
-
-
-        while (painel){
-            LCD_init();
-            LCD_limpa();
-            telaInicial();
-            Linha2();
-            painel = 0;
-        }
-        _delay((unsigned long)((100)*(20000000/4000.0)));
-
-        while (userFalse){
-           validaUser();
-        }
-# 94 "main.c"
+# 69 "main.c"
+        userFalse = 0;
         while (menu){
             valorSensor = leituraADC(2);
             listaZonas(valorSensor);
             _delay((unsigned long)((100)*(20000000/4000.0)));
+            opConfig = 2;
+
+            if (opConfig > 0){
+                LCD_limpa();
+                switch (opConfig){
+                    case 1:
+
+                        break;
+                    case 2:
+                        alteraSenhaUser(opConfig);
+                        break;
+                    case 3:
+
+                        break;
+                    case 4:
+
+                        break;
+                    case 5:
+
+                        break;
+                    case 6:
+
+                        break;
+
+                }
+            }
         }
     }
 }
 
+void alteraSenhaUser(unsigned int opConfig){
+    LCD_init();
+    LCD_limpa();
+    escreveMesagem(msgDigiteNovaSenha);
+    Linha2();
+    _delay((unsigned long)((3000)*(20000000/4000.0)));
+    if (opConfig == 1){
+        for (int i = 0; i <= 4; i++){
+            while (input == 10){teclado();}
+            senhaUser[i] = aux;
+        }
+    }
 
 
+
+
+
+
+
+}
 void liga_buzzer(float tempoSegundos){
     tempoSegundos = tempoSegundos * 1000;
     _delay((unsigned long)((10)*(20000000/4000.0)));
-
     while(tempoSegundos > 0){
        PORTE = 0;
         _delay((unsigned long)((1)*(20000000/4000.0)));
@@ -1974,8 +1990,6 @@ void liga_buzzer(float tempoSegundos){
     }
     PORTE = 0x0F;
 }
-
-
 void teclado(){
     PORTE = 0x01;
 
@@ -1989,8 +2003,11 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('0');
-        if(userFalse == 1){
+        if(userFalse){
             input = 0;
+        }
+        if (alteraSenha){
+            aux = '1';
         }
     }
 
@@ -2000,7 +2017,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('1');
-        if(userFalse == 1){
+        if(userFalse){
             input = 1;
         }
     }
@@ -2011,7 +2028,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('2');
-        if(userFalse == 1){
+        if(userFalse){
             input = 2;
         }
     }
@@ -2022,7 +2039,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('3');
-        if(userFalse == 1){
+        if(userFalse){
             input = 3;
         }
     }
@@ -2037,7 +2054,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('4');
-        if(userFalse == 1){
+        if(userFalse){
             input = 4;
         }
     }
@@ -2048,7 +2065,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('5');
-        if(userFalse == 1){
+        if(userFalse){
             input = 5;
         }
     }
@@ -2059,7 +2076,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('6');
-        if(userFalse == 1){
+        if(userFalse){
             input = 6;
         }
     }
@@ -2070,7 +2087,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('7');
-        if(userFalse == 1){
+        if(userFalse){
             input = 7;
         }
     }
@@ -2085,7 +2102,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('8');
-        if(userFalse == 1){
+        if(userFalse){
             input = 8;
         }
     }
@@ -2096,7 +2113,7 @@ void teclado(){
         _delay((unsigned long)((200)*(20000000/4000.0)));
         liga_buzzer(0.1);
         LCD_escreve('9');
-        if(userFalse == 1){
+        if(userFalse){
             input = 9;
         }
     }
@@ -2153,8 +2170,6 @@ void teclado(){
         LCD_escreve('F');
     }
 }
-
-
 void telaInicial(){
     LCD_linha1();
     LCD_escreve(' ');
@@ -2163,10 +2178,6 @@ void telaInicial(){
     }
     LCD_escreve(' ');
 }
-
-
-
-
 void Linha2(){
     LCD_linha2();
     espacoLivre();
@@ -2175,17 +2186,12 @@ void Linha2(){
     }
     espacoLivre();
 }
-
-
-
 void espacoLivre(){
     LCD_linha2();
     for (int i = 0; i < 6; i++){
         LCD_escreve(' ');
     }
 }
-
-
 void validaUser(){
     while(userFalse){
         for(int n = 0; n < 8; n++){
@@ -2248,8 +2254,6 @@ void validaUser(){
         }
     }
 }
-
-
 void listaZonas(unsigned int valorSensor){
     if (valorSensor <= auxSensor){
         LCD_init();
@@ -2258,6 +2262,12 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaConfigActive);
         LCD_linha2();
         escreveMesagem(msgSenhaUsuario);
+        PORTB = 0b10111111;
+        if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
+            liga_buzzer(0.1);
+            opConfig = 1;
+        }
     }
     else if (valorSensor <= 2*auxSensor){
         LCD_init();
@@ -2266,6 +2276,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaConfig);
         LCD_linha2();
         escreveMesagem(msgSenhaUsuarioActive);
+        if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
+            liga_buzzer(0.1);
+            opConfig = 2;
+        }
     }
     else if (valorSensor <= 3*auxSensor){
         LCD_init();
@@ -2274,6 +2289,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaCoacaoActive);
         LCD_linha2();
         escreveMesagem(msgSenhaDisparo);
+        if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
+            liga_buzzer(0.1);
+            opConfig = 3;
+        }
     }
     else if (valorSensor <= 4*auxSensor){
         LCD_init();
@@ -2282,6 +2302,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaCoacao);
         LCD_linha2();
         escreveMesagem(msgSenhaDisparoActive);
+        if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
+            liga_buzzer(0.1);
+            opConfig = 4;
+        }
     }
     else if (valorSensor <= 5*auxSensor){
         LCD_init();
@@ -2290,6 +2315,11 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgDesativarZonaActive);
         LCD_linha2();
         escreveMesagem(msgReativar);
+        if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
+            liga_buzzer(0.1);
+            opConfig = 5;
+        }
     }
     else if (valorSensor <= 6*auxSensor){
         LCD_init();
@@ -2298,15 +2328,18 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgDesativarZona);
         LCD_linha2();
         escreveMesagem(msgReativarActive);
+        if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
+            liga_buzzer(0.1);
+            opConfig = 6;
+        }
     }
 }
-
 void escreveMesagem(char *texto){
     for (int i = 0; texto[i] != '\0'; i++){
         LCD_escreve(texto[i]);
     }
 }
-
 void inicioADC (){
     TRISA = 0xFF;
 
@@ -2316,7 +2349,6 @@ void inicioADC (){
 
     ADCON1 = 0x80;
 }
-
 unsigned int leituraADC (unsigned char canal){
     unsigned int leitura;
 
