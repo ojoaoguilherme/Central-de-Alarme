@@ -1,3 +1,3 @@
 # Central-de-Alarme
 
-É um projeto da faculdade que consiste em desenvolver uma central de alarmes  
+Um projeto utilizando o PIC16f877a ainda em construção
