@@ -31,36 +31,46 @@
 [v _strcmp strcmp `(i  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
+"15 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul16.c
+[v ___wmul __wmul `(ui  1 e 2 0 ]
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\Umul8_16.c
 [v __Umul8_16 _Umul8_16 `(ui  1 e 2 0 ]
 "6 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\pic\__eeprom.c
 [v ___eecpymem __eecpymem `(v  1 e 1 0 ]
 "39
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
-"55 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"61 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"97
+"104
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
-"110
+"117
 [v _teclado teclado `(v  1 e 1 0 ]
-"289
+"296
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
-"301
+"308
 [v _Linha2 Linha2 `(v  1 e 1 0 ]
-"312
+"319
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
-"320
+"327
 [v _validaUser validaUser `(v  1 e 1 0 ]
-"380
+"391
 [v _listaZonas listaZonas `(v  1 e 1 0 ]
-"420
+"442
 [v _escreveMesagem escreveMesagem `(v  1 e 1 0 ]
+"448
+[v _inicioADC inicioADC `(v  1 e 1 0 ]
+"458
+[v _leituraADC leituraADC `(ui  1 e 2 0 ]
 "216 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "340
 [v _PORTD PORTD `VEuc  1 e 1 @8 ]
 "402
 [v _PORTE PORTE `VEuc  1 e 1 @9 ]
+"1152
+[v _ADRESH ADRESH `VEuc  1 e 1 @30 ]
+"1159
+[v _ADCON0 ADCON0 `VEuc  1 e 1 @31 ]
 "1325
 [v _TRISA TRISA `VEuc  1 e 1 @133 ]
 "1375
@@ -69,8 +79,12 @@
 [v _TRISD TRISD `VEuc  1 e 1 @136 ]
 "1561
 [v _TRISE TRISE `VEuc  1 e 1 @137 ]
+"2222
+[v _ADRESL ADRESL `VEuc  1 e 1 @158 ]
 "2229
 [v _ADCON1 ADCON1 `VEuc  1 e 1 @159 ]
+"2578
+[v _GO_nDONE GO_nDONE `VEb  1 e 0 @250 ]
 "2659
 [v _RA1 RA1 `VEb  1 e 0 @41 ]
 "2665
@@ -87,76 +101,76 @@
 [v _RB2 RB2 `VEb  1 e 0 @50 ]
 "2683
 [v _RB3 RB3 `VEb  1 e 0 @51 ]
-"24 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"27 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+[v _valorSensor valorSensor `ui  1 e 2 0 ]
+"31
 [v _input input `i  1 e 2 0 ]
-"25
-[v _aux aux `*.39uc  1 e 2 0 ]
-"26
-[v _senhaUser senhaUser `[5]uc  1 e 5 0 ]
-"27
-[v _senhaUserConfere senhaUserConfere `[5]uc  1 e 5 0 ]
 "32
-[v _painel painel `i  1 e 2 0 ]
+[v _aux aux `*.39uc  1 e 2 0 ]
 "33
-[v _userFalse userFalse `i  1 e 2 0 ]
-"35
-[v _valorSensor valorSensor `i  1 e 2 0 ]
-"38
-[v _msgSenhaErrada msgSenhaErrada `[13]uc  1 e 13 0 ]
+[v _senhaUser senhaUser `[5]uc  1 e 5 0 ]
+"34
+[v _senhaUserConfere senhaUserConfere `[5]uc  1 e 5 0 ]
 "39
-[v _msgSenhaCorreta msgSenhaCorreta `[14]uc  1 e 14 0 ]
+[v _painel painel `i  1 e 2 0 ]
 "40
-[v _msgSenhaConfigActive msgSenhaConfigActive `[14]uc  1 e 14 0 ]
+[v _userFalse userFalse `i  1 e 2 0 ]
 "41
-[v _msgSenhaConfig msgSenhaConfig `[13]uc  1 e 13 0 ]
-"42
-[v _msgSenhaUsuarioActive msgSenhaUsuarioActive `[15]uc  1 e 15 0 ]
-"43
-[v _msgSenhaUsuario msgSenhaUsuario `[14]uc  1 e 14 0 ]
+[v _menu menu `i  1 e 2 0 ]
 "44
-[v _msgSenhaCoacaoActive msgSenhaCoacaoActive `[14]uc  1 e 14 0 ]
+[v _msgSenhaErrada msgSenhaErrada `[13]uc  1 e 13 0 ]
 "45
-[v _msgSenhaCoacao msgSenhaCoacao `[13]uc  1 e 13 0 ]
+[v _msgSenhaCorreta msgSenhaCorreta `[14]uc  1 e 14 0 ]
 "46
-[v _msgSenhaDisparoActive msgSenhaDisparoActive `[15]uc  1 e 15 0 ]
+[v _msgSenhaConfigActive msgSenhaConfigActive `[14]uc  1 e 14 0 ]
 "47
-[v _msgSenhaDisparo msgSenhaDisparo `[14]uc  1 e 14 0 ]
+[v _msgSenhaConfig msgSenhaConfig `[13]uc  1 e 13 0 ]
 "48
-[v _msgDesativarZonaActive msgDesativarZonaActive `[16]uc  1 e 16 0 ]
+[v _msgSenhaUsuarioActive msgSenhaUsuarioActive `[15]uc  1 e 15 0 ]
 "49
-[v _msgDesativarZona msgDesativarZona `[15]uc  1 e 15 0 ]
+[v _msgSenhaUsuario msgSenhaUsuario `[14]uc  1 e 14 0 ]
 "50
-[v _msgReativarActive msgReativarActive `[10]uc  1 e 10 0 ]
+[v _msgSenhaCoacaoActive msgSenhaCoacaoActive `[14]uc  1 e 14 0 ]
 "51
-[v _msgReativar msgReativar `[9]uc  1 e 9 0 ]
+[v _msgSenhaCoacao msgSenhaCoacao `[13]uc  1 e 13 0 ]
 "52
-[v _msgDigiteSenha msgDigiteSenha `[15]uc  1 e 15 0 ]
+[v _msgSenhaDisparoActive msgSenhaDisparoActive `[15]uc  1 e 15 0 ]
 "53
-[v _msgMascara msgMascara `[5]uc  1 e 5 0 ]
+[v _msgSenhaDisparo msgSenhaDisparo `[14]uc  1 e 14 0 ]
+"54
+[v _msgDesativarZonaActive msgDesativarZonaActive `[16]uc  1 e 16 0 ]
 "55
+[v _msgDesativarZona msgDesativarZona `[15]uc  1 e 15 0 ]
+"56
+[v _msgReativarActive msgReativarActive `[10]uc  1 e 10 0 ]
+"57
+[v _msgReativar msgReativar `[9]uc  1 e 9 0 ]
+"58
+[v _msgDigiteSenha msgDigiteSenha `[15]uc  1 e 15 0 ]
+"59
+[v _msgMascara msgMascara `[5]uc  1 e 5 0 ]
+"61
 [v _main main `(v  1 e 1 0 ]
 {
-"86
-[v main@i i `i  1 a 2 36 ]
-"93
+"100
 } 0
-"320
+"327
 [v _validaUser validaUser `(v  1 e 1 0 ]
 {
-"322
-[v validaUser@n n `i  1 a 2 31 ]
-"377
+"329
+[v validaUser@n n `i  1 a 2 33 ]
+"388
 } 0
-"110
+"117
 [v _teclado teclado `(v  1 e 1 0 ]
 {
-"286
+"293
 } 0
-"97
+"104
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
 {
 [v liga_buzzer@tempoSegundos tempoSegundos `f  1 p 4 21 ]
-"107
+"114
 } 0
 "242 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
 [v ___flsub __flsub `(d  1 e 4 0 ]
@@ -184,17 +198,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S459 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S474 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S464 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S467 . 4 `l 1 i 4 0 `d 1 f 4 0 `S459 1 fAsBytes 4 0 `S464 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S467  1 a 4 15 ]
+[s S479 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S482 . 4 `l 1 i 4 0 `d 1 f 4 0 `S474 1 fAsBytes 4 0 `S479 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S482  1 a 4 15 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 9 ]
-[s S536 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S551 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S539 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S536 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S539  1 a 2 19 ]
+[u S554 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S551 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S554  1 a 2 19 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 14 ]
 "11
@@ -239,77 +253,37 @@
 [v strcmp@s1 s1 `*.4DCuc  1 a 1 6 ]
 "42
 } 0
-"56 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
-[v _LCD_limpa LCD_limpa `(v  1 e 1 0 ]
-{
-"63
-} 0
-"289 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"296 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
 {
-"292
+"299
 [v telaInicial@i i `i  1 a 2 7 ]
-"296
+"303
 } 0
-"380
+"391
 [v _listaZonas listaZonas `(v  1 e 1 0 ]
 {
-[v listaZonas@valorSensor valorSensor `i  1 p 2 10 ]
-"418
+[v listaZonas@valorSensor valorSensor `ui  1 p 2 10 ]
+"440
 } 0
-"420
+"442
 [v _escreveMesagem escreveMesagem `(v  1 e 1 0 ]
 {
-"421
+"443
 [v escreveMesagem@i i `i  1 a 2 8 ]
-"420
+"442
 [v escreveMesagem@texto texto `*.39uc  1 p 2 3 ]
-"424
+"446
 } 0
 "65 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_linha1 LCD_linha1 `(v  1 e 1 0 ]
 {
 "72
 } 0
-"301 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
-[v _Linha2 Linha2 `(v  1 e 1 0 ]
+"56
+[v _LCD_limpa LCD_limpa `(v  1 e 1 0 ]
 {
-"304
-[v Linha2@i i `i  1 a 2 7 ]
-"308
-} 0
-"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strlen.c
-[v _strlen strlen `(ui  1 e 2 0 ]
-{
-[v strlen@s s `*.4DCuc  1 a 1 wreg ]
-"6
-[v strlen@cp cp `*.4DCuc  1 a 1 3 ]
-"4
-[v strlen@s s `*.4DCuc  1 a 1 wreg ]
-"8
-[v strlen@s s `*.4DCuc  1 a 1 4 ]
-"13
-} 0
-"312 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
-[v _espacoLivre espacoLivre `(v  1 e 1 0 ]
-{
-"314
-[v espacoLivre@i i `i  1 a 2 3 ]
-"317
-} 0
-"73 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
-[v _LCD_linha2 LCD_linha2 `(v  1 e 1 0 ]
-{
-"80
-} 0
-"46
-[v _LCD_escreve LCD_escreve `(v  1 e 1 0 ]
-{
-[v LCD_escreve@x x `uc  1 a 1 wreg ]
-[v LCD_escreve@x x `uc  1 a 1 wreg ]
-"48
-[v LCD_escreve@x x `uc  1 a 1 2 ]
-"54
+"63
 } 0
 "31
 [v _LCD_init LCD_init `(v  1 e 1 0 ]
@@ -325,6 +299,63 @@
 [v _LCD_enable LCD_enable `(v  1 e 1 0 ]
 {
 "92
+} 0
+"458 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+[v _leituraADC leituraADC `(ui  1 e 2 0 ]
+{
+[v leituraADC@canal canal `uc  1 a 1 wreg ]
+"459
+[v leituraADC@leitura leitura `ui  1 a 2 4 ]
+"458
+[v leituraADC@canal canal `uc  1 a 1 wreg ]
+"461
+[v leituraADC@canal canal `uc  1 a 1 6 ]
+"473
+} 0
+"448
+[v _inicioADC inicioADC `(v  1 e 1 0 ]
+{
+"456
+} 0
+"308
+[v _Linha2 Linha2 `(v  1 e 1 0 ]
+{
+"311
+[v Linha2@i i `i  1 a 2 7 ]
+"315
+} 0
+"4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strlen.c
+[v _strlen strlen `(ui  1 e 2 0 ]
+{
+[v strlen@s s `*.4DCuc  1 a 1 wreg ]
+"6
+[v strlen@cp cp `*.4DCuc  1 a 1 3 ]
+"4
+[v strlen@s s `*.4DCuc  1 a 1 wreg ]
+"8
+[v strlen@s s `*.4DCuc  1 a 1 4 ]
+"13
+} 0
+"319 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+[v _espacoLivre espacoLivre `(v  1 e 1 0 ]
+{
+"321
+[v espacoLivre@i i `i  1 a 2 3 ]
+"324
+} 0
+"73 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
+[v _LCD_linha2 LCD_linha2 `(v  1 e 1 0 ]
+{
+"80
+} 0
+"46
+[v _LCD_escreve LCD_escreve `(v  1 e 1 0 ]
+{
+[v LCD_escreve@x x `uc  1 a 1 wreg ]
+[v LCD_escreve@x x `uc  1 a 1 wreg ]
+"48
+[v LCD_escreve@x x `uc  1 a 1 2 ]
+"54
 } 0
 "94
 [v _delay delay `(v  1 e 1 0 ]

@@ -18,7 +18,14 @@ void telaInicial();
 void Linha2();
 void espacoLivre();
 void validaUser();
-void listaZonas(int valor);
+void listaZonas(unsigned int valor);
+
+// conversor ADC
+void inicioADC ();
+unsigned int leituraADC (unsigned char canal);
+unsigned int auxSensor = 204;
+unsigned int valorSensor = 0;
+unsigned int valorSensorAux = 0;
 
 //Usuario
 int input = 10;
@@ -31,8 +38,7 @@ char senhaConfig[5] = "0000";
 //Config
 int painel = 1;
 int userFalse = 1;
-int config = 0;
-int valorSensor;
+int menu = 1;
 
 //Interface
 char msgSenhaErrada[13] = "Senha errada";
@@ -53,28 +59,29 @@ char msgDigiteSenha[15] = "Digite a senha";
 char msgMascara[5] = "____";
 
 void main(void) {
-    TRISE = 0; //Porta de saida para ligar o buzzer
-    TRISD = 0; //liga a porta do display
+    TRISE = 0x00; //Porta de saida para ligar o buzzer
+    TRISD = 0x00; //liga a porta do display
     TRISB = 0x0F; //pinagem do teclado
-    
     PORTE = 0x01; //desligando o buzzer = 0000 0001
-
-    //Sequencia de inicialização do LCD
-    LCD_init();
-    LCD_limpa();
+    
+    inicioADC();
     
     while (1){
         
         //Painel inicial da central
         while (painel){
+            LCD_init();
+            LCD_limpa();
             telaInicial();
             Linha2();
             painel = 0;
         }
+        __delay_ms(100);
         //Enquanto o usuario não digitar a senha não tem acesso
         while (userFalse){
            validaUser();
         }
+        
         //implementar o painel das zonas em forma de menu
         // e rolagem de acordo com o potenciometro
         // sentido horario - faz o menu descer
@@ -83,12 +90,12 @@ void main(void) {
         //esse for é uma simulação para ajustar a lista de zonas
         // a cada 2segundos o menu muda simulando o potenciometro girando
         // sentido horario então a setinha desce.
-        for (int i = 0; i < 10; i++){
-            valorSensor = i;
+        
+        while (menu){
+            valorSensor = leituraADC(2);
             listaZonas(valorSensor);
-            __delay_ms(2500);
+            __delay_ms(100); 
         }
-        teclado();
     }
 }
 
@@ -360,56 +367,71 @@ void validaUser(){
             if (n == 3){
                 if (strcmp(senhaUser, senhaUserConfere) != 0){
                     userFalse = 1;
+                    menu = 0;
                     LCD_limpa();
                     LCD_linha1();
                     escreveMesagem(msgSenhaErrada);
+                    __delay_ms(2000);
                 }
             }
             if (strcmp(senhaUser, senhaUserConfere)==0){
                 userFalse = 0;
+                menu = 1;
                 n = 10;
                 LCD_limpa();
                 LCD_linha1();
                 escreveMesagem(msgSenhaCorreta);
+                __delay_ms(2000);
             }
         }
     }
 }
 
 //Listagem das zonas no display
-void listaZonas(int valorSensor){
-//    LCD_limpa();
-    if (valorSensor == 1){
+void listaZonas(unsigned int valorSensor){
+    if (valorSensor <= auxSensor){
+        LCD_init();
+        LCD_limpa();
         LCD_linha1();
         escreveMesagem(msgSenhaConfigActive);
         LCD_linha2();
         escreveMesagem(msgSenhaUsuario);
     }
-    if (valorSensor == 2){
+    else if (valorSensor <= 2*auxSensor){
+        LCD_init();
+        LCD_limpa();
         LCD_linha1();
         escreveMesagem(msgSenhaConfig);
         LCD_linha2();
         escreveMesagem(msgSenhaUsuarioActive);
     }
-    if (valorSensor == 3){
+    else if (valorSensor <= 3*auxSensor){
+        LCD_init();
+        LCD_limpa();
         LCD_linha1();
         escreveMesagem(msgSenhaCoacaoActive);
         LCD_linha2();
         escreveMesagem(msgSenhaDisparo);
     }
-    if (valorSensor == 4){
+    else if (valorSensor <= 4*auxSensor){
+        LCD_init();
+        LCD_limpa();
         LCD_linha1();
         escreveMesagem(msgSenhaCoacao);
         LCD_linha2();
         escreveMesagem(msgSenhaDisparoActive);
     }
-    if (valorSensor == 5){
+    else if (valorSensor <= 5*auxSensor){
+        LCD_init();
+        LCD_limpa();
         LCD_linha1();
         escreveMesagem(msgDesativarZonaActive);
         LCD_linha2();
         escreveMesagem(msgReativar);
     }
-    if (valorSensor == 6){
+    else if (valorSensor <= 6*auxSensor){
+        LCD_init();
+        LCD_limpa();
         LCD_linha1();
         escreveMesagem(msgDesativarZona);
         LCD_linha2();
@@ -421,4 +443,31 @@ void escreveMesagem(char *texto){
     for (int i = 0; texto[i] != '\0'; i++){
         LCD_escreve(texto[i]);
     }
+}
+
+void inicioADC (){
+    TRISA = 0xFF;
+    // pino 0 = 1 (liga) && pino = 1 (divisão de clock 32)
+    ADCON0 = 0x81; //0b10000001
+    // pino 0 <= 4 = 0 (todos analogicos) 
+    // pino 7 = 0 (divisão de clock 32)
+    // pino 8 = 1 (dados justificados para direita)
+    ADCON1 = 0x80; //0b10000000
+}
+
+unsigned int leituraADC (unsigned char canal){
+    unsigned int leitura;
+    //limpa o registrador para futura validação
+    ADCON0 &= 0xC5; // 0b11000101
+    ADCON0 |= (canal<<3); // seta o canal utilizado
+    __delay_ms(2);
+    
+    //manda o conversor ADC
+    GO_nDONE = 1;
+    
+    //espera a conversão terminar
+    while (GO_nDONE);
+    
+    leitura = (ADRESH<<8) + ADRESL;
+    return leitura;
 }
