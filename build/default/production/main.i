@@ -1887,7 +1887,7 @@ unsigned char confereTeclado(unsigned int numero);
 
 
 unsigned int senhaCoaAtivo = 0;
-unsigned int zonaConfig = 1;
+unsigned int zonaConfig = 0;
 unsigned int validaSenha = 0;
 unsigned int input = 10;
 unsigned int painel = 1;
@@ -1898,7 +1898,7 @@ unsigned char senhaUser[5] = "1212";
 unsigned char senhaUserConfere[5] = "0000";
 unsigned char senhaCoa[5] = "5555";
 unsigned char senhaConfig[5] = "0000";
-
+unsigned int alteraSenha = 0;
 unsigned int opConfig = 0;
 
 
@@ -1946,50 +1946,33 @@ void main(void) {
     PORTE = 0x01;
     inicioADC();
     while (1){
-        while (userFalse){
-           validaUser();
-        }
-        while(senhaCoaAtivo){
-            LCD_init();
-            LCD_limpa();
-            LCD_linha1();
-            escreveMesagem(msgChamaAjuda);
-            _delay((unsigned long)((2000)*(20000000/4000.0)));
-            infoZonas();
-            PORTB = 0b01111111;
-            if(RB0 == 0){
-                _delay((unsigned long)((100)*(20000000/4000.0)));
-                senhaCoaAtivo = 0;
-                liga_buzzer(0.1);
+        unsigned int i = 1;
+        while(i < 7){
+
+            switch (opConfig){
+                case 1:
+                    alteraSenhas(opConfig);
+                    break;
+                case 2:
+                    alteraSenhas(opConfig);
+                    break;
+                case 3:
+                    alteraSenhas(opConfig);
+                    break;
+                case 4:
+                    configZonas();
+                    break;
+                case 5:
+
+                    break;
+                case 6:
+
+                    break;
             }
+        i++;
+
         }
-        while (menu){
-            valorSensor = leituraADC(2);
-            listaZonas(valorSensor);
-            _delay((unsigned long)((50)*(20000000/4000.0)));
-            if (opConfig > 0){
-                switch (opConfig){
-                    case 1:
-                        alteraSenhas(opConfig);
-                        break;
-                    case 2:
-                        alteraSenhas(opConfig);
-                        break;
-                    case 3:
-                        alteraSenhas(opConfig);
-                        break;
-                    case 4:
-                        configZonas();
-                        break;
-                    case 5:
 
-                        break;
-                    case 6:
-
-                        break;
-                }
-           }
-       }
     }
 }
 void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara, unsigned char *pos){
@@ -2029,6 +2012,7 @@ void configZonas(){
     infoZonas();
     PORTB = 0b11101111;
     unsigned char pos = '0';
+    zonaConfig = 1;
     while (zonaConfig){
         _delay((unsigned long)((250)*(20000000/4000.0)));
         if (RB0 == 0){
@@ -2143,6 +2127,7 @@ void alteraSenhas(unsigned int opConfig){
     _delay((unsigned long)((2)*(20000000/4000.0)));
     escreveMesagem(msgDigiteNovaSenha);
     Linha2();
+    alteraSenha = 1;
     if (opConfig == 1){
         rotinaValidaSenha(senhaConfig);
     }
@@ -2179,9 +2164,9 @@ void teclado(){
         if(userFalse){
             input = 0;
         }
-
-
-
+        if (alteraSenha){
+            input = 0;
+        }
     }
 
 
@@ -2193,9 +2178,9 @@ void teclado(){
         if(userFalse){
             input = 1;
         }
-
-
-
+        if (alteraSenha){
+            input = 1;
+        }
     }
 
 
@@ -2207,6 +2192,9 @@ void teclado(){
         if(userFalse){
             input = 2;
         }
+        if (alteraSenha){
+            input = 2;
+        }
     }
 
 
@@ -2216,6 +2204,9 @@ void teclado(){
         liga_buzzer(0.1);
         LCD_escreve('3');
         if(userFalse){
+            input = 3;
+        }
+        if (alteraSenha){
             input = 3;
         }
     }
@@ -2233,6 +2224,9 @@ void teclado(){
         if(userFalse){
             input = 4;
         }
+        if (alteraSenha){
+            input = 4;
+        }
     }
 
 
@@ -2242,6 +2236,9 @@ void teclado(){
         liga_buzzer(0.1);
         LCD_escreve('5');
         if(userFalse){
+            input = 5;
+        }
+        if (alteraSenha){
             input = 5;
         }
     }
@@ -2255,6 +2252,9 @@ void teclado(){
         if(userFalse){
             input = 6;
         }
+        if (alteraSenha){
+            input = 6;
+        }
     }
 
 
@@ -2264,6 +2264,9 @@ void teclado(){
         liga_buzzer(0.1);
         LCD_escreve('7');
         if(userFalse){
+            input = 7;
+        }
+        if (alteraSenha){
             input = 7;
         }
     }
@@ -2281,6 +2284,9 @@ void teclado(){
         if(userFalse){
             input = 8;
         }
+        if (alteraSenha){
+            input = 8;
+        }
     }
 
 
@@ -2290,6 +2296,9 @@ void teclado(){
         liga_buzzer(0.1);
         LCD_escreve('9');
         if(userFalse){
+            input = 9;
+        }
+        if (alteraSenha){
             input = 9;
         }
     }
