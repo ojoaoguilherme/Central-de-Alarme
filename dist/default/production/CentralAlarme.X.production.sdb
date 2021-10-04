@@ -41,42 +41,42 @@
 [v ___memcpyee __memcpyee `(v  1 e 1 0 ]
 "71 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _main main `(v  1 e 1 0 ]
-"124
+"125
 [v _setaZona setaZona `(v  1 e 1 0 ]
-"149
+"150
 [v _infoZonas infoZonas `(v  1 e 1 0 ]
 "157
 [v _configZonas configZonas `(v  1 e 1 0 ]
-"185
+"191
 [v _confereTeclado confereTeclado `(uc  1 e 1 0 ]
-"220
+"226
 [v _valida_senha valida_senha `(ui  1 e 2 0 ]
-"247
+"253
 [v _inputSenhaAlter inputSenhaAlter `(v  1 e 1 0 ]
-"256
+"262
 [v _rotinaValidaSenha rotinaValidaSenha `(v  1 e 1 0 ]
-"269
+"275
 [v _alteraSenhas alteraSenhas `(v  1 e 1 0 ]
-"285
+"292
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
-"295
-[v _teclado teclado `(v  1 e 1 0 ]
-"478
+"302
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
-"486
+"310
 [v _Linha2 Linha2 `(v  1 e 1 0 ]
-"494
+"318
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
-"500
+"324
 [v _validaUser validaUser `(v  1 e 1 0 ]
-"549
+"373
 [v _listaZonas listaZonas `(v  1 e 1 0 ]
-"636
+"460
 [v _escreveMesagem escreveMesagem `(v  1 e 1 0 ]
-"641
+"465
 [v _inicioADC inicioADC `(v  1 e 1 0 ]
-"650
+"474
 [v _leituraADC leituraADC `(ui  1 e 2 0 ]
+"491
+[v _teclado teclado `(v  1 e 1 0 ]
 "216 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [v _PORTB PORTB `VEuc  1 e 1 @6 ]
 "340
@@ -119,6 +119,8 @@
 [v _RB3 RB3 `VEb  1 e 0 @51 ]
 "18 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _senhaCoaAtivo senhaCoaAtivo `ui  1 e 2 0 ]
+"19
+[v _zonaConfig zonaConfig `ui  1 e 2 0 ]
 "20
 [v _validaSenha validaSenha `ui  1 e 2 0 ]
 "21
@@ -137,6 +139,8 @@
 [v _senhaCoa senhaCoa `[5]uc  1 e 5 0 ]
 "29
 [v _senhaConfig senhaConfig `[5]uc  1 e 5 0 ]
+"30
+[v _alteraSenha alteraSenha `ui  1 e 2 0 ]
 "31
 [v _opConfig opConfig `ui  1 e 2 0 ]
 "45
@@ -158,7 +162,7 @@
 "53
 [v _msgSenhaCoacao msgSenhaCoacao `[13]uc  1 e 13 0 ]
 "54
-[v _msgSenhaDisparo msgSenhaDisparo `[14]uc  1 e 14 0 ]
+[v _msgSenhaDisparo msgSenhaDisparo `[15]uc  1 e 15 0 ]
 "55
 [v _msgDesativarZona msgDesativarZona `[15]uc  1 e 15 0 ]
 "56
@@ -180,21 +184,21 @@
 "71
 [v _main main `(v  1 e 1 0 ]
 {
-"123
+"124
 } 0
-"500
+"324
 [v _validaUser validaUser `(v  1 e 1 0 ]
 {
-"508
+"332
 [v validaUser@n n `i  1 a 2 33 ]
-"548
+"372
 } 0
-"478
+"302
 [v _telaInicial telaInicial `(v  1 e 1 0 ]
 {
-"481
+"305
 [v telaInicial@i i `i  1 a 2 6 ]
-"485
+"309
 } 0
 "33 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strcmp.c
 [v _strcmp strcmp `(i  1 e 2 0 ]
@@ -208,98 +212,98 @@
 [v strcmp@s1 s1 `*.4DCuc  1 a 1 6 ]
 "42
 } 0
-"549 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"373 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _listaZonas listaZonas `(v  1 e 1 0 ]
 {
 [v listaZonas@valorSensor valorSensor `ui  1 p 2 27 ]
-"635
+"459
 } 0
-"650
+"474
 [v _leituraADC leituraADC `(ui  1 e 2 0 ]
 {
 [v leituraADC@canal canal `uc  1 a 1 wreg ]
-"651
+"475
 [v leituraADC@leitura leitura `ui  1 a 2 4 ]
-"650
+"474
 [v leituraADC@canal canal `uc  1 a 1 wreg ]
-"653
+"477
 [v leituraADC@canal canal `uc  1 a 1 6 ]
-"665
+"489
 } 0
-"641
+"465
 [v _inicioADC inicioADC `(v  1 e 1 0 ]
 {
-"649
+"473
 } 0
 "157
 [v _configZonas configZonas `(v  1 e 1 0 ]
 {
-"184
+"190
 } 0
-"124
+"125
 [v _setaZona setaZona `(v  1 e 1 0 ]
 {
 [v setaZona@msgZonaDisparadas msgZonaDisparadas `*.4uc  1 a 1 wreg ]
-"135
-[v setaZona@i_184 i `i  1 a 2 8 ]
-"126
-[v setaZona@i i `i  1 a 2 6 ]
-"124
+"136
+[v setaZona@i_185 i `i  1 a 2 5 ]
+"127
+[v setaZona@i i `i  1 a 2 3 ]
+"125
 [v setaZona@msgZonaDisparadas msgZonaDisparadas `*.4uc  1 a 1 wreg ]
-[v setaZona@msgConfigDispara msgConfigDispara `*.4uc  1 p 1 0 ]
-[v setaZona@pos pos `*.39uc  1 p 2 1 ]
-[v setaZona@msgZonaDisparadas msgZonaDisparadas `*.4uc  1 a 1 10 ]
-"148
-} 0
+[v setaZona@msgConfigDispara msgConfigDispara `*.4uc  1 p 1 10 ]
+[v setaZona@pos pos `*.39uc  1 p 2 11 ]
+[v setaZona@msgZonaDisparadas msgZonaDisparadas `*.4uc  1 a 1 7 ]
 "149
+} 0
+"150
 [v _infoZonas infoZonas `(v  1 e 1 0 ]
 {
 "156
 } 0
-"269
+"275
 [v _alteraSenhas alteraSenhas `(v  1 e 1 0 ]
 {
-[v alteraSenhas@opConfig opConfig `ui  1 p 2 39 ]
-"284
+[v alteraSenhas@opConfig opConfig `ui  1 p 2 44 ]
+"291
 } 0
-"256
+"262
 [v _rotinaValidaSenha rotinaValidaSenha `(v  1 e 1 0 ]
 {
 [v rotinaValidaSenha@senhaOp senhaOp `*.4uc  1 a 1 wreg ]
 [v rotinaValidaSenha@senhaOp senhaOp `*.4uc  1 a 1 wreg ]
-[v rotinaValidaSenha@senhaOp senhaOp `*.4uc  1 a 1 38 ]
-"268
+[v rotinaValidaSenha@senhaOp senhaOp `*.4uc  1 a 1 43 ]
+"274
 } 0
-"247
+"253
 [v _inputSenhaAlter inputSenhaAlter `(v  1 e 1 0 ]
 {
 [v inputSenhaAlter@senhaDestino senhaDestino `*.4uc  1 a 1 wreg ]
-"248
-[v inputSenhaAlter@i i `i  1 a 2 33 ]
-"247
+"254
+[v inputSenhaAlter@i i `i  1 a 2 38 ]
+"253
 [v inputSenhaAlter@senhaDestino senhaDestino `*.4uc  1 a 1 wreg ]
-[v inputSenhaAlter@senhaDestino senhaDestino `*.4uc  1 a 1 32 ]
-"255
+[v inputSenhaAlter@senhaDestino senhaDestino `*.4uc  1 a 1 37 ]
+"261
 } 0
-"220
+"226
 [v _valida_senha valida_senha `(ui  1 e 2 0 ]
 {
 [v valida_senha@texto texto `*.4uc  1 a 1 wreg ]
-"221
-[v valida_senha@aceito aceito `ui  1 a 2 4 ]
-"220
+"227
+[v valida_senha@aceito aceito `ui  1 a 2 33 ]
+"226
 [v valida_senha@texto texto `*.4uc  1 a 1 wreg ]
-[v valida_senha@texto texto `*.4uc  1 a 1 3 ]
-"246
+[v valida_senha@texto texto `*.4uc  1 a 1 32 ]
+"252
 } 0
-"636
+"460
 [v _escreveMesagem escreveMesagem `(v  1 e 1 0 ]
 {
-"637
+"461
 [v escreveMesagem@i i `i  1 a 2 8 ]
-"636
+"460
 [v escreveMesagem@texto texto `*.39uc  1 p 2 3 ]
-"640
+"464
 } 0
 "65 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_linha1 LCD_linha1 `(v  1 e 1 0 ]
@@ -311,16 +315,16 @@
 {
 "63
 } 0
-"295 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"491 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _teclado teclado `(v  1 e 1 0 ]
 {
-"477
+"697
 } 0
-"285
+"292
 [v _liga_buzzer liga_buzzer `(v  1 e 1 0 ]
 {
 [v liga_buzzer@tempoSegundos tempoSegundos `f  1 p 4 21 ]
-"294
+"301
 } 0
 "242 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcadd.c
 [v ___flsub __flsub `(d  1 e 4 0 ]
@@ -348,17 +352,17 @@
 "8 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 4 0 ]
 {
-[s S525 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
+[s S526 . 4 `uc 1 a 1 0 `uc 1 b 1 1 `uc 1 c 1 2 `uc 1 d 1 3 ]
 "13
-[s S530 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
-[u S533 . 4 `l 1 i 4 0 `d 1 f 4 0 `S525 1 fAsBytes 4 0 `S530 1 fAsWords 4 0 ]
-[v ___flmul@prod prod `S533  1 a 4 15 ]
+[s S531 . 4 `i 1 wordA 2 0 `i 1 wordB 2 2 ]
+[u S534 . 4 `l 1 i 4 0 `d 1 f 4 0 `S526 1 fAsBytes 4 0 `S531 1 fAsWords 4 0 ]
+[v ___flmul@prod prod `S534  1 a 4 15 ]
 "12
 [v ___flmul@grs grs `ul  1 a 4 9 ]
-[s S602 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
+[s S603 . 2 `uc 1 a 1 0 `uc 1 b 1 1 ]
 "14
-[u S605 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S602 1 nAsBytes 2 0 ]
-[v ___flmul@temp temp `S605  1 a 2 19 ]
+[u S606 . 2 `i 1 i 2 0 `ui 1 n 2 0 `S603 1 nAsBytes 2 0 ]
+[v ___flmul@temp temp `S606  1 a 2 19 ]
 "10
 [v ___flmul@bexp bexp `uc  1 a 1 14 ]
 "11
@@ -391,18 +395,18 @@
 [v ___flge@ff2 ff2 `d  1 p 4 4 ]
 "19
 } 0
-"185 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"191 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _confereTeclado confereTeclado `(uc  1 e 1 0 ]
 {
 [v confereTeclado@numero numero `ui  1 p 2 0 ]
-"219
+"225
 } 0
-"486
+"310
 [v _Linha2 Linha2 `(v  1 e 1 0 ]
 {
-"489
+"313
 [v Linha2@i i `i  1 a 2 7 ]
-"493
+"317
 } 0
 "4 C:\Program Files\Microchip\xc8\v2.32\pic\sources\c90\common\strlen.c
 [v _strlen strlen `(ui  1 e 2 0 ]
@@ -413,12 +417,12 @@
 [v strlen@s s `*.39DCuc  1 p 2 0 ]
 "13
 } 0
-"494 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
+"318 C:\Users\joaog\MPLABXProjects\CentralAlarme.X\main.c
 [v _espacoLivre espacoLivre `(v  1 e 1 0 ]
 {
-"496
+"320
 [v espacoLivre@i i `i  1 a 2 3 ]
-"499
+"323
 } 0
 "73 C:\Users\joaog\MPLABXProjects\CentralAlarme.X/lcd.h
 [v _LCD_linha2 LCD_linha2 `(v  1 e 1 0 ]

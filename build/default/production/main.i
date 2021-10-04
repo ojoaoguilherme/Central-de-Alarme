@@ -1887,10 +1887,10 @@ unsigned char confereTeclado(unsigned int numero);
 
 
 unsigned int senhaCoaAtivo = 0;
-unsigned int zonaConfig = 1;
+unsigned int zonaConfig = 0;
 unsigned int validaSenha = 0;
 unsigned int input = 10;
-unsigned int painel = 1;
+unsigned int paizonaConfignel = 1;
 unsigned int userFalse = 1;
 unsigned int menu = 1;
 unsigned char *aux = 0;
@@ -1898,7 +1898,7 @@ unsigned char senhaUser[5] = "1212";
 unsigned char senhaUserConfere[5] = "0000";
 unsigned char senhaCoa[5] = "5555";
 unsigned char senhaConfig[5] = "0000";
-
+unsigned int alteraSenha = 0;
 unsigned int opConfig = 0;
 
 
@@ -1922,7 +1922,7 @@ unsigned char msgSenhaCorreta[14] = "Senha correta";
 unsigned char msgSenhaConfig[13] = "Senha Config";
 unsigned char msgSenhaUsuario[14] = "Senha Usuario";
 unsigned char msgSenhaCoacao[13] = "Senha Coacao";
-unsigned char msgSenhaDisparo[14] = "Senha Disparo";
+unsigned char msgSenhaDisparo[15] = "Config Disparo";
 unsigned char msgDesativarZona[15] = "Desativar Zona";
 unsigned char msgReativar[9] = "Reativar";
 unsigned char msgDigiteSenha[15] = "Digite a senha";
@@ -1935,7 +1935,7 @@ unsigned char msgChamaAjuda[10] = "Sai Ratao";
 
 void inicioADC ();
 unsigned int leituraADC (unsigned char canal);
-unsigned int auxSensor = 204;
+unsigned int auxSensor = 170;
 unsigned int valorSensor = 0;
 unsigned int valorSensorAux = 0;
 
@@ -1988,6 +1988,7 @@ void main(void) {
 
                         break;
                 }
+                opConfig = 0;
            }
        }
     }
@@ -2002,7 +2003,7 @@ void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara,
             }
         }
     }
-    else{
+    else if (!senhaCoaAtivo){
         for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
             if(msgZonaDisparadas[i] == '0' && msgConfigDispara[i] == pos){
                 msgZonaDisparadas[i] = '1';
@@ -2014,8 +2015,8 @@ void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara,
         }
     }
 
-
-
+    zonaConfig = 0;
+    infoZonas();
 }
 void infoZonas(){
     LCD_limpa();
@@ -2023,30 +2024,35 @@ void infoZonas(){
     escreveMesagem(msgConfigDispara);
     LCD_linha2();
     escreveMesagem(msgZonaDisparadas);
-    _delay((unsigned long)((3000)*(20000000/4000.0)));
 }
 void configZonas(){
     infoZonas();
-    PORTB = 0b11101111;
+    _delay((unsigned long)((100)*(20000000/4000.0)));
     unsigned char pos = '0';
+    zonaConfig = 1;
     while (zonaConfig){
-        _delay((unsigned long)((250)*(20000000/4000.0)));
+        pos = '0';
+        PORTB = 0b11101111;
         if (RB0 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
             pos = '1';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
         if (RB1 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
             pos = '2';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
         if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
             pos = '3';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
         if (RB3 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
             pos = '4';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
@@ -2100,13 +2106,13 @@ unsigned int valida_senha(unsigned char *texto){
     PORTB = 0b01111111;
     while (aceito == 3){
         _delay((unsigned long)((200)*(20000000/4000.0)));
-
         if (RB2 == 0){
+            liga_buzzer(0.1);
             aceito = 0;
             LCD_escreve('E');
         }
-        else if (RB3 == 0){
-
+        if (RB3 == 0){
+            liga_buzzer(0.1);
             aceito = 1;
             LCD_escreve('F');
         }
@@ -2141,6 +2147,7 @@ void alteraSenhas(unsigned int opConfig){
     LCD_init();
     LCD_limpa();
     _delay((unsigned long)((2)*(20000000/4000.0)));
+    alteraSenha = 1;
     escreveMesagem(msgDigiteNovaSenha);
     Linha2();
     if (opConfig == 1){
@@ -2162,189 +2169,6 @@ void liga_buzzer(float tempoSegundos){
         tempoSegundos--;
     }
     PORTE = 0x0F;
-}
-void teclado(){
-    PORTE = 0x01;
-
-
-
-    PORTB = 0b11101111;
-
-
-
-    if (RB0 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('0');
-        if(userFalse){
-            input = 0;
-        }
-
-
-
-    }
-
-
-
-    if (RB1 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('1');
-        if(userFalse){
-            input = 1;
-        }
-
-
-
-    }
-
-
-
-    if (RB2 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('2');
-        if(userFalse){
-            input = 2;
-        }
-    }
-
-
-
-    if (RB3 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('3');
-        if(userFalse){
-            input = 3;
-        }
-    }
-
-
-
-    PORTB = 0b11011111;
-
-
-
-    if (RB0 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('4');
-        if(userFalse){
-            input = 4;
-        }
-    }
-
-
-
-    if (RB1 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('5');
-        if(userFalse){
-            input = 5;
-        }
-    }
-
-
-
-    if (RB2 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('6');
-        if(userFalse){
-            input = 6;
-        }
-    }
-
-
-
-    if (RB3 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('7');
-        if(userFalse){
-            input = 7;
-        }
-    }
-
-
-
-    PORTB = 0b10111111;
-
-
-
-    if (RB0 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('8');
-        if(userFalse){
-            input = 8;
-        }
-    }
-
-
-
-    if (RB1 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('9');
-        if(userFalse){
-            input = 9;
-        }
-    }
-
-
-
-    if (RB2 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('A');
-    }
-
-
-
-    if (RB3 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('B');
-    }
-
-
-
-    PORTB = 0b01111111;
-
-
-
-    if (RB0 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('C');
-    }
-
-
-
-    if (RB1 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('D');
-    }
-
-
-
-    if (RB2 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('E');
-    }
-
-
-
-    if (RB3 == 0){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-        liga_buzzer(0.1);
-        LCD_escreve('F');
-    }
 }
 void telaInicial(){
     LCD_linha1();
@@ -2533,4 +2357,212 @@ unsigned int leituraADC (unsigned char canal){
 
     leitura = (ADRESH<<8) + ADRESL;
     return leitura;
+}
+
+void teclado(){
+    PORTE = 0x01;
+
+
+
+    PORTB = 0b11101111;
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('0');
+        if(userFalse){
+            input = 0;
+        }
+        if (alteraSenha){
+            input = 0;
+        }
+    }
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('1');
+        if(userFalse){
+            input = 1;
+        }
+        if (alteraSenha){
+            input = 1;
+        }
+    }
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('2');
+        if(userFalse){
+            input = 2;
+        }
+        if (alteraSenha){
+            input = 2;
+        }
+    }
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('3');
+        if(userFalse){
+            input = 3;
+        }
+        if (alteraSenha){
+            input = 3;
+        }
+    }
+
+
+
+    PORTB = 0b11011111;
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('4');
+        if(userFalse){
+            input = 4;
+        }
+        if (alteraSenha){
+            input = 4;
+        }
+    }
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('5');
+        if(userFalse){
+            input = 5;
+        }
+        if (alteraSenha){
+            input = 5;
+        }
+    }
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('6');
+        if(userFalse){
+            input = 6;
+        }
+        if (alteraSenha){
+            input = 6;
+        }
+    }
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('7');
+        if(userFalse){
+            input = 7;
+        }
+        if (alteraSenha){
+            input = 7;
+        }
+    }
+
+
+
+    PORTB = 0b10111111;
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('8');
+        if(userFalse){
+            input = 8;
+        }
+        if (alteraSenha){
+            input = 8;
+        }
+    }
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('9');
+        if(userFalse){
+            input = 9;
+        }
+        if (alteraSenha){
+            input = 9;
+        }
+    }
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('A');
+    }
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('B');
+    }
+
+
+
+    PORTB = 0b01111111;
+
+
+
+    if (RB0 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('C');
+    }
+
+
+
+    if (RB1 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('D');
+    }
+
+
+
+    if (RB2 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('E');
+    }
+
+
+
+    if (RB3 == 0){
+        _delay((unsigned long)((200)*(20000000/4000.0)));
+        liga_buzzer(0.1);
+        LCD_escreve('F');
+    }
 }

@@ -16,10 +16,10 @@ unsigned char confereTeclado(unsigned int numero);
 
 //Configuração var
 unsigned int senhaCoaAtivo = 0;
-unsigned int zonaConfig = 1;
+unsigned int  zonaConfig = 0;
 unsigned int validaSenha = 0;
 unsigned int input = 10;
-unsigned int painel = 1;
+unsigned int paizonaConfignel = 1;
 unsigned int userFalse = 1;
 unsigned int menu = 1;
 unsigned char *aux = 0;
@@ -27,7 +27,7 @@ unsigned char senhaUser[5] = "1212";
 unsigned char senhaUserConfere[5] = "0000";
 unsigned char senhaCoa[5] = "5555";
 unsigned char senhaConfig[5] = "0000";
-//unsigned int alteraSenha = 1;
+unsigned int alteraSenha = 0;
 unsigned int opConfig = 0;
 
 //interface func
@@ -51,7 +51,7 @@ unsigned char msgSenhaCorreta[14] = "Senha correta";
 unsigned char msgSenhaConfig[13] = "Senha Config";
 unsigned char msgSenhaUsuario[14] = "Senha Usuario";
 unsigned char msgSenhaCoacao[13] = "Senha Coacao";
-unsigned char msgSenhaDisparo[14] = "Senha Disparo";
+unsigned char msgSenhaDisparo[15] = "Config Disparo";
 unsigned char msgDesativarZona[15] = "Desativar Zona";
 unsigned char msgReativar[9] = "Reativar";
 unsigned char msgDigiteSenha[15] = "Digite a senha";
@@ -64,7 +64,7 @@ unsigned char msgChamaAjuda[10] = "Sai Ratao";
 //controle analogico
 void inicioADC ();
 unsigned int leituraADC (unsigned char canal);
-unsigned int auxSensor = 204;
+unsigned int auxSensor = 170;
 unsigned int valorSensor = 0;
 unsigned int valorSensorAux = 0;
 
@@ -117,6 +117,7 @@ void main(void) {
                         //reativar zona
                         break;
                 }
+                opConfig = 0;
            }  
        }
     }
@@ -131,7 +132,7 @@ void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara,
             }
         }
     }
-    else{
+    else if (!senhaCoaAtivo){
         for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
             if(msgZonaDisparadas[i] == '0' && msgConfigDispara[i] == pos){
                 msgZonaDisparadas[i] = '1';
@@ -143,8 +144,8 @@ void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara,
         }
     }
     
-//    zonaConfig = 0;
-//    infoZonas();
+    zonaConfig = 0;
+    infoZonas();
 }
 void infoZonas(){
     LCD_limpa();
@@ -152,30 +153,35 @@ void infoZonas(){
     escreveMesagem(msgConfigDispara);
     LCD_linha2();
     escreveMesagem(msgZonaDisparadas);
-    __delay_ms(3000);
 }
 void configZonas(){
     infoZonas();
-    PORTB = 0b11101111;
+    __delay_ms(100);
     unsigned char pos = '0';
+    zonaConfig = 1;
     while (zonaConfig){
-        __delay_ms(250);
-        if (RB0 == 0){
+        pos = '0';
+        PORTB = 0b11101111;
+        if (RB0 == 0){ // k1
+            __delay_ms(200);
             pos = '1';
             __delay_ms(2);
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
-        if (RB1 == 0){
+        if (RB1 == 0){ // k2
+            __delay_ms(200);
             pos = '2';
             __delay_ms(2);
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
-        if (RB2 == 0){
+        if (RB2 == 0){ // k3
+            __delay_ms(200);
             pos = '3';
             __delay_ms(2);
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
-        if (RB3 == 0){
+        if (RB3 == 0){ // k4
+            __delay_ms(200);
             pos = '4';
             __delay_ms(2);
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
@@ -229,13 +235,13 @@ unsigned int valida_senha(unsigned char *texto){
     PORTB = 0b01111111;
     while (aceito == 3){
         __delay_ms(200);
-        //Nega senha: E
-        if (RB2 == 0){
+        if (RB2 == 0){ //Nega senha: E
+            liga_buzzer(0.1);
             aceito = 0;
             LCD_escreve('E');
         }
-        else if (RB3 == 0){
-            //Aceita senha: F
+        if (RB3 == 0){ //Aceita senha: F
+            liga_buzzer(0.1);
             aceito = 1;
             LCD_escreve('F');
         }
@@ -270,6 +276,7 @@ void alteraSenhas(unsigned int opConfig){
     LCD_init();
     LCD_limpa();
     __delay_ms(2);
+    alteraSenha = 1;
     escreveMesagem(msgDigiteNovaSenha);
     Linha2();
     if (opConfig == 1){
@@ -291,189 +298,6 @@ void liga_buzzer(float tempoSegundos){
         tempoSegundos--;
     }
     PORTE = 0x0F;
-}
-void teclado(){
-    PORTE = 0x01;
-    // ***
-    // Verificação da primeira linha do teclado
-    // ***
-    PORTB = 0b11101111; // verifica a primeira linha (botão 0,1,2,3,4)
-    // ***
-    // Numero 0
-    // ***
-    if (RB0 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('0');
-        if(userFalse){
-            input = 0;
-        }
-//        if (alteraSenha){
-//            input = 0;
-//        }
-    }
-    // ***
-    // Numero 1
-    // ***
-    if (RB1 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('1');
-        if(userFalse){
-            input = 1;
-        }
-//        if (alteraSenha){
-//            input = 1;
-//        }
-    }
-    // ***
-    // Numero 2
-    // ***
-    if (RB2 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('2');
-        if(userFalse){
-            input = 2;
-        }
-    }
-    // ***
-    // Numero 3
-    // ***
-    if (RB3 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('3');
-        if(userFalse){
-            input = 3;
-        }
-    }
-    // ***
-    // Verificação da segunda linha do teclado
-    // ***
-    PORTB = 0b11011111; // verificando a segunda linha
-    // ***
-    // Numero 4
-    // ***
-    if (RB0 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('4');
-        if(userFalse){
-            input = 4;
-        }
-    }
-    // ***
-    // Numero 5
-    // ***
-    if (RB1 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('5');
-        if(userFalse){
-            input = 5;
-        }
-    }
-    // ***
-    // Numero 6
-    // ***
-    if (RB2 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('6');
-        if(userFalse){
-            input = 6;
-        }
-    }
-    // ***
-    // Numero 7
-    // ***
-    if (RB3 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('7');
-        if(userFalse){
-            input = 7;
-        }
-    }
-    // ***
-    // Verificação da terceira linha do teclado
-    // ***
-    PORTB = 0b10111111;
-    // ***
-    // Numero 8
-    // ***
-    if (RB0 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('8');
-        if(userFalse){
-            input = 8;
-        }
-    }
-    // ***
-    // Numero 9
-    // ***
-    if (RB1 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('9');
-        if(userFalse){
-            input = 9;
-        }
-    }
-    // ***
-    // Letra A
-    // ***
-    if (RB2 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('A');
-    }
-    // ***
-    // Letra B
-    // ***
-    if (RB3 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('B');
-    }
-    // ***
-    // Verificação da quarta linha do teclado
-    // ***
-    PORTB = 0b01111111;
-    // ***
-    // Letra C
-    // ***
-    if (RB0 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('C');
-    }
-    // ***
-    // Letra D
-    // ***
-    if (RB1 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('D');
-    }
-    // ***
-    // Letra E
-    // ***
-    if (RB2 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('E');
-    }
-    // ***
-    // Letra F
-    // ***
-    if (RB3 == 0){
-        __delay_ms(200);
-        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
-        LCD_escreve('F');
-    }
 }
 void telaInicial(){
     LCD_linha1();
@@ -662,4 +486,212 @@ unsigned int leituraADC (unsigned char canal){
     
     leitura = (ADRESH<<8) + ADRESL;
     return leitura;
+}
+
+void teclado(){
+    PORTE = 0x01;
+    // ***
+    // Verificação da primeira linha do teclado
+    // ***
+    PORTB = 0b11101111; // verifica a primeira linha (botão 0,1,2,3,4)
+    // ***
+    // Numero 0
+    // ***
+    if (RB0 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('0');
+        if(userFalse){
+            input = 0;
+        }
+        if (alteraSenha){
+            input = 0;
+        }
+    }
+    // ***
+    // Numero 1
+    // ***
+    if (RB1 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('1');
+        if(userFalse){
+            input = 1;
+        }
+        if (alteraSenha){
+            input = 1;
+        }
+    }
+    // ***
+    // Numero 2
+    // ***
+    if (RB2 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('2');
+        if(userFalse){
+            input = 2;
+        }
+        if (alteraSenha){
+            input = 2;
+        }
+    }
+    // ***
+    // Numero 3
+    // ***
+    if (RB3 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('3');
+        if(userFalse){
+            input = 3;
+        }
+        if (alteraSenha){
+            input = 3;
+        }
+    }
+    // ***
+    // Verificação da segunda linha do teclado
+    // ***
+    PORTB = 0b11011111; // verificando a segunda linha
+    // ***
+    // Numero 4
+    // ***
+    if (RB0 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('4');
+        if(userFalse){
+            input = 4;
+        }
+        if (alteraSenha){
+            input = 4;
+        }
+    }
+    // ***
+    // Numero 5
+    // ***
+    if (RB1 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('5');
+        if(userFalse){
+            input = 5;
+        }
+        if (alteraSenha){
+            input = 5;
+        }
+    }
+    // ***
+    // Numero 6
+    // ***
+    if (RB2 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('6');
+        if(userFalse){
+            input = 6;
+        }
+        if (alteraSenha){
+            input = 6;
+        }
+    }
+    // ***
+    // Numero 7
+    // ***
+    if (RB3 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('7');
+        if(userFalse){
+            input = 7;
+        }
+        if (alteraSenha){
+            input = 7;
+        }
+    }
+    // ***
+    // Verificação da terceira linha do teclado
+    // ***
+    PORTB = 0b10111111;
+    // ***
+    // Numero 8
+    // ***
+    if (RB0 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('8');
+        if(userFalse){
+            input = 8;
+        }
+        if (alteraSenha){
+            input = 8;
+        }
+    }
+    // ***
+    // Numero 9
+    // ***
+    if (RB1 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('9');
+        if(userFalse){
+            input = 9;
+        }
+        if (alteraSenha){
+            input = 9;
+        }
+    }
+    // ***
+    // Letra A
+    // ***
+    if (RB2 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('A');
+    }
+    // ***
+    // Letra B
+    // ***
+    if (RB3 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('B');
+    }
+    // ***
+    // Verificação da quarta linha do teclado
+    // ***
+    PORTB = 0b01111111;
+    // ***
+    // Letra C
+    // ***
+    if (RB0 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('C');
+    }
+    // ***
+    // Letra D
+    // ***
+    if (RB1 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('D');
+    }
+    // ***
+    // Letra E
+    // ***
+    if (RB2 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('E');
+    }
+    // ***
+    // Letra F
+    // ***
+    if (RB3 == 0){
+        __delay_ms(200);
+        liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
+        LCD_escreve('F');
+    }
 }
