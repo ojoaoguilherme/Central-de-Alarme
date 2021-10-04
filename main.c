@@ -6,7 +6,7 @@
 #include <xc8debug.h>
 
 //Configuração func
-void setaZona(unsigned char *var1, unsigned char *var2, unsigned char *pos);
+void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara, unsigned char *pos);
 void rotinaValidaSenha(unsigned char* senhaOp);
 void inputSenhaAlter();
 unsigned int valida_senha(unsigned char *texto);
@@ -15,6 +15,7 @@ void alteraSenhas(unsigned int opConfig);
 unsigned char confereTeclado(unsigned int numero);
 
 //Configuração var
+unsigned int senhaCoaAtivo = 0;
 unsigned int zonaConfig = 1;
 unsigned int validaSenha = 0;
 unsigned int input = 10;
@@ -26,7 +27,7 @@ unsigned char senhaUser[5] = "1212";
 unsigned char senhaUserConfere[5] = "0000";
 unsigned char senhaCoa[5] = "5555";
 unsigned char senhaConfig[5] = "0000";
-unsigned int alteraSenha = 1;
+//unsigned int alteraSenha = 1;
 unsigned int opConfig = 0;
 
 //interface func
@@ -42,7 +43,7 @@ void espacoLivre();
 
 //interface var
 unsigned char msgConfigDispara[15] = " Zona: 1 2 3 4";
-unsigned char msgZonaDisparadas[15] = "       0 0 0 0";
+unsigned char msgZonaDisparadas[15] = "       1 1 1 1";
 unsigned char msgSenhaCancelada[16] = "Senha cancelada";
 unsigned char msgSenhaAtualizada[17] = "Senha Atualizada";
 unsigned char msgSenhaErrada[13] = "Senha errada";
@@ -58,6 +59,7 @@ unsigned char msgDigiteNovaSenha[14] = "   Nova senha";
 unsigned char msgValidaSenha[16] = "Ok:F ou Negar:E";
 unsigned char msgAceitoOuNego[9] = "Digite: ";
 unsigned char msgMascara[5] = "____";
+unsigned char msgChamaAjuda[10] = "Sai Ratao";
 
 //controle analogico
 void inicioADC ();
@@ -71,70 +73,78 @@ void main(void) {
     TRISD = 0x00; 
     TRISB = 0x0F; 
     PORTE = 0x01;
-//    inicioADC();
-    LCD_init();
-    __delay_ms(10);
-    while (1){
-//        while (painel){
-//            LCD_init();
-//            LCD_limpa();
-//            telaInicial();
-//            Linha2();
-//            painel = 0;
-//        } 
-//        while (userFalse){
-//           validaUser();
-//        }
-//        menu = 1;
-//        for (int i=0; i < 4; i++){
-//            opConfig = i;
-//            alteraSenhas(opConfig);
-//        }
-        
-        configZonas();
-        zonaConfig = 1;
-//        while (menu){
-////            valorSensor = leituraADC(2);
-////            listaZonas(valorSensor);
-////            __delay_ms(100); 
-//            if (opConfig > 0){
-//                switch (opConfig){
-//                    case 1:
-////                        alteraSenhas(opConfig);
-//                        break;
-//                    case 2:
-////                        alteraSenhas(opConfig);
-//                        break;
-//                    case 3:
-//                        alteraSenhas(opConfig);
-//                        break;
-////                    case 4:
-////                        //config disparo
-////                        break;
-////                    case 5:
-////                        //desativar zona
-////                        break;
-////                    case 6:
-////                        //reativar zona
-////                        break;
-//
-//                }
-//            }  
-//        }
+    inicioADC();
+    while (1){ 
+        while (userFalse){
+           validaUser();
+        }
+        while(senhaCoaAtivo){
+            LCD_init();
+            LCD_limpa();
+            LCD_linha1();
+            escreveMesagem(msgChamaAjuda);
+            __delay_ms(2000);
+            infoZonas();
+            PORTB = 0b01111111;
+            if(RB0 == 0){
+                __delay_ms(100);
+                senhaCoaAtivo = 0;
+                liga_buzzer(0.1);
+            }
+        }
+        while (menu){
+            valorSensor = leituraADC(2);
+            listaZonas(valorSensor);
+            __delay_ms(50); 
+            if (opConfig > 0){
+                switch (opConfig){
+                    case 1:
+                        alteraSenhas(opConfig);
+                        break;
+                    case 2:
+                        alteraSenhas(opConfig);
+                        break;
+                    case 3:
+                        alteraSenhas(opConfig);
+                        break;
+                    case 4:
+                        configZonas();
+                        break;
+                    case 5:
+                        //desativar zona
+                        break;
+                    case 6:
+                        //reativar zona
+                        break;
+                }
+           }  
+       }
     }
 }
 void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara, unsigned char *pos){
-    for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
-        if(msgZonaDisparadas[i] == '0' && msgConfigDispara[i] == pos){
-            msgZonaDisparadas[i] = '1';
+    if (senhaCoaAtivo){
+        for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
+            if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
+                msgZonaDisparadas[i] = '0';
+                __delay_ms(2);
+                pos++;
+            }
         }
-        else if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
-            msgZonaDisparadas[i] = '0';
-        }
-        __delay_ms(2);
     }
-    zonaConfig = 0;
-    infoZonas();
+    else{
+        for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
+            if(msgZonaDisparadas[i] == '0' && msgConfigDispara[i] == pos){
+                msgZonaDisparadas[i] = '1';
+            }
+            else if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
+                msgZonaDisparadas[i] = '0';
+            }
+            __delay_ms(2);
+        }
+    }
+    
+//    zonaConfig = 0;
+//    infoZonas();
 }
 void infoZonas(){
     LCD_limpa();
@@ -142,7 +152,7 @@ void infoZonas(){
     escreveMesagem(msgConfigDispara);
     LCD_linha2();
     escreveMesagem(msgZonaDisparadas);
-    __delay_ms(1000);
+    __delay_ms(3000);
 }
 void configZonas(){
     infoZonas();
@@ -298,9 +308,9 @@ void teclado(){
         if(userFalse){
             input = 0;
         }
-        if (alteraSenha){
-            input = 0;
-        }
+//        if (alteraSenha){
+//            input = 0;
+//        }
     }
     // ***
     // Numero 1
@@ -312,9 +322,9 @@ void teclado(){
         if(userFalse){
             input = 1;
         }
-        if (alteraSenha){
-            input = 1;
-        }
+//        if (alteraSenha){
+//            input = 1;
+//        }
     }
     // ***
     // Numero 2
@@ -488,6 +498,12 @@ void espacoLivre(){
     }
 }
 void validaUser(){
+    LCD_init();
+    __delay_ms(20);
+    LCD_limpa();
+    __delay_ms(20);
+    telaInicial();
+    Linha2();
     while(userFalse){
         for(int n = 0; n < 8; n++){
             input = 10;
@@ -496,7 +512,8 @@ void validaUser(){
             }
             senhaUserConfere[n] = confereTeclado(input);
             if (n == 3){
-                if (strcmp(senhaUser, senhaUserConfere) != 0){
+                if ((strcmp(senhaUser, senhaUserConfere) != 0) && 
+                        (strcmp(senhaCoa, senhaUserConfere) != 0)){
                     userFalse = 1;
                     menu = 0;
                     LCD_limpa();
@@ -514,10 +531,23 @@ void validaUser(){
                 escreveMesagem(msgSenhaCorreta);
                 __delay_ms(2000);
             }
+            else if (strcmp(senhaCoa, senhaUserConfere)==0){
+                unsigned char pos;
+                userFalse = 0;
+                n = 10;
+                pos = '1';
+                senhaCoaAtivo = 1;
+                LCD_limpa();
+                LCD_linha1();
+                escreveMesagem(msgSenhaCorreta);
+                __delay_ms(2000);
+                setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+            }
         }
     }
 }
 void listaZonas(unsigned int valorSensor){
+    PORTB = 0b10111111; // teclar a letra A para entrar
     if (valorSensor <= auxSensor){
         LCD_init();
         LCD_limpa();
@@ -526,9 +556,8 @@ void listaZonas(unsigned int valorSensor){
         escreveMesagem(msgSenhaConfig);
         LCD_linha2();
         escreveMesagem(msgSenhaUsuario);
-        PORTB = 0b10111111;
         if (RB2 == 0){
-            __delay_ms(200);
+            __delay_ms(100);
             liga_buzzer(0.1);
             opConfig = 1;
         }
@@ -542,7 +571,7 @@ void listaZonas(unsigned int valorSensor){
         LCD_escreve('>');
         escreveMesagem(msgSenhaUsuario);
         if (RB2 == 0){
-            __delay_ms(200);
+            __delay_ms(100);
             liga_buzzer(0.1);
             opConfig = 2;
         }
@@ -556,7 +585,7 @@ void listaZonas(unsigned int valorSensor){
         LCD_linha2();
         escreveMesagem(msgSenhaDisparo);
         if (RB2 == 0){
-            __delay_ms(200);
+            __delay_ms(100);
             liga_buzzer(0.1);
             opConfig = 3;
         }
@@ -570,7 +599,7 @@ void listaZonas(unsigned int valorSensor){
         LCD_escreve('>');
         escreveMesagem(msgSenhaDisparo);
         if (RB2 == 0){
-            __delay_ms(200);
+            __delay_ms(100);
             liga_buzzer(0.1);
             opConfig = 4;
         }
@@ -584,7 +613,7 @@ void listaZonas(unsigned int valorSensor){
         LCD_linha2();
         escreveMesagem(msgReativar);
         if (RB2 == 0){
-            __delay_ms(200);
+            __delay_ms(100);
             liga_buzzer(0.1);
             opConfig = 5;
         }
@@ -598,7 +627,7 @@ void listaZonas(unsigned int valorSensor){
         LCD_escreve('>');
         escreveMesagem(msgReativar);
         if (RB2 == 0){
-            __delay_ms(200);
+            __delay_ms(100);
             liga_buzzer(0.1);
             opConfig = 6;
         }
