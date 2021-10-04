@@ -1902,6 +1902,7 @@ unsigned int alteraSenha = 0;
 unsigned int opConfig = 0;
 
 
+void mensageInicialValidaSenha(unsigned char * texto);
 void infoZonas();
 void configZonas();
 void liga_buzzer(float tempoSegundos);
@@ -1944,37 +1945,59 @@ void main(void) {
     TRISD = 0x00;
     TRISB = 0x0F;
     PORTE = 0x01;
+    LCD_init();
+    LCD_limpa();
+
     inicioADC();
     while (1){
-        unsigned int i = 1;
-        while(i < 7){
-
-            switch (opConfig){
-                case 1:
-                    alteraSenhas(opConfig);
-                    break;
-                case 2:
-                    alteraSenhas(opConfig);
-                    break;
-                case 3:
-                    alteraSenhas(opConfig);
-                    break;
-                case 4:
-                    configZonas();
-                    break;
-                case 5:
-
-                    break;
-                case 6:
-
-                    break;
-            }
-        i++;
-
+        while (userFalse){
+           validaUser();
         }
+        while(senhaCoaAtivo){
+            LCD_init();
+            LCD_limpa();
+            LCD_linha1();
+            escreveMesagem(msgChamaAjuda);
+            _delay((unsigned long)((2000)*(20000000/4000.0)));
+            infoZonas();
+            PORTB = 0b01111111;
+            if(RB0 == 0){
+                _delay((unsigned long)((100)*(20000000/4000.0)));
+                senhaCoaAtivo = 0;
+                liga_buzzer(0.1);
+            }
+        }
+        while (menu){
+            valorSensor = leituraADC(2);
+            listaZonas(valorSensor);
+            _delay((unsigned long)((50)*(20000000/4000.0)));
+            if (opConfig > 0){
+                switch (opConfig){
+                    case 1:
+                        alteraSenhas(opConfig);
+                        break;
+                    case 2:
+                        alteraSenhas(opConfig);
+                        break;
+                    case 3:
+                        alteraSenhas(opConfig);
+                        break;
+                    case 4:
+                        configZonas();
+                        break;
+                    case 5:
 
+                        break;
+                    case 6:
+
+                        break;
+                }
+           }
+       }
     }
 }
+
+
 void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara, unsigned char *pos){
     if (senhaCoaAtivo){
         for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
@@ -1996,9 +2019,6 @@ void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara,
             _delay((unsigned long)((2)*(20000000/4000.0)));
         }
     }
-
-
-
 }
 void infoZonas(){
     LCD_limpa();
@@ -2010,30 +2030,38 @@ void infoZonas(){
 }
 void configZonas(){
     infoZonas();
-    PORTB = 0b11101111;
     unsigned char pos = '0';
     zonaConfig = 1;
     while (zonaConfig){
-        _delay((unsigned long)((250)*(20000000/4000.0)));
+        PORTB = 0b11101111;
         if (RB0 == 0){
+            _delay((unsigned long)((250)*(20000000/4000.0)));
             pos = '1';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
         if (RB1 == 0){
+            _delay((unsigned long)((250)*(20000000/4000.0)));
             pos = '2';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
         if (RB2 == 0){
+            _delay((unsigned long)((250)*(20000000/4000.0)));
             pos = '3';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
         if (RB3 == 0){
+            _delay((unsigned long)((250)*(20000000/4000.0)));
             pos = '4';
             _delay((unsigned long)((2)*(20000000/4000.0)));
             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+        }
+        PORTB = 0b01111111;
+        if(RB3 == 0){
+            _delay((unsigned long)((250)*(20000000/4000.0)));
+            zonaConfig = 0;
         }
     }
 }
@@ -2070,10 +2098,10 @@ unsigned char confereTeclado(unsigned int numero){
             aux = '0';
         break;
     }
+   _delay((unsigned long)((2)*(20000000/4000.0)));
    return aux;
 }
-unsigned int valida_senha(unsigned char *texto){
-    unsigned int aceito = 3;
+void mensageInicialValidaSenha(unsigned char * texto){
     LCD_limpa();
     LCD_linha1();
     escreveMesagem(msgValidaSenha);
@@ -2081,21 +2109,25 @@ unsigned int valida_senha(unsigned char *texto){
     escreveMesagem(texto);
     LCD_escreve(' ');
     escreveMesagem(msgAceitoOuNego);
-    PORTB = 0b01111111;
+}
+unsigned int valida_senha(unsigned char *texto){
+    mensageInicialValidaSenha(texto);
+    unsigned int aceito = 3;
     while (aceito == 3){
-        _delay((unsigned long)((200)*(20000000/4000.0)));
-
+        PORTB = 0b01111111;
+        _delay((unsigned long)((2)*(20000000/4000.0)));
         if (RB2 == 0){
+            _delay((unsigned long)((200)*(20000000/4000.0)));
             aceito = 0;
             LCD_escreve('E');
         }
         else if (RB3 == 0){
-
+            _delay((unsigned long)((200)*(20000000/4000.0)));
             aceito = 1;
             LCD_escreve('F');
         }
     }
-    _delay((unsigned long)((2000)*(20000000/4000.0)));
+    _delay((unsigned long)((1500)*(20000000/4000.0)));
     return aceito;
 
 }
@@ -2103,7 +2135,6 @@ void inputSenhaAlter(unsigned char *senhaDestino){
     for (int i = 0; i < 4; i++){
         input = 10;
         while (input == 10){teclado();}
-        _delay((unsigned long)((2)*(20000000/4000.0)));
         senhaDestino[i] = confereTeclado(input);
     }
     validaSenha = valida_senha(senhaDestino);
@@ -2118,15 +2149,28 @@ void rotinaValidaSenha(unsigned char* senhaOp){
         }
         else {
             escreveMesagem(msgSenhaCancelada);
+            _delay((unsigned long)((1000)*(20000000/4000.0)));
+            escreveMesagem(msgDigiteNovaSenha);
+            Linha2();
+            inputSenhaAlter(senhaOp);
+            if (validaSenha){
+                escreveMesagem(msgSenhaAtualizada);
+                LCD_linha2();
+                escreveMesagem(senhaOp);
+            }else {
+                escreveMesagem(msgSenhaCancelada);
+            }
         }
         _delay((unsigned long)((2000)*(20000000/4000.0)));
 }
 void alteraSenhas(unsigned int opConfig){
     LCD_init();
     LCD_limpa();
-    _delay((unsigned long)((2)*(20000000/4000.0)));
+    LCD_linha1();
     escreveMesagem(msgDigiteNovaSenha);
     Linha2();
+    _delay((unsigned long)((9000)*(20000000/4000.0)));
+
     alteraSenha = 1;
     if (opConfig == 1){
         rotinaValidaSenha(senhaConfig);

@@ -39,29 +39,44 @@ Version 4.0 HI-TECH Software Intermediate Code
 "402
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 402: extern volatile unsigned char PORTE __attribute__((address(0x009)));
 [v _PORTE `Vuc ~T0 @X0 0 e@9 ]
-"65 main.c
-[; ;main.c: 65: void inicioADC ();
+"66 main.c
+[; ;main.c: 66: void inicioADC ();
 [v _inicioADC `(v ~T0 @X0 0 e? ]
-"14
-[; ;main.c: 14: void alteraSenhas(unsigned int opConfig);
-[v _alteraSenhas `(v ~T0 @X0 0 ef1`ui ]
-"35
-[; ;main.c: 35: void configZonas();
-[v _configZonas `(v ~T0 @X0 0 e? ]
+"13
+[; ;main.c: 13: void validaUser();
+[v _validaUser `(v ~T0 @X0 0 e? ]
+"39
+[; ;main.c: 39: void escreveMesagem(unsigned char *texto);
+[v _escreveMesagem `(v ~T0 @X0 0 ef1`*uc ]
 [v F951 `(v ~T0 @X0 1 tf1`ul ]
 "92 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\pic.h
 [v __delay `JF951 ~T0 @X0 0 e ]
 [p i __delay ]
-"38 main.c
-[; ;main.c: 38: void escreveMesagem(unsigned char *texto);
-[v _escreveMesagem `(v ~T0 @X0 0 ef1`*uc ]
+"35 main.c
+[; ;main.c: 35: void infoZonas();
+[v _infoZonas `(v ~T0 @X0 0 e? ]
 "216 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 216: extern volatile unsigned char PORTB __attribute__((address(0x006)));
 [v _PORTB `Vuc ~T0 @X0 0 e@6 ]
 "2674
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2674: extern volatile __bit RB0 __attribute__((address(0x30)));
 [v _RB0 `Vb ~T0 @X0 0 e@48 ]
-"2677
+"37 main.c
+[; ;main.c: 37: void liga_buzzer(float tempoSegundos);
+[v _liga_buzzer `(v ~T0 @X0 0 ef1`f ]
+"67
+[; ;main.c: 67: unsigned int leituraADC (unsigned char canal);
+[v _leituraADC `(ui ~T0 @X0 0 ef1`uc ]
+"38
+[; ;main.c: 38: void listaZonas(unsigned int valor);
+[v _listaZonas `(v ~T0 @X0 0 ef1`ui ]
+"14
+[; ;main.c: 14: void alteraSenhas(unsigned int opConfig);
+[v _alteraSenhas `(v ~T0 @X0 0 ef1`ui ]
+"36
+[; ;main.c: 36: void configZonas();
+[v _configZonas `(v ~T0 @X0 0 e? ]
+"2677 C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2677: extern volatile __bit RB1 __attribute__((address(0x31)));
 [v _RB1 `Vb ~T0 @X0 0 e@49 ]
 "2680
@@ -70,17 +85,17 @@ Version 4.0 HI-TECH Software Intermediate Code
 "2683
 [; ;C:/Program Files/Microchip/MPLABX/v5.50/packs/Microchip/PIC16Fxxx_DFP/1.2.33/xc8\pic\include\proc\pic16f877a.h: 2683: extern volatile __bit RB3 __attribute__((address(0x33)));
 [v _RB3 `Vb ~T0 @X0 0 e@51 ]
-"39 main.c
-[; ;main.c: 39: void teclado();
+"40 main.c
+[; ;main.c: 40: void teclado();
 [v _teclado `(v ~T0 @X0 0 e? ]
-"41
-[; ;main.c: 41: void Linha2();
+"42
+[; ;main.c: 42: void Linha2();
 [v _Linha2 `(v ~T0 @X0 0 e? ]
 "56 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h: 56: extern size_t strlen(const char *);
 [v _strlen `(ui ~T0 @X0 0 ef1`*Cuc ]
-"42 main.c
-[; ;main.c: 42: void espacoLivre();
+"43 main.c
+[; ;main.c: 43: void espacoLivre();
 [v _espacoLivre `(v ~T0 @X0 0 e? ]
 "45 C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h
 [; ;C:\Program Files\Microchip\xc8\v2.32\pic\include\c90\string.h: 45: extern int strcmp(const char *, const char *);
@@ -665,8 +680,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _opConfig
 -> -> 0 `i `ui
 ]
-"45
-[; ;main.c: 45: unsigned char msgConfigDispara[15] = " Zona: 1 2 3 4";
+"46
+[; ;main.c: 46: unsigned char msgConfigDispara[15] = " Zona: 1 2 3 4";
 [v _msgConfigDispara `uc ~T0 @X0 -> 15 `i e ]
 [i _msgConfigDispara
 :U ..
@@ -687,8 +702,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"46
-[; ;main.c: 46: unsigned char msgZonaDisparadas[15] = "       1 1 1 1";
+"47
+[; ;main.c: 47: unsigned char msgZonaDisparadas[15] = "       1 1 1 1";
 [v _msgZonaDisparadas `uc ~T0 @X0 -> 15 `i e ]
 [i _msgZonaDisparadas
 :U ..
@@ -709,8 +724,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"47
-[; ;main.c: 47: unsigned char msgSenhaCancelada[16] = "Senha cancelada";
+"48
+[; ;main.c: 48: unsigned char msgSenhaCancelada[16] = "Senha cancelada";
 [v _msgSenhaCancelada `uc ~T0 @X0 -> 16 `i e ]
 [i _msgSenhaCancelada
 :U ..
@@ -732,8 +747,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"48
-[; ;main.c: 48: unsigned char msgSenhaAtualizada[17] = "Senha Atualizada";
+"49
+[; ;main.c: 49: unsigned char msgSenhaAtualizada[17] = "Senha Atualizada";
 [v _msgSenhaAtualizada `uc ~T0 @X0 -> 17 `i e ]
 [i _msgSenhaAtualizada
 :U ..
@@ -756,8 +771,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"49
-[; ;main.c: 49: unsigned char msgSenhaErrada[13] = "Senha errada";
+"50
+[; ;main.c: 50: unsigned char msgSenhaErrada[13] = "Senha errada";
 [v _msgSenhaErrada `uc ~T0 @X0 -> 13 `i e ]
 [i _msgSenhaErrada
 :U ..
@@ -776,8 +791,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"50
-[; ;main.c: 50: unsigned char msgSenhaCorreta[14] = "Senha correta";
+"51
+[; ;main.c: 51: unsigned char msgSenhaCorreta[14] = "Senha correta";
 [v _msgSenhaCorreta `uc ~T0 @X0 -> 14 `i e ]
 [i _msgSenhaCorreta
 :U ..
@@ -797,8 +812,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"51
-[; ;main.c: 51: unsigned char msgSenhaConfig[13] = "Senha Config";
+"52
+[; ;main.c: 52: unsigned char msgSenhaConfig[13] = "Senha Config";
 [v _msgSenhaConfig `uc ~T0 @X0 -> 13 `i e ]
 [i _msgSenhaConfig
 :U ..
@@ -817,8 +832,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"52
-[; ;main.c: 52: unsigned char msgSenhaUsuario[14] = "Senha Usuario";
+"53
+[; ;main.c: 53: unsigned char msgSenhaUsuario[14] = "Senha Usuario";
 [v _msgSenhaUsuario `uc ~T0 @X0 -> 14 `i e ]
 [i _msgSenhaUsuario
 :U ..
@@ -838,8 +853,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"53
-[; ;main.c: 53: unsigned char msgSenhaCoacao[13] = "Senha Coacao";
+"54
+[; ;main.c: 54: unsigned char msgSenhaCoacao[13] = "Senha Coacao";
 [v _msgSenhaCoacao `uc ~T0 @X0 -> 13 `i e ]
 [i _msgSenhaCoacao
 :U ..
@@ -858,8 +873,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"54
-[; ;main.c: 54: unsigned char msgSenhaDisparo[14] = "Senha Disparo";
+"55
+[; ;main.c: 55: unsigned char msgSenhaDisparo[14] = "Senha Disparo";
 [v _msgSenhaDisparo `uc ~T0 @X0 -> 14 `i e ]
 [i _msgSenhaDisparo
 :U ..
@@ -879,8 +894,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"55
-[; ;main.c: 55: unsigned char msgDesativarZona[15] = "Desativar Zona";
+"56
+[; ;main.c: 56: unsigned char msgDesativarZona[15] = "Desativar Zona";
 [v _msgDesativarZona `uc ~T0 @X0 -> 15 `i e ]
 [i _msgDesativarZona
 :U ..
@@ -901,8 +916,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"56
-[; ;main.c: 56: unsigned char msgReativar[9] = "Reativar";
+"57
+[; ;main.c: 57: unsigned char msgReativar[9] = "Reativar";
 [v _msgReativar `uc ~T0 @X0 -> 9 `i e ]
 [i _msgReativar
 :U ..
@@ -917,8 +932,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"57
-[; ;main.c: 57: unsigned char msgDigiteSenha[15] = "Digite a senha";
+"58
+[; ;main.c: 58: unsigned char msgDigiteSenha[15] = "Digite a senha";
 [v _msgDigiteSenha `uc ~T0 @X0 -> 15 `i e ]
 [i _msgDigiteSenha
 :U ..
@@ -939,8 +954,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"58
-[; ;main.c: 58: unsigned char msgDigiteNovaSenha[14] = "   Nova senha";
+"59
+[; ;main.c: 59: unsigned char msgDigiteNovaSenha[14] = "   Nova senha";
 [v _msgDigiteNovaSenha `uc ~T0 @X0 -> 14 `i e ]
 [i _msgDigiteNovaSenha
 :U ..
@@ -960,8 +975,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"59
-[; ;main.c: 59: unsigned char msgValidaSenha[16] = "Ok:F ou Negar:E";
+"60
+[; ;main.c: 60: unsigned char msgValidaSenha[16] = "Ok:F ou Negar:E";
 [v _msgValidaSenha `uc ~T0 @X0 -> 16 `i e ]
 [i _msgValidaSenha
 :U ..
@@ -983,8 +998,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"60
-[; ;main.c: 60: unsigned char msgAceitoOuNego[9] = "Digite: ";
+"61
+[; ;main.c: 61: unsigned char msgAceitoOuNego[9] = "Digite: ";
 [v _msgAceitoOuNego `uc ~T0 @X0 -> 9 `i e ]
 [i _msgAceitoOuNego
 :U ..
@@ -999,8 +1014,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"61
-[; ;main.c: 61: unsigned char msgMascara[5] = "____";
+"62
+[; ;main.c: 62: unsigned char msgMascara[5] = "____";
 [v _msgMascara `uc ~T0 @X0 -> 5 `i e ]
 [i _msgMascara
 :U ..
@@ -1011,8 +1026,8 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"62
-[; ;main.c: 62: unsigned char msgChamaAjuda[10] = "Sai Ratao";
+"63
+[; ;main.c: 63: unsigned char msgChamaAjuda[10] = "Sai Ratao";
 [v _msgChamaAjuda `uc ~T0 @X0 -> 10 `i e ]
 [i _msgChamaAjuda
 :U ..
@@ -1028,147 +1043,230 @@ Version 4.0 HI-TECH Software Intermediate Code
 -> 0 `c
 ..
 ]
-"67
-[; ;main.c: 67: unsigned int auxSensor = 204;
+"68
+[; ;main.c: 68: unsigned int auxSensor = 204;
 [v _auxSensor `ui ~T0 @X0 1 e ]
 [i _auxSensor
 -> -> 204 `i `ui
 ]
-"68
-[; ;main.c: 68: unsigned int valorSensor = 0;
+"69
+[; ;main.c: 69: unsigned int valorSensor = 0;
 [v _valorSensor `ui ~T0 @X0 1 e ]
 [i _valorSensor
 -> -> 0 `i `ui
 ]
-"69
-[; ;main.c: 69: unsigned int valorSensorAux = 0;
+"70
+[; ;main.c: 70: unsigned int valorSensorAux = 0;
 [v _valorSensorAux `ui ~T0 @X0 1 e ]
 [i _valorSensorAux
 -> -> 0 `i `ui
 ]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"71
-[; ;main.c: 71: void main(void) {
+"72
+[; ;main.c: 72: void main(void) {
 [v _main `(v ~T0 @X0 1 ef ]
 {
 [e :U _main ]
 [f ]
-"72
-[; ;main.c: 72:     TRISE = 0x00;
-[e = _TRISE -> -> 0 `i `uc ]
 "73
-[; ;main.c: 73:     TRISD = 0x00;
-[e = _TRISD -> -> 0 `i `uc ]
+[; ;main.c: 73:     TRISE = 0x00;
+[e = _TRISE -> -> 0 `i `uc ]
 "74
-[; ;main.c: 74:     TRISB = 0x0F;
-[e = _TRISB -> -> 15 `i `uc ]
+[; ;main.c: 74:     TRISD = 0x00;
+[e = _TRISD -> -> 0 `i `uc ]
 "75
-[; ;main.c: 75:     PORTE = 0x01;
-[e = _PORTE -> -> 1 `i `uc ]
+[; ;main.c: 75:     TRISB = 0x0F;
+[e = _TRISB -> -> 15 `i `uc ]
 "76
-[; ;main.c: 76:     inicioADC();
-[e ( _inicioADC ..  ]
+[; ;main.c: 76:     PORTE = 0x01;
+[e = _PORTE -> -> 1 `i `uc ]
 "77
-[; ;main.c: 77:     while (1){
+[; ;main.c: 77:     LCD_init();
+[e ( _LCD_init ..  ]
+"78
+[; ;main.c: 78:     LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"80
+[; ;main.c: 80:     inicioADC();
+[e ( _inicioADC ..  ]
+"81
+[; ;main.c: 81:     while (1){
 [e :U 113 ]
 {
-"78
-[; ;main.c: 78:         unsigned int i = 1;
-[v _i `ui ~T0 @X0 1 a ]
-[e = _i -> -> 1 `i `ui ]
-"79
-[; ;main.c: 79:         while(i < 7){
+"82
+[; ;main.c: 82:         while (userFalse){
 [e $U 115  ]
 [e :U 116 ]
 {
-"81
-[; ;main.c: 81:             switch (opConfig){
-[e $U 119  ]
-{
-"82
-[; ;main.c: 82:                 case 1:
-[e :U 120 ]
 "83
-[; ;main.c: 83:                     alteraSenhas(opConfig);
-[e ( _alteraSenhas (1 _opConfig ]
+[; ;main.c: 83:            validaUser();
+[e ( _validaUser ..  ]
 "84
-[; ;main.c: 84:                     break;
-[e $U 118  ]
-"85
-[; ;main.c: 85:                 case 2:
-[e :U 121 ]
-"86
-[; ;main.c: 86:                     alteraSenhas(opConfig);
-[e ( _alteraSenhas (1 _opConfig ]
-"87
-[; ;main.c: 87:                     break;
-[e $U 118  ]
-"88
-[; ;main.c: 88:                 case 3:
-[e :U 122 ]
-"89
-[; ;main.c: 89:                     alteraSenhas(opConfig);
-[e ( _alteraSenhas (1 _opConfig ]
-"90
-[; ;main.c: 90:                     break;
-[e $U 118  ]
-"91
-[; ;main.c: 91:                 case 4:
-[e :U 123 ]
-"92
-[; ;main.c: 92:                     configZonas();
-[e ( _configZonas ..  ]
-"93
-[; ;main.c: 93:                     break;
-[e $U 118  ]
-"94
-[; ;main.c: 94:                 case 5:
-[e :U 124 ]
-"96
-[; ;main.c: 96:                     break;
-[e $U 118  ]
-"97
-[; ;main.c: 97:                 case 6:
-[e :U 125 ]
-"99
-[; ;main.c: 99:                     break;
-[e $U 118  ]
-"100
-[; ;main.c: 100:             }
-}
-[e $U 118  ]
-[e :U 119 ]
-[e [\ _opConfig , $ -> -> 1 `i `ui 120
- , $ -> -> 2 `i `ui 121
- , $ -> -> 3 `i `ui 122
- , $ -> -> 4 `i `ui 123
- , $ -> -> 5 `i `ui 124
- , $ -> -> 6 `i `ui 125
- 118 ]
-[e :U 118 ]
-"101
-[; ;main.c: 101:         i++;
-[e ++ _i -> -> 1 `i `ui ]
-"103
-[; ;main.c: 103:         }
+[; ;main.c: 84:         }
 }
 [e :U 115 ]
-"79
-[; ;main.c: 79:         while(i < 7){
-[e $ < _i -> -> 7 `i `ui 116  ]
+"82
+[; ;main.c: 82:         while (userFalse){
+[e $ != _userFalse -> -> 0 `i `ui 116  ]
 [e :U 117 ]
+"85
+[; ;main.c: 85:         while(senhaCoaAtivo){
+[e $U 118  ]
+[e :U 119 ]
+{
+"86
+[; ;main.c: 86:             LCD_init();
+[e ( _LCD_init ..  ]
+"87
+[; ;main.c: 87:             LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"88
+[; ;main.c: 88:             LCD_linha1();
+[e ( _LCD_linha1 ..  ]
+"89
+[; ;main.c: 89:             escreveMesagem(msgChamaAjuda);
+[e ( _escreveMesagem (1 &U _msgChamaAjuda ]
+"90
+[; ;main.c: 90:             _delay((unsigned long)((2000)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"91
+[; ;main.c: 91:             infoZonas();
+[e ( _infoZonas ..  ]
+"92
+[; ;main.c: 92:             PORTB = 0b01111111;
+[e = _PORTB -> -> 127 `i `uc ]
+"93
+[; ;main.c: 93:             if(RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 121  ]
+{
+"94
+[; ;main.c: 94:                 _delay((unsigned long)((100)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"95
+[; ;main.c: 95:                 senhaCoaAtivo = 0;
+[e = _senhaCoaAtivo -> -> 0 `i `ui ]
+"96
+[; ;main.c: 96:                 liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"97
+[; ;main.c: 97:             }
+}
+[e :U 121 ]
+"98
+[; ;main.c: 98:         }
+}
+[e :U 118 ]
+"85
+[; ;main.c: 85:         while(senhaCoaAtivo){
+[e $ != _senhaCoaAtivo -> -> 0 `i `ui 119  ]
+[e :U 120 ]
+"99
+[; ;main.c: 99:         while (menu){
+[e $U 122  ]
+[e :U 123 ]
+{
+"100
+[; ;main.c: 100:             valorSensor = leituraADC(2);
+[e = _valorSensor ( _leituraADC (1 -> -> 2 `i `uc ]
+"101
+[; ;main.c: 101:             listaZonas(valorSensor);
+[e ( _listaZonas (1 _valorSensor ]
+"102
+[; ;main.c: 102:             _delay((unsigned long)((50)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 50 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"103
+[; ;main.c: 103:             if (opConfig > 0){
+[e $ ! > _opConfig -> -> 0 `i `ui 125  ]
+{
+"104
+[; ;main.c: 104:                 switch (opConfig){
+[e $U 127  ]
+{
 "105
-[; ;main.c: 105:     }
+[; ;main.c: 105:                     case 1:
+[e :U 128 ]
+"106
+[; ;main.c: 106:                         alteraSenhas(opConfig);
+[e ( _alteraSenhas (1 _opConfig ]
+"107
+[; ;main.c: 107:                         break;
+[e $U 126  ]
+"108
+[; ;main.c: 108:                     case 2:
+[e :U 129 ]
+"109
+[; ;main.c: 109:                         alteraSenhas(opConfig);
+[e ( _alteraSenhas (1 _opConfig ]
+"110
+[; ;main.c: 110:                         break;
+[e $U 126  ]
+"111
+[; ;main.c: 111:                     case 3:
+[e :U 130 ]
+"112
+[; ;main.c: 112:                         alteraSenhas(opConfig);
+[e ( _alteraSenhas (1 _opConfig ]
+"113
+[; ;main.c: 113:                         break;
+[e $U 126  ]
+"114
+[; ;main.c: 114:                     case 4:
+[e :U 131 ]
+"115
+[; ;main.c: 115:                         configZonas();
+[e ( _configZonas ..  ]
+"116
+[; ;main.c: 116:                         break;
+[e $U 126  ]
+"117
+[; ;main.c: 117:                     case 5:
+[e :U 132 ]
+"119
+[; ;main.c: 119:                         break;
+[e $U 126  ]
+"120
+[; ;main.c: 120:                     case 6:
+[e :U 133 ]
+"122
+[; ;main.c: 122:                         break;
+[e $U 126  ]
+"123
+[; ;main.c: 123:                 }
+}
+[e $U 126  ]
+[e :U 127 ]
+[e [\ _opConfig , $ -> -> 1 `i `ui 128
+ , $ -> -> 2 `i `ui 129
+ , $ -> -> 3 `i `ui 130
+ , $ -> -> 4 `i `ui 131
+ , $ -> -> 5 `i `ui 132
+ , $ -> -> 6 `i `ui 133
+ 126 ]
+[e :U 126 ]
+"124
+[; ;main.c: 124:            }
+}
+[e :U 125 ]
+"125
+[; ;main.c: 125:        }
+}
+[e :U 122 ]
+"99
+[; ;main.c: 99:         while (menu){
+[e $ != _menu -> -> 0 `i `ui 123  ]
+[e :U 124 ]
+"126
+[; ;main.c: 126:     }
 }
 [e :U 112 ]
 [e $U 113  ]
 [e :U 114 ]
-"106
-[; ;main.c: 106: }
+"127
+[; ;main.c: 127: }
 [e :UE 111 ]
 }
-"107
-[; ;main.c: 107: void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara, unsigned char *pos){
+"130
+[; ;main.c: 130: void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara, unsigned char *pos){
 [v _setaZona `(v ~T0 @X0 1 ef3`*uc`*uc`*uc ]
 {
 [e :U _setaZona ]
@@ -1176,1159 +1274,1158 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _msgConfigDispara `*uc ~T0 @X0 1 r2 ]
 [v _pos `*uc ~T0 @X0 1 r3 ]
 [f ]
-"108
-[; ;main.c: 108:     if (senhaCoaAtivo){
-[e $ ! != _senhaCoaAtivo -> -> 0 `i `ui 127  ]
+"131
+[; ;main.c: 131:     if (senhaCoaAtivo){
+[e $ ! != _senhaCoaAtivo -> -> 0 `i `ui 135  ]
 {
-"109
-[; ;main.c: 109:         for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
-{
-[v _i `i ~T0 @X0 1 a ]
-[e = _i -> 0 `i ]
-[e $U 131  ]
-[e :U 128 ]
-{
-"110
-[; ;main.c: 110:             if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
-[e $ ! && == -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 49 `ui == -> -> *U + _msgConfigDispara * -> _i `x -> -> # *U _msgConfigDispara `i `x `i `*uc _pos 132  ]
-{
-"111
-[; ;main.c: 111:                 msgZonaDisparadas[i] = '0';
-[e = *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x -> -> 48 `ui `uc ]
-"112
-[; ;main.c: 112:                 _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"113
-[; ;main.c: 113:                 pos++;
-[e ++ _pos * -> -> 1 `i `x -> -> # *U _pos `i `x ]
-"114
-[; ;main.c: 114:             }
-}
-[e :U 132 ]
-"115
-[; ;main.c: 115:         }
-}
-[e ++ _i -> 1 `i ]
-[e :U 131 ]
-[e $ != -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 0 `ui 128  ]
-[e :U 129 ]
-}
-"116
-[; ;main.c: 116:     }
-}
-[e $U 133  ]
-"117
-[; ;main.c: 117:     else{
-[e :U 127 ]
-{
-"118
-[; ;main.c: 118:         for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
+"132
+[; ;main.c: 132:         for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 137  ]
-[e :U 134 ]
-{
-"119
-[; ;main.c: 119:             if(msgZonaDisparadas[i] == '0' && msgConfigDispara[i] == pos){
-[e $ ! && == -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 48 `ui == -> -> *U + _msgConfigDispara * -> _i `x -> -> # *U _msgConfigDispara `i `x `i `*uc _pos 138  ]
-{
-"120
-[; ;main.c: 120:                 msgZonaDisparadas[i] = '1';
-[e = *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x -> -> 49 `ui `uc ]
-"121
-[; ;main.c: 121:             }
-}
 [e $U 139  ]
-"122
-[; ;main.c: 122:             else if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
-[e :U 138 ]
+[e :U 136 ]
+{
+"133
+[; ;main.c: 133:             if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
 [e $ ! && == -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 49 `ui == -> -> *U + _msgConfigDispara * -> _i `x -> -> # *U _msgConfigDispara `i `x `i `*uc _pos 140  ]
 {
-"123
-[; ;main.c: 123:                 msgZonaDisparadas[i] = '0';
+"134
+[; ;main.c: 134:                 msgZonaDisparadas[i] = '0';
 [e = *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x -> -> 48 `ui `uc ]
-"124
-[; ;main.c: 124:             }
+"135
+[; ;main.c: 135:                 _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"136
+[; ;main.c: 136:                 pos++;
+[e ++ _pos * -> -> 1 `i `x -> -> # *U _pos `i `x ]
+"137
+[; ;main.c: 137:             }
 }
 [e :U 140 ]
-[e :U 139 ]
-"125
-[; ;main.c: 125:             _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"126
-[; ;main.c: 126:         }
+"138
+[; ;main.c: 138:         }
 }
 [e ++ _i -> 1 `i ]
+[e :U 139 ]
+[e $ != -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 0 `ui 136  ]
 [e :U 137 ]
-[e $ != -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 0 `ui 134  ]
+}
+"139
+[; ;main.c: 139:     }
+}
+[e $U 141  ]
+"140
+[; ;main.c: 140:     else{
 [e :U 135 ]
+{
+"141
+[; ;main.c: 141:         for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 145  ]
+[e :U 142 ]
+{
+"142
+[; ;main.c: 142:             if(msgZonaDisparadas[i] == '0' && msgConfigDispara[i] == pos){
+[e $ ! && == -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 48 `ui == -> -> *U + _msgConfigDispara * -> _i `x -> -> # *U _msgConfigDispara `i `x `i `*uc _pos 146  ]
+{
+"143
+[; ;main.c: 143:                 msgZonaDisparadas[i] = '1';
+[e = *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x -> -> 49 `ui `uc ]
+"144
+[; ;main.c: 144:             }
 }
-"127
-[; ;main.c: 127:     }
+[e $U 147  ]
+"145
+[; ;main.c: 145:             else if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
+[e :U 146 ]
+[e $ ! && == -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 49 `ui == -> -> *U + _msgConfigDispara * -> _i `x -> -> # *U _msgConfigDispara `i `x `i `*uc _pos 148  ]
+{
+"146
+[; ;main.c: 146:                 msgZonaDisparadas[i] = '0';
+[e = *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x -> -> 48 `ui `uc ]
+"147
+[; ;main.c: 147:             }
 }
-[e :U 133 ]
-"131
-[; ;main.c: 131: }
-[e :UE 126 ]
+[e :U 148 ]
+[e :U 147 ]
+"148
+[; ;main.c: 148:             _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"149
+[; ;main.c: 149:         }
 }
-"132
-[; ;main.c: 132: void infoZonas(){
+[e ++ _i -> 1 `i ]
+[e :U 145 ]
+[e $ != -> *U + _msgZonaDisparadas * -> _i `x -> -> # *U _msgZonaDisparadas `i `x `ui -> 0 `ui 142  ]
+[e :U 143 ]
+}
+"150
+[; ;main.c: 150:     }
+}
+[e :U 141 ]
+"151
+[; ;main.c: 151: }
+[e :UE 134 ]
+}
+"152
+[; ;main.c: 152: void infoZonas(){
 [v _infoZonas `(v ~T0 @X0 1 ef ]
 {
 [e :U _infoZonas ]
 [f ]
-"133
-[; ;main.c: 133:     LCD_limpa();
+"153
+[; ;main.c: 153:     LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"134
-[; ;main.c: 134:     LCD_linha1();
+"154
+[; ;main.c: 154:     LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"135
-[; ;main.c: 135:     escreveMesagem(msgConfigDispara);
+"155
+[; ;main.c: 155:     escreveMesagem(msgConfigDispara);
 [e ( _escreveMesagem (1 &U _msgConfigDispara ]
-"136
-[; ;main.c: 136:     LCD_linha2();
+"156
+[; ;main.c: 156:     LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"137
-[; ;main.c: 137:     escreveMesagem(msgZonaDisparadas);
+"157
+[; ;main.c: 157:     escreveMesagem(msgZonaDisparadas);
 [e ( _escreveMesagem (1 &U _msgZonaDisparadas ]
-"138
-[; ;main.c: 138:     _delay((unsigned long)((3000)*(20000000/4000.0)));
+"158
+[; ;main.c: 158:     _delay((unsigned long)((3000)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 3000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"139
-[; ;main.c: 139: }
-[e :UE 141 ]
+"159
+[; ;main.c: 159: }
+[e :UE 149 ]
 }
-"140
-[; ;main.c: 140: void configZonas(){
+"160
+[; ;main.c: 160: void configZonas(){
 [v _configZonas `(v ~T0 @X0 1 ef ]
 {
 [e :U _configZonas ]
 [f ]
-"141
-[; ;main.c: 141:     infoZonas();
+"161
+[; ;main.c: 161:     infoZonas();
 [e ( _infoZonas ..  ]
-"142
-[; ;main.c: 142:     PORTB = 0b11101111;
-[e = _PORTB -> -> 239 `i `uc ]
-"143
-[; ;main.c: 143:     unsigned char pos = '0';
+"162
+[; ;main.c: 162:     unsigned char pos = '0';
 [v _pos `uc ~T0 @X0 1 a ]
 [e = _pos -> -> 48 `ui `uc ]
-"144
-[; ;main.c: 144:     zonaConfig = 1;
-[e = _zonaConfig -> -> 1 `i `ui ]
-"145
-[; ;main.c: 145:     while (zonaConfig){
-[e $U 143  ]
-[e :U 144 ]
-{
-"146
-[; ;main.c: 146:         _delay((unsigned long)((250)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"147
-[; ;main.c: 147:         if (RB0 == 0){
-[e $ ! == -> _RB0 `i -> 0 `i 146  ]
-{
-"148
-[; ;main.c: 148:             pos = '1';
-[e = _pos -> -> 49 `ui `uc ]
-"149
-[; ;main.c: 149:             _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"150
-[; ;main.c: 150:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
-[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
-"151
-[; ;main.c: 151:         }
-}
-[e :U 146 ]
-"152
-[; ;main.c: 152:         if (RB1 == 0){
-[e $ ! == -> _RB1 `i -> 0 `i 147  ]
-{
-"153
-[; ;main.c: 153:             pos = '2';
-[e = _pos -> -> 50 `ui `uc ]
-"154
-[; ;main.c: 154:             _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"155
-[; ;main.c: 155:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
-[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
-"156
-[; ;main.c: 156:         }
-}
-[e :U 147 ]
-"157
-[; ;main.c: 157:         if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 148  ]
-{
-"158
-[; ;main.c: 158:             pos = '3';
-[e = _pos -> -> 51 `ui `uc ]
-"159
-[; ;main.c: 159:             _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"160
-[; ;main.c: 160:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
-[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
-"161
-[; ;main.c: 161:         }
-}
-[e :U 148 ]
-"162
-[; ;main.c: 162:         if (RB3 == 0){
-[e $ ! == -> _RB3 `i -> 0 `i 149  ]
-{
 "163
-[; ;main.c: 163:             pos = '4';
-[e = _pos -> -> 52 `ui `uc ]
+[; ;main.c: 163:     zonaConfig = 1;
+[e = _zonaConfig -> -> 1 `i `ui ]
 "164
-[; ;main.c: 164:             _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 164:     while (zonaConfig){
+[e $U 151  ]
+[e :U 152 ]
+{
 "165
-[; ;main.c: 165:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
-[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
+[; ;main.c: 165:         PORTB = 0b11101111;
+[e = _PORTB -> -> 239 `i `uc ]
 "166
-[; ;main.c: 166:         }
-}
-[e :U 149 ]
+[; ;main.c: 166:         if (RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 154  ]
+{
 "167
-[; ;main.c: 167:     }
-}
-[e :U 143 ]
-"145
-[; ;main.c: 145:     while (zonaConfig){
-[e $ != _zonaConfig -> -> 0 `i `ui 144  ]
-[e :U 145 ]
+[; ;main.c: 167:             _delay((unsigned long)((250)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "168
-[; ;main.c: 168: }
-[e :UE 142 ]
-}
+[; ;main.c: 168:             pos = '1';
+[e = _pos -> -> 49 `ui `uc ]
 "169
-[; ;main.c: 169: unsigned char confereTeclado(unsigned int numero){
+[; ;main.c: 169:             _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"170
+[; ;main.c: 170:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
+"171
+[; ;main.c: 171:         }
+}
+[e :U 154 ]
+"172
+[; ;main.c: 172:         if (RB1 == 0){
+[e $ ! == -> _RB1 `i -> 0 `i 155  ]
+{
+"173
+[; ;main.c: 173:             _delay((unsigned long)((250)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"174
+[; ;main.c: 174:             pos = '2';
+[e = _pos -> -> 50 `ui `uc ]
+"175
+[; ;main.c: 175:             _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"176
+[; ;main.c: 176:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
+"177
+[; ;main.c: 177:         }
+}
+[e :U 155 ]
+"178
+[; ;main.c: 178:         if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 156  ]
+{
+"179
+[; ;main.c: 179:             _delay((unsigned long)((250)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"180
+[; ;main.c: 180:             pos = '3';
+[e = _pos -> -> 51 `ui `uc ]
+"181
+[; ;main.c: 181:             _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"182
+[; ;main.c: 182:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
+"183
+[; ;main.c: 183:         }
+}
+[e :U 156 ]
+"184
+[; ;main.c: 184:         if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 157  ]
+{
+"185
+[; ;main.c: 185:             _delay((unsigned long)((250)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"186
+[; ;main.c: 186:             pos = '4';
+[e = _pos -> -> 52 `ui `uc ]
+"187
+[; ;main.c: 187:             _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"188
+[; ;main.c: 188:             setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+[e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
+"189
+[; ;main.c: 189:         }
+}
+[e :U 157 ]
+"190
+[; ;main.c: 190:         PORTB = 0b01111111;
+[e = _PORTB -> -> 127 `i `uc ]
+"191
+[; ;main.c: 191:         if(RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 158  ]
+{
+"192
+[; ;main.c: 192:             _delay((unsigned long)((250)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 250 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"193
+[; ;main.c: 193:             zonaConfig = 0;
+[e = _zonaConfig -> -> 0 `i `ui ]
+"194
+[; ;main.c: 194:         }
+}
+[e :U 158 ]
+"195
+[; ;main.c: 195:     }
+}
+[e :U 151 ]
+"164
+[; ;main.c: 164:     while (zonaConfig){
+[e $ != _zonaConfig -> -> 0 `i `ui 152  ]
+[e :U 153 ]
+"196
+[; ;main.c: 196: }
+[e :UE 150 ]
+}
+"197
+[; ;main.c: 197: unsigned char confereTeclado(unsigned int numero){
 [v _confereTeclado `(uc ~T0 @X0 1 ef1`ui ]
 {
 [e :U _confereTeclado ]
 [v _numero `ui ~T0 @X0 1 r1 ]
 [f ]
-"170
-[; ;main.c: 170:    switch (numero){
-[e $U 152  ]
-{
-"171
-[; ;main.c: 171:         case 1:
-[e :U 153 ]
-"172
-[; ;main.c: 172:             aux = '1';
-[e = _aux -> -> 49 `ui `*uc ]
-"173
-[; ;main.c: 173:         break;
-[e $U 151  ]
-"174
-[; ;main.c: 174:         case 2:
-[e :U 154 ]
-"175
-[; ;main.c: 175:             aux = '2';
-[e = _aux -> -> 50 `ui `*uc ]
-"176
-[; ;main.c: 176:         break;
-[e $U 151  ]
-"177
-[; ;main.c: 177:         case 3:
-[e :U 155 ]
-"178
-[; ;main.c: 178:             aux = '3';
-[e = _aux -> -> 51 `ui `*uc ]
-"179
-[; ;main.c: 179:         break;
-[e $U 151  ]
-"180
-[; ;main.c: 180:         case 4:
-[e :U 156 ]
-"181
-[; ;main.c: 181:             aux = '4';
-[e = _aux -> -> 52 `ui `*uc ]
-"182
-[; ;main.c: 182:         break;
-[e $U 151  ]
-"183
-[; ;main.c: 183:         case 5:
-[e :U 157 ]
-"184
-[; ;main.c: 184:             aux = '5';
-[e = _aux -> -> 53 `ui `*uc ]
-"185
-[; ;main.c: 185:         break;
-[e $U 151  ]
-"186
-[; ;main.c: 186:         case 6:
-[e :U 158 ]
-"187
-[; ;main.c: 187:             aux = '6';
-[e = _aux -> -> 54 `ui `*uc ]
-"188
-[; ;main.c: 188:         break;
-[e $U 151  ]
-"189
-[; ;main.c: 189:         case 7:
-[e :U 159 ]
-"190
-[; ;main.c: 190:             aux = '7';
-[e = _aux -> -> 55 `ui `*uc ]
-"191
-[; ;main.c: 191:         break;
-[e $U 151  ]
-"192
-[; ;main.c: 192:         case 8:
-[e :U 160 ]
-"193
-[; ;main.c: 193:             aux = '8';
-[e = _aux -> -> 56 `ui `*uc ]
-"194
-[; ;main.c: 194:         break;
-[e $U 151  ]
-"195
-[; ;main.c: 195:         case 9:
-[e :U 161 ]
-"196
-[; ;main.c: 196:             aux = '9';
-[e = _aux -> -> 57 `ui `*uc ]
-"197
-[; ;main.c: 197:         break;
-[e $U 151  ]
 "198
-[; ;main.c: 198:         case 0:
-[e :U 162 ]
+[; ;main.c: 198:    switch (numero){
+[e $U 161  ]
+{
 "199
-[; ;main.c: 199:             aux = '0';
-[e = _aux -> -> 48 `ui `*uc ]
+[; ;main.c: 199:         case 1:
+[e :U 162 ]
 "200
-[; ;main.c: 200:         break;
-[e $U 151  ]
+[; ;main.c: 200:             aux = '1';
+[e = _aux -> -> 49 `ui `*uc ]
 "201
-[; ;main.c: 201:     }
-}
-[e $U 151  ]
-[e :U 152 ]
-[e [\ _numero , $ -> -> 1 `i `ui 153
- , $ -> -> 2 `i `ui 154
- , $ -> -> 3 `i `ui 155
- , $ -> -> 4 `i `ui 156
- , $ -> -> 5 `i `ui 157
- , $ -> -> 6 `i `ui 158
- , $ -> -> 7 `i `ui 159
- , $ -> -> 8 `i `ui 160
- , $ -> -> 9 `i `ui 161
- , $ -> -> 0 `i `ui 162
- 151 ]
-[e :U 151 ]
+[; ;main.c: 201:         break;
+[e $U 160  ]
 "202
-[; ;main.c: 202:    return aux;
-[e ) -> _aux `uc ]
-[e $UE 150  ]
+[; ;main.c: 202:         case 2:
+[e :U 163 ]
 "203
-[; ;main.c: 203: }
-[e :UE 150 ]
-}
+[; ;main.c: 203:             aux = '2';
+[e = _aux -> -> 50 `ui `*uc ]
 "204
-[; ;main.c: 204: unsigned int valida_senha(unsigned char *texto){
+[; ;main.c: 204:         break;
+[e $U 160  ]
+"205
+[; ;main.c: 205:         case 3:
+[e :U 164 ]
+"206
+[; ;main.c: 206:             aux = '3';
+[e = _aux -> -> 51 `ui `*uc ]
+"207
+[; ;main.c: 207:         break;
+[e $U 160  ]
+"208
+[; ;main.c: 208:         case 4:
+[e :U 165 ]
+"209
+[; ;main.c: 209:             aux = '4';
+[e = _aux -> -> 52 `ui `*uc ]
+"210
+[; ;main.c: 210:         break;
+[e $U 160  ]
+"211
+[; ;main.c: 211:         case 5:
+[e :U 166 ]
+"212
+[; ;main.c: 212:             aux = '5';
+[e = _aux -> -> 53 `ui `*uc ]
+"213
+[; ;main.c: 213:         break;
+[e $U 160  ]
+"214
+[; ;main.c: 214:         case 6:
+[e :U 167 ]
+"215
+[; ;main.c: 215:             aux = '6';
+[e = _aux -> -> 54 `ui `*uc ]
+"216
+[; ;main.c: 216:         break;
+[e $U 160  ]
+"217
+[; ;main.c: 217:         case 7:
+[e :U 168 ]
+"218
+[; ;main.c: 218:             aux = '7';
+[e = _aux -> -> 55 `ui `*uc ]
+"219
+[; ;main.c: 219:         break;
+[e $U 160  ]
+"220
+[; ;main.c: 220:         case 8:
+[e :U 169 ]
+"221
+[; ;main.c: 221:             aux = '8';
+[e = _aux -> -> 56 `ui `*uc ]
+"222
+[; ;main.c: 222:         break;
+[e $U 160  ]
+"223
+[; ;main.c: 223:         case 9:
+[e :U 170 ]
+"224
+[; ;main.c: 224:             aux = '9';
+[e = _aux -> -> 57 `ui `*uc ]
+"225
+[; ;main.c: 225:         break;
+[e $U 160  ]
+"226
+[; ;main.c: 226:         case 0:
+[e :U 171 ]
+"227
+[; ;main.c: 227:             aux = '0';
+[e = _aux -> -> 48 `ui `*uc ]
+"228
+[; ;main.c: 228:         break;
+[e $U 160  ]
+"229
+[; ;main.c: 229:     }
+}
+[e $U 160  ]
+[e :U 161 ]
+[e [\ _numero , $ -> -> 1 `i `ui 162
+ , $ -> -> 2 `i `ui 163
+ , $ -> -> 3 `i `ui 164
+ , $ -> -> 4 `i `ui 165
+ , $ -> -> 5 `i `ui 166
+ , $ -> -> 6 `i `ui 167
+ , $ -> -> 7 `i `ui 168
+ , $ -> -> 8 `i `ui 169
+ , $ -> -> 9 `i `ui 170
+ , $ -> -> 0 `i `ui 171
+ 160 ]
+[e :U 160 ]
+"230
+[; ;main.c: 230:    _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"231
+[; ;main.c: 231:    return aux;
+[e ) -> _aux `uc ]
+[e $UE 159  ]
+"232
+[; ;main.c: 232: }
+[e :UE 159 ]
+}
+"233
+[; ;main.c: 233: void mensageInicialValidaSenha(unsigned char * texto){
+[v _mensageInicialValidaSenha `(v ~T0 @X0 1 ef1`*uc ]
+{
+[e :U _mensageInicialValidaSenha ]
+[v _texto `*uc ~T0 @X0 1 r1 ]
+[f ]
+"234
+[; ;main.c: 234:     LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"235
+[; ;main.c: 235:     LCD_linha1();
+[e ( _LCD_linha1 ..  ]
+"236
+[; ;main.c: 236:     escreveMesagem(msgValidaSenha);
+[e ( _escreveMesagem (1 &U _msgValidaSenha ]
+"237
+[; ;main.c: 237:     LCD_linha2();
+[e ( _LCD_linha2 ..  ]
+"238
+[; ;main.c: 238:     escreveMesagem(texto);
+[e ( _escreveMesagem (1 _texto ]
+"239
+[; ;main.c: 239:     LCD_escreve(' ');
+[e ( _LCD_escreve (1 -> -> 32 `ui `uc ]
+"240
+[; ;main.c: 240:     escreveMesagem(msgAceitoOuNego);
+[e ( _escreveMesagem (1 &U _msgAceitoOuNego ]
+"241
+[; ;main.c: 241: }
+[e :UE 172 ]
+}
+"242
+[; ;main.c: 242: unsigned int valida_senha(unsigned char *texto){
 [v _valida_senha `(ui ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _valida_senha ]
 [v _texto `*uc ~T0 @X0 1 r1 ]
 [f ]
-"205
-[; ;main.c: 205:     unsigned int aceito = 3;
+"243
+[; ;main.c: 243:     mensageInicialValidaSenha(texto);
+[e ( _mensageInicialValidaSenha (1 _texto ]
+"244
+[; ;main.c: 244:     unsigned int aceito = 3;
 [v _aceito `ui ~T0 @X0 1 a ]
 [e = _aceito -> -> 3 `i `ui ]
-"206
-[; ;main.c: 206:     LCD_limpa();
-[e ( _LCD_limpa ..  ]
-"207
-[; ;main.c: 207:     LCD_linha1();
-[e ( _LCD_linha1 ..  ]
-"208
-[; ;main.c: 208:     escreveMesagem(msgValidaSenha);
-[e ( _escreveMesagem (1 &U _msgValidaSenha ]
-"209
-[; ;main.c: 209:     LCD_linha2();
-[e ( _LCD_linha2 ..  ]
-"210
-[; ;main.c: 210:     escreveMesagem(texto);
-[e ( _escreveMesagem (1 _texto ]
-"211
-[; ;main.c: 211:     LCD_escreve(' ');
-[e ( _LCD_escreve (1 -> -> 32 `ui `uc ]
-"212
-[; ;main.c: 212:     escreveMesagem(msgAceitoOuNego);
-[e ( _escreveMesagem (1 &U _msgAceitoOuNego ]
-"213
-[; ;main.c: 213:     PORTB = 0b01111111;
+"245
+[; ;main.c: 245:     while (aceito == 3){
+[e $U 174  ]
+[e :U 175 ]
+{
+"246
+[; ;main.c: 246:         PORTB = 0b01111111;
 [e = _PORTB -> -> 127 `i `uc ]
-"214
-[; ;main.c: 214:     while (aceito == 3){
-[e $U 164  ]
-[e :U 165 ]
+"247
+[; ;main.c: 247:         _delay((unsigned long)((2)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"248
+[; ;main.c: 248:         if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 177  ]
 {
-"215
-[; ;main.c: 215:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"249
+[; ;main.c: 249:             _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"217
-[; ;main.c: 217:         if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 167  ]
-{
-"218
-[; ;main.c: 218:             aceito = 0;
+"250
+[; ;main.c: 250:             aceito = 0;
 [e = _aceito -> -> 0 `i `ui ]
-"219
-[; ;main.c: 219:             LCD_escreve('E');
+"251
+[; ;main.c: 251:             LCD_escreve('E');
 [e ( _LCD_escreve (1 -> -> 69 `ui `uc ]
-"220
-[; ;main.c: 220:         }
+"252
+[; ;main.c: 252:         }
 }
-[e $U 168  ]
-"221
-[; ;main.c: 221:         else if (RB3 == 0){
-[e :U 167 ]
-[e $ ! == -> _RB3 `i -> 0 `i 169  ]
+[e $U 178  ]
+"253
+[; ;main.c: 253:         else if (RB3 == 0){
+[e :U 177 ]
+[e $ ! == -> _RB3 `i -> 0 `i 179  ]
 {
-"223
-[; ;main.c: 223:             aceito = 1;
+"254
+[; ;main.c: 254:             _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"255
+[; ;main.c: 255:             aceito = 1;
 [e = _aceito -> -> 1 `i `ui ]
-"224
-[; ;main.c: 224:             LCD_escreve('F');
+"256
+[; ;main.c: 256:             LCD_escreve('F');
 [e ( _LCD_escreve (1 -> -> 70 `ui `uc ]
-"225
-[; ;main.c: 225:         }
+"257
+[; ;main.c: 257:         }
 }
-[e :U 169 ]
-[e :U 168 ]
-"226
-[; ;main.c: 226:     }
+[e :U 179 ]
+[e :U 178 ]
+"258
+[; ;main.c: 258:     }
 }
-[e :U 164 ]
-"214
-[; ;main.c: 214:     while (aceito == 3){
-[e $ == _aceito -> -> 3 `i `ui 165  ]
-[e :U 166 ]
-"227
-[; ;main.c: 227:     _delay((unsigned long)((2000)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"228
-[; ;main.c: 228:     return aceito;
+[e :U 174 ]
+"245
+[; ;main.c: 245:     while (aceito == 3){
+[e $ == _aceito -> -> 3 `i `ui 175  ]
+[e :U 176 ]
+"259
+[; ;main.c: 259:     _delay((unsigned long)((1500)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1500 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"260
+[; ;main.c: 260:     return aceito;
 [e ) _aceito ]
-[e $UE 163  ]
-"230
-[; ;main.c: 230: }
-[e :UE 163 ]
+[e $UE 173  ]
+"262
+[; ;main.c: 262: }
+[e :UE 173 ]
 }
-"231
-[; ;main.c: 231: void inputSenhaAlter(unsigned char *senhaDestino){
+"263
+[; ;main.c: 263: void inputSenhaAlter(unsigned char *senhaDestino){
 [v _inputSenhaAlter `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _inputSenhaAlter ]
 [v _senhaDestino `*uc ~T0 @X0 1 r1 ]
 [f ]
-"232
-[; ;main.c: 232:     for (int i = 0; i < 4; i++){
+"264
+[; ;main.c: 264:     for (int i = 0; i < 4; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 4 `i 171  ]
-[e $U 172  ]
-[e :U 171 ]
+[e $ < _i -> 4 `i 181  ]
+[e $U 182  ]
+[e :U 181 ]
 {
-"233
-[; ;main.c: 233:         input = 10;
+"265
+[; ;main.c: 265:         input = 10;
 [e = _input -> -> 10 `i `ui ]
-"234
-[; ;main.c: 234:         while (input == 10){teclado();}
-[e $U 174  ]
-[e :U 175 ]
+"266
+[; ;main.c: 266:         while (input == 10){teclado();}
+[e $U 184  ]
+[e :U 185 ]
 {
 [e ( _teclado ..  ]
 }
-[e :U 174 ]
-[e $ == _input -> -> 10 `i `ui 175  ]
-[e :U 176 ]
-"235
-[; ;main.c: 235:         _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"236
-[; ;main.c: 236:         senhaDestino[i] = confereTeclado(input);
+[e :U 184 ]
+[e $ == _input -> -> 10 `i `ui 185  ]
+[e :U 186 ]
+"267
+[; ;main.c: 267:         senhaDestino[i] = confereTeclado(input);
 [e = *U + _senhaDestino * -> _i `x -> -> # *U _senhaDestino `i `x ( _confereTeclado (1 _input ]
-"237
-[; ;main.c: 237:     }
+"268
+[; ;main.c: 268:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 4 `i 171  ]
-[e :U 172 ]
+[e $ < _i -> 4 `i 181  ]
+[e :U 182 ]
 }
-"238
-[; ;main.c: 238:     validaSenha = valida_senha(senhaDestino);
+"269
+[; ;main.c: 269:     validaSenha = valida_senha(senhaDestino);
 [e = _validaSenha ( _valida_senha (1 _senhaDestino ]
-"239
-[; ;main.c: 239: }
-[e :UE 170 ]
+"270
+[; ;main.c: 270: }
+[e :UE 180 ]
 }
-"240
-[; ;main.c: 240: void rotinaValidaSenha(unsigned char* senhaOp){
+"271
+[; ;main.c: 271: void rotinaValidaSenha(unsigned char* senhaOp){
 [v _rotinaValidaSenha `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _rotinaValidaSenha ]
 [v _senhaOp `*uc ~T0 @X0 1 r1 ]
 [f ]
-"241
-[; ;main.c: 241:     inputSenhaAlter(senhaOp);
+"272
+[; ;main.c: 272:     inputSenhaAlter(senhaOp);
 [e ( _inputSenhaAlter (1 _senhaOp ]
-"242
-[; ;main.c: 242:         LCD_limpa();
+"273
+[; ;main.c: 273:         LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"243
-[; ;main.c: 243:         if (validaSenha){
-[e $ ! != _validaSenha -> -> 0 `i `ui 178  ]
+"274
+[; ;main.c: 274:         if (validaSenha){
+[e $ ! != _validaSenha -> -> 0 `i `ui 188  ]
 {
-"244
-[; ;main.c: 244:             escreveMesagem(msgSenhaAtualizada);
+"275
+[; ;main.c: 275:             escreveMesagem(msgSenhaAtualizada);
 [e ( _escreveMesagem (1 &U _msgSenhaAtualizada ]
-"245
-[; ;main.c: 245:             LCD_linha2();
+"276
+[; ;main.c: 276:             LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"246
-[; ;main.c: 246:             escreveMesagem(senhaOp);
+"277
+[; ;main.c: 277:             escreveMesagem(senhaOp);
 [e ( _escreveMesagem (1 _senhaOp ]
-"247
-[; ;main.c: 247:         }
+"278
+[; ;main.c: 278:         }
 }
-[e $U 179  ]
-"248
-[; ;main.c: 248:         else {
-[e :U 178 ]
+[e $U 189  ]
+"279
+[; ;main.c: 279:         else {
+[e :U 188 ]
 {
-"249
-[; ;main.c: 249:             escreveMesagem(msgSenhaCancelada);
+"280
+[; ;main.c: 280:             escreveMesagem(msgSenhaCancelada);
 [e ( _escreveMesagem (1 &U _msgSenhaCancelada ]
-"250
-[; ;main.c: 250:         }
+"281
+[; ;main.c: 281:             _delay((unsigned long)((1000)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 1000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"282
+[; ;main.c: 282:             escreveMesagem(msgDigiteNovaSenha);
+[e ( _escreveMesagem (1 &U _msgDigiteNovaSenha ]
+"283
+[; ;main.c: 283:             Linha2();
+[e ( _Linha2 ..  ]
+"284
+[; ;main.c: 284:             inputSenhaAlter(senhaOp);
+[e ( _inputSenhaAlter (1 _senhaOp ]
+"285
+[; ;main.c: 285:             if (validaSenha){
+[e $ ! != _validaSenha -> -> 0 `i `ui 190  ]
+{
+"286
+[; ;main.c: 286:                 escreveMesagem(msgSenhaAtualizada);
+[e ( _escreveMesagem (1 &U _msgSenhaAtualizada ]
+"287
+[; ;main.c: 287:                 LCD_linha2();
+[e ( _LCD_linha2 ..  ]
+"288
+[; ;main.c: 288:                 escreveMesagem(senhaOp);
+[e ( _escreveMesagem (1 _senhaOp ]
+"289
+[; ;main.c: 289:             }else {
 }
-[e :U 179 ]
-"251
-[; ;main.c: 251:         _delay((unsigned long)((2000)*(20000000/4000.0)));
+[e $U 191  ]
+[e :U 190 ]
+{
+"290
+[; ;main.c: 290:                 escreveMesagem(msgSenhaCancelada);
+[e ( _escreveMesagem (1 &U _msgSenhaCancelada ]
+"291
+[; ;main.c: 291:             }
+}
+[e :U 191 ]
+"292
+[; ;main.c: 292:         }
+}
+[e :U 189 ]
+"293
+[; ;main.c: 293:         _delay((unsigned long)((2000)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"252
-[; ;main.c: 252: }
-[e :UE 177 ]
+"294
+[; ;main.c: 294: }
+[e :UE 187 ]
 }
-"253
-[; ;main.c: 253: void alteraSenhas(unsigned int opConfig){
+"295
+[; ;main.c: 295: void alteraSenhas(unsigned int opConfig){
 [v _alteraSenhas `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _alteraSenhas ]
 [v _opConfig `ui ~T0 @X0 1 r1 ]
 [f ]
-"254
-[; ;main.c: 254:     LCD_init();
+"296
+[; ;main.c: 296:     LCD_init();
 [e ( _LCD_init ..  ]
-"255
-[; ;main.c: 255:     LCD_limpa();
+"297
+[; ;main.c: 297:     LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"256
-[; ;main.c: 256:     _delay((unsigned long)((2)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"257
-[; ;main.c: 257:     escreveMesagem(msgDigiteNovaSenha);
+"298
+[; ;main.c: 298:     LCD_linha1();
+[e ( _LCD_linha1 ..  ]
+"299
+[; ;main.c: 299:     escreveMesagem(msgDigiteNovaSenha);
 [e ( _escreveMesagem (1 &U _msgDigiteNovaSenha ]
-"258
-[; ;main.c: 258:     Linha2();
+"300
+[; ;main.c: 300:     Linha2();
 [e ( _Linha2 ..  ]
-"259
-[; ;main.c: 259:     alteraSenha = 1;
+"301
+[; ;main.c: 301:     _delay((unsigned long)((9000)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 9000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"303
+[; ;main.c: 303:     alteraSenha = 1;
 [e = _alteraSenha -> -> 1 `i `ui ]
-"260
-[; ;main.c: 260:     if (opConfig == 1){
-[e $ ! == _opConfig -> -> 1 `i `ui 181  ]
+"304
+[; ;main.c: 304:     if (opConfig == 1){
+[e $ ! == _opConfig -> -> 1 `i `ui 193  ]
 {
-"261
-[; ;main.c: 261:         rotinaValidaSenha(senhaConfig);
+"305
+[; ;main.c: 305:         rotinaValidaSenha(senhaConfig);
 [e ( _rotinaValidaSenha (1 &U _senhaConfig ]
-"262
-[; ;main.c: 262:     }
+"306
+[; ;main.c: 306:     }
 }
-[e $U 182  ]
-"263
-[; ;main.c: 263:     else if (opConfig == 2){
-[e :U 181 ]
-[e $ ! == _opConfig -> -> 2 `i `ui 183  ]
+[e $U 194  ]
+"307
+[; ;main.c: 307:     else if (opConfig == 2){
+[e :U 193 ]
+[e $ ! == _opConfig -> -> 2 `i `ui 195  ]
 {
-"264
-[; ;main.c: 264:         rotinaValidaSenha(senhaUser);
+"308
+[; ;main.c: 308:         rotinaValidaSenha(senhaUser);
 [e ( _rotinaValidaSenha (1 &U _senhaUser ]
-"265
-[; ;main.c: 265:     }
+"309
+[; ;main.c: 309:     }
 }
-[e $U 184  ]
-"266
-[; ;main.c: 266:     else if (opConfig == 3){
-[e :U 183 ]
-[e $ ! == _opConfig -> -> 3 `i `ui 185  ]
+[e $U 196  ]
+"310
+[; ;main.c: 310:     else if (opConfig == 3){
+[e :U 195 ]
+[e $ ! == _opConfig -> -> 3 `i `ui 197  ]
 {
-"267
-[; ;main.c: 267:         rotinaValidaSenha(senhaCoa);
+"311
+[; ;main.c: 311:         rotinaValidaSenha(senhaCoa);
 [e ( _rotinaValidaSenha (1 &U _senhaCoa ]
-"268
-[; ;main.c: 268:     }
+"312
+[; ;main.c: 312:     }
 }
-[e :U 185 ]
-[e :U 184 ]
-[e :U 182 ]
-"269
-[; ;main.c: 269: }
-[e :UE 180 ]
+[e :U 197 ]
+[e :U 196 ]
+[e :U 194 ]
+"313
+[; ;main.c: 313: }
+[e :UE 192 ]
 }
-"270
-[; ;main.c: 270: void liga_buzzer(float tempoSegundos){
+"314
+[; ;main.c: 314: void liga_buzzer(float tempoSegundos){
 [v _liga_buzzer `(v ~T0 @X0 1 ef1`f ]
 {
 [e :U _liga_buzzer ]
 [v _tempoSegundos `f ~T0 @X0 1 r1 ]
 [f ]
-"271
-[; ;main.c: 271:     tempoSegundos = tempoSegundos * 1000;
+"315
+[; ;main.c: 315:     tempoSegundos = tempoSegundos * 1000;
 [e = _tempoSegundos * _tempoSegundos -> -> 1000 `i `f ]
-"272
-[; ;main.c: 272:     _delay((unsigned long)((10)*(20000000/4000.0)));
+"316
+[; ;main.c: 316:     _delay((unsigned long)((10)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 10 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"273
-[; ;main.c: 273:     while(tempoSegundos > 0){
-[e $U 187  ]
-[e :U 188 ]
+"317
+[; ;main.c: 317:     while(tempoSegundos > 0){
+[e $U 199  ]
+[e :U 200 ]
 {
-"274
-[; ;main.c: 274:        PORTE = 0;
+"318
+[; ;main.c: 318:        PORTE = 0;
 [e = _PORTE -> -> 0 `i `uc ]
-"275
-[; ;main.c: 275:         _delay((unsigned long)((1)*(20000000/4000.0)));
+"319
+[; ;main.c: 319:         _delay((unsigned long)((1)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"276
-[; ;main.c: 276:         tempoSegundos--;
+"320
+[; ;main.c: 320:         tempoSegundos--;
 [e -- _tempoSegundos -> -> 1 `i `f ]
-"277
-[; ;main.c: 277:     }
+"321
+[; ;main.c: 321:     }
 }
-[e :U 187 ]
-"273
-[; ;main.c: 273:     while(tempoSegundos > 0){
-[e $ > _tempoSegundos -> -> 0 `i `f 188  ]
-[e :U 189 ]
-"278
-[; ;main.c: 278:     PORTE = 0x0F;
+[e :U 199 ]
+"317
+[; ;main.c: 317:     while(tempoSegundos > 0){
+[e $ > _tempoSegundos -> -> 0 `i `f 200  ]
+[e :U 201 ]
+"322
+[; ;main.c: 322:     PORTE = 0x0F;
 [e = _PORTE -> -> 15 `i `uc ]
-"279
-[; ;main.c: 279: }
-[e :UE 186 ]
+"323
+[; ;main.c: 323: }
+[e :UE 198 ]
 }
-"280
-[; ;main.c: 280: void teclado(){
+"324
+[; ;main.c: 324: void teclado(){
 [v _teclado `(v ~T0 @X0 1 ef ]
 {
 [e :U _teclado ]
 [f ]
-"281
-[; ;main.c: 281:     PORTE = 0x01;
-[e = _PORTE -> -> 1 `i `uc ]
-"285
-[; ;main.c: 285:     PORTB = 0b11101111;
-[e = _PORTB -> -> 239 `i `uc ]
-"289
-[; ;main.c: 289:     if (RB0 == 0){
-[e $ ! == -> _RB0 `i -> 0 `i 191  ]
-{
-"290
-[; ;main.c: 290:         _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"291
-[; ;main.c: 291:         liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"292
-[; ;main.c: 292:         LCD_escreve('0');
-[e ( _LCD_escreve (1 -> -> 48 `ui `uc ]
-"293
-[; ;main.c: 293:         if(userFalse){
-[e $ ! != _userFalse -> -> 0 `i `ui 192  ]
-{
-"294
-[; ;main.c: 294:             input = 0;
-[e = _input -> -> 0 `i `ui ]
-"295
-[; ;main.c: 295:         }
-}
-[e :U 192 ]
-"296
-[; ;main.c: 296:         if (alteraSenha){
-[e $ ! != _alteraSenha -> -> 0 `i `ui 193  ]
-{
-"297
-[; ;main.c: 297:             input = 0;
-[e = _input -> -> 0 `i `ui ]
-"298
-[; ;main.c: 298:         }
-}
-[e :U 193 ]
-"299
-[; ;main.c: 299:     }
-}
-[e :U 191 ]
-"303
-[; ;main.c: 303:     if (RB1 == 0){
-[e $ ! == -> _RB1 `i -> 0 `i 194  ]
-{
-"304
-[; ;main.c: 304:         _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"305
-[; ;main.c: 305:         liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"306
-[; ;main.c: 306:         LCD_escreve('1');
-[e ( _LCD_escreve (1 -> -> 49 `ui `uc ]
-"307
-[; ;main.c: 307:         if(userFalse){
-[e $ ! != _userFalse -> -> 0 `i `ui 195  ]
-{
-"308
-[; ;main.c: 308:             input = 1;
-[e = _input -> -> 1 `i `ui ]
-"309
-[; ;main.c: 309:         }
-}
-[e :U 195 ]
-"310
-[; ;main.c: 310:         if (alteraSenha){
-[e $ ! != _alteraSenha -> -> 0 `i `ui 196  ]
-{
-"311
-[; ;main.c: 311:             input = 1;
-[e = _input -> -> 1 `i `ui ]
-"312
-[; ;main.c: 312:         }
-}
-[e :U 196 ]
-"313
-[; ;main.c: 313:     }
-}
-[e :U 194 ]
-"317
-[; ;main.c: 317:     if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 197  ]
-{
-"318
-[; ;main.c: 318:         _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"319
-[; ;main.c: 319:         liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"320
-[; ;main.c: 320:         LCD_escreve('2');
-[e ( _LCD_escreve (1 -> -> 50 `ui `uc ]
-"321
-[; ;main.c: 321:         if(userFalse){
-[e $ ! != _userFalse -> -> 0 `i `ui 198  ]
-{
-"322
-[; ;main.c: 322:             input = 2;
-[e = _input -> -> 2 `i `ui ]
-"323
-[; ;main.c: 323:         }
-}
-[e :U 198 ]
-"324
-[; ;main.c: 324:         if (alteraSenha){
-[e $ ! != _alteraSenha -> -> 0 `i `ui 199  ]
-{
 "325
-[; ;main.c: 325:             input = 2;
-[e = _input -> -> 2 `i `ui ]
-"326
-[; ;main.c: 326:         }
-}
-[e :U 199 ]
-"327
-[; ;main.c: 327:     }
-}
-[e :U 197 ]
-"331
-[; ;main.c: 331:     if (RB3 == 0){
-[e $ ! == -> _RB3 `i -> 0 `i 200  ]
-{
-"332
-[; ;main.c: 332:         _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 325:     PORTE = 0x01;
+[e = _PORTE -> -> 1 `i `uc ]
+"329
+[; ;main.c: 329:     PORTB = 0b11101111;
+[e = _PORTB -> -> 239 `i `uc ]
 "333
-[; ;main.c: 333:         liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"334
-[; ;main.c: 334:         LCD_escreve('3');
-[e ( _LCD_escreve (1 -> -> 51 `ui `uc ]
-"335
-[; ;main.c: 335:         if(userFalse){
-[e $ ! != _userFalse -> -> 0 `i `ui 201  ]
-{
-"336
-[; ;main.c: 336:             input = 3;
-[e = _input -> -> 3 `i `ui ]
-"337
-[; ;main.c: 337:         }
-}
-[e :U 201 ]
-"338
-[; ;main.c: 338:         if (alteraSenha){
-[e $ ! != _alteraSenha -> -> 0 `i `ui 202  ]
-{
-"339
-[; ;main.c: 339:             input = 3;
-[e = _input -> -> 3 `i `ui ]
-"340
-[; ;main.c: 340:         }
-}
-[e :U 202 ]
-"341
-[; ;main.c: 341:     }
-}
-[e :U 200 ]
-"345
-[; ;main.c: 345:     PORTB = 0b11011111;
-[e = _PORTB -> -> 223 `i `uc ]
-"349
-[; ;main.c: 349:     if (RB0 == 0){
+[; ;main.c: 333:     if (RB0 == 0){
 [e $ ! == -> _RB0 `i -> 0 `i 203  ]
 {
-"350
-[; ;main.c: 350:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"334
+[; ;main.c: 334:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"351
-[; ;main.c: 351:         liga_buzzer(0.1);
+"335
+[; ;main.c: 335:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"352
-[; ;main.c: 352:         LCD_escreve('4');
-[e ( _LCD_escreve (1 -> -> 52 `ui `uc ]
-"353
-[; ;main.c: 353:         if(userFalse){
+"336
+[; ;main.c: 336:         LCD_escreve('0');
+[e ( _LCD_escreve (1 -> -> 48 `ui `uc ]
+"337
+[; ;main.c: 337:         if(userFalse){
 [e $ ! != _userFalse -> -> 0 `i `ui 204  ]
 {
-"354
-[; ;main.c: 354:             input = 4;
-[e = _input -> -> 4 `i `ui ]
-"355
-[; ;main.c: 355:         }
+"338
+[; ;main.c: 338:             input = 0;
+[e = _input -> -> 0 `i `ui ]
+"339
+[; ;main.c: 339:         }
 }
 [e :U 204 ]
-"356
-[; ;main.c: 356:         if (alteraSenha){
+"340
+[; ;main.c: 340:         if (alteraSenha){
 [e $ ! != _alteraSenha -> -> 0 `i `ui 205  ]
 {
-"357
-[; ;main.c: 357:             input = 4;
-[e = _input -> -> 4 `i `ui ]
-"358
-[; ;main.c: 358:         }
+"341
+[; ;main.c: 341:             input = 0;
+[e = _input -> -> 0 `i `ui ]
+"342
+[; ;main.c: 342:         }
 }
 [e :U 205 ]
-"359
-[; ;main.c: 359:     }
+"343
+[; ;main.c: 343:     }
 }
 [e :U 203 ]
-"363
-[; ;main.c: 363:     if (RB1 == 0){
+"347
+[; ;main.c: 347:     if (RB1 == 0){
 [e $ ! == -> _RB1 `i -> 0 `i 206  ]
 {
-"364
-[; ;main.c: 364:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"348
+[; ;main.c: 348:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"365
-[; ;main.c: 365:         liga_buzzer(0.1);
+"349
+[; ;main.c: 349:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"366
-[; ;main.c: 366:         LCD_escreve('5');
-[e ( _LCD_escreve (1 -> -> 53 `ui `uc ]
-"367
-[; ;main.c: 367:         if(userFalse){
+"350
+[; ;main.c: 350:         LCD_escreve('1');
+[e ( _LCD_escreve (1 -> -> 49 `ui `uc ]
+"351
+[; ;main.c: 351:         if(userFalse){
 [e $ ! != _userFalse -> -> 0 `i `ui 207  ]
 {
-"368
-[; ;main.c: 368:             input = 5;
-[e = _input -> -> 5 `i `ui ]
-"369
-[; ;main.c: 369:         }
+"352
+[; ;main.c: 352:             input = 1;
+[e = _input -> -> 1 `i `ui ]
+"353
+[; ;main.c: 353:         }
 }
 [e :U 207 ]
-"370
-[; ;main.c: 370:         if (alteraSenha){
+"354
+[; ;main.c: 354:         if (alteraSenha){
 [e $ ! != _alteraSenha -> -> 0 `i `ui 208  ]
 {
-"371
-[; ;main.c: 371:             input = 5;
-[e = _input -> -> 5 `i `ui ]
-"372
-[; ;main.c: 372:         }
+"355
+[; ;main.c: 355:             input = 1;
+[e = _input -> -> 1 `i `ui ]
+"356
+[; ;main.c: 356:         }
 }
 [e :U 208 ]
-"373
-[; ;main.c: 373:     }
+"357
+[; ;main.c: 357:     }
 }
 [e :U 206 ]
-"377
-[; ;main.c: 377:     if (RB2 == 0){
+"361
+[; ;main.c: 361:     if (RB2 == 0){
 [e $ ! == -> _RB2 `i -> 0 `i 209  ]
 {
-"378
-[; ;main.c: 378:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"362
+[; ;main.c: 362:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"379
-[; ;main.c: 379:         liga_buzzer(0.1);
+"363
+[; ;main.c: 363:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"380
-[; ;main.c: 380:         LCD_escreve('6');
-[e ( _LCD_escreve (1 -> -> 54 `ui `uc ]
-"381
-[; ;main.c: 381:         if(userFalse){
+"364
+[; ;main.c: 364:         LCD_escreve('2');
+[e ( _LCD_escreve (1 -> -> 50 `ui `uc ]
+"365
+[; ;main.c: 365:         if(userFalse){
 [e $ ! != _userFalse -> -> 0 `i `ui 210  ]
 {
-"382
-[; ;main.c: 382:             input = 6;
-[e = _input -> -> 6 `i `ui ]
-"383
-[; ;main.c: 383:         }
+"366
+[; ;main.c: 366:             input = 2;
+[e = _input -> -> 2 `i `ui ]
+"367
+[; ;main.c: 367:         }
 }
 [e :U 210 ]
-"384
-[; ;main.c: 384:         if (alteraSenha){
+"368
+[; ;main.c: 368:         if (alteraSenha){
 [e $ ! != _alteraSenha -> -> 0 `i `ui 211  ]
 {
-"385
-[; ;main.c: 385:             input = 6;
-[e = _input -> -> 6 `i `ui ]
-"386
-[; ;main.c: 386:         }
+"369
+[; ;main.c: 369:             input = 2;
+[e = _input -> -> 2 `i `ui ]
+"370
+[; ;main.c: 370:         }
 }
 [e :U 211 ]
-"387
-[; ;main.c: 387:     }
+"371
+[; ;main.c: 371:     }
 }
 [e :U 209 ]
-"391
-[; ;main.c: 391:     if (RB3 == 0){
+"375
+[; ;main.c: 375:     if (RB3 == 0){
 [e $ ! == -> _RB3 `i -> 0 `i 212  ]
 {
-"392
-[; ;main.c: 392:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"376
+[; ;main.c: 376:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"393
-[; ;main.c: 393:         liga_buzzer(0.1);
+"377
+[; ;main.c: 377:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"394
-[; ;main.c: 394:         LCD_escreve('7');
-[e ( _LCD_escreve (1 -> -> 55 `ui `uc ]
-"395
-[; ;main.c: 395:         if(userFalse){
+"378
+[; ;main.c: 378:         LCD_escreve('3');
+[e ( _LCD_escreve (1 -> -> 51 `ui `uc ]
+"379
+[; ;main.c: 379:         if(userFalse){
 [e $ ! != _userFalse -> -> 0 `i `ui 213  ]
 {
-"396
-[; ;main.c: 396:             input = 7;
-[e = _input -> -> 7 `i `ui ]
-"397
-[; ;main.c: 397:         }
+"380
+[; ;main.c: 380:             input = 3;
+[e = _input -> -> 3 `i `ui ]
+"381
+[; ;main.c: 381:         }
 }
 [e :U 213 ]
-"398
-[; ;main.c: 398:         if (alteraSenha){
+"382
+[; ;main.c: 382:         if (alteraSenha){
 [e $ ! != _alteraSenha -> -> 0 `i `ui 214  ]
 {
-"399
-[; ;main.c: 399:             input = 7;
-[e = _input -> -> 7 `i `ui ]
-"400
-[; ;main.c: 400:         }
+"383
+[; ;main.c: 383:             input = 3;
+[e = _input -> -> 3 `i `ui ]
+"384
+[; ;main.c: 384:         }
 }
 [e :U 214 ]
-"401
-[; ;main.c: 401:     }
+"385
+[; ;main.c: 385:     }
 }
 [e :U 212 ]
-"405
-[; ;main.c: 405:     PORTB = 0b10111111;
-[e = _PORTB -> -> 191 `i `uc ]
-"409
-[; ;main.c: 409:     if (RB0 == 0){
+"389
+[; ;main.c: 389:     PORTB = 0b11011111;
+[e = _PORTB -> -> 223 `i `uc ]
+"393
+[; ;main.c: 393:     if (RB0 == 0){
 [e $ ! == -> _RB0 `i -> 0 `i 215  ]
 {
-"410
-[; ;main.c: 410:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"394
+[; ;main.c: 394:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"411
-[; ;main.c: 411:         liga_buzzer(0.1);
+"395
+[; ;main.c: 395:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"412
-[; ;main.c: 412:         LCD_escreve('8');
-[e ( _LCD_escreve (1 -> -> 56 `ui `uc ]
-"413
-[; ;main.c: 413:         if(userFalse){
+"396
+[; ;main.c: 396:         LCD_escreve('4');
+[e ( _LCD_escreve (1 -> -> 52 `ui `uc ]
+"397
+[; ;main.c: 397:         if(userFalse){
 [e $ ! != _userFalse -> -> 0 `i `ui 216  ]
 {
-"414
-[; ;main.c: 414:             input = 8;
-[e = _input -> -> 8 `i `ui ]
-"415
-[; ;main.c: 415:         }
+"398
+[; ;main.c: 398:             input = 4;
+[e = _input -> -> 4 `i `ui ]
+"399
+[; ;main.c: 399:         }
 }
 [e :U 216 ]
-"416
-[; ;main.c: 416:         if (alteraSenha){
+"400
+[; ;main.c: 400:         if (alteraSenha){
 [e $ ! != _alteraSenha -> -> 0 `i `ui 217  ]
 {
-"417
-[; ;main.c: 417:             input = 8;
-[e = _input -> -> 8 `i `ui ]
-"418
-[; ;main.c: 418:         }
+"401
+[; ;main.c: 401:             input = 4;
+[e = _input -> -> 4 `i `ui ]
+"402
+[; ;main.c: 402:         }
 }
 [e :U 217 ]
-"419
-[; ;main.c: 419:     }
+"403
+[; ;main.c: 403:     }
 }
 [e :U 215 ]
-"423
-[; ;main.c: 423:     if (RB1 == 0){
+"407
+[; ;main.c: 407:     if (RB1 == 0){
 [e $ ! == -> _RB1 `i -> 0 `i 218  ]
 {
-"424
-[; ;main.c: 424:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"408
+[; ;main.c: 408:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"425
-[; ;main.c: 425:         liga_buzzer(0.1);
+"409
+[; ;main.c: 409:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"426
-[; ;main.c: 426:         LCD_escreve('9');
-[e ( _LCD_escreve (1 -> -> 57 `ui `uc ]
-"427
-[; ;main.c: 427:         if(userFalse){
+"410
+[; ;main.c: 410:         LCD_escreve('5');
+[e ( _LCD_escreve (1 -> -> 53 `ui `uc ]
+"411
+[; ;main.c: 411:         if(userFalse){
 [e $ ! != _userFalse -> -> 0 `i `ui 219  ]
 {
-"428
-[; ;main.c: 428:             input = 9;
-[e = _input -> -> 9 `i `ui ]
-"429
-[; ;main.c: 429:         }
+"412
+[; ;main.c: 412:             input = 5;
+[e = _input -> -> 5 `i `ui ]
+"413
+[; ;main.c: 413:         }
 }
 [e :U 219 ]
-"430
-[; ;main.c: 430:         if (alteraSenha){
+"414
+[; ;main.c: 414:         if (alteraSenha){
 [e $ ! != _alteraSenha -> -> 0 `i `ui 220  ]
 {
-"431
-[; ;main.c: 431:             input = 9;
-[e = _input -> -> 9 `i `ui ]
-"432
-[; ;main.c: 432:         }
+"415
+[; ;main.c: 415:             input = 5;
+[e = _input -> -> 5 `i `ui ]
+"416
+[; ;main.c: 416:         }
 }
 [e :U 220 ]
-"433
-[; ;main.c: 433:     }
+"417
+[; ;main.c: 417:     }
 }
 [e :U 218 ]
-"437
-[; ;main.c: 437:     if (RB2 == 0){
+"421
+[; ;main.c: 421:     if (RB2 == 0){
 [e $ ! == -> _RB2 `i -> 0 `i 221  ]
 {
-"438
-[; ;main.c: 438:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"422
+[; ;main.c: 422:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"439
-[; ;main.c: 439:         liga_buzzer(0.1);
+"423
+[; ;main.c: 423:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"440
-[; ;main.c: 440:         LCD_escreve('A');
-[e ( _LCD_escreve (1 -> -> 65 `ui `uc ]
-"441
-[; ;main.c: 441:     }
-}
-[e :U 221 ]
-"445
-[; ;main.c: 445:     if (RB3 == 0){
-[e $ ! == -> _RB3 `i -> 0 `i 222  ]
+"424
+[; ;main.c: 424:         LCD_escreve('6');
+[e ( _LCD_escreve (1 -> -> 54 `ui `uc ]
+"425
+[; ;main.c: 425:         if(userFalse){
+[e $ ! != _userFalse -> -> 0 `i `ui 222  ]
 {
-"446
-[; ;main.c: 446:         _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"447
-[; ;main.c: 447:         liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"448
-[; ;main.c: 448:         LCD_escreve('B');
-[e ( _LCD_escreve (1 -> -> 66 `ui `uc ]
-"449
-[; ;main.c: 449:     }
+"426
+[; ;main.c: 426:             input = 6;
+[e = _input -> -> 6 `i `ui ]
+"427
+[; ;main.c: 427:         }
 }
 [e :U 222 ]
-"453
-[; ;main.c: 453:     PORTB = 0b01111111;
-[e = _PORTB -> -> 127 `i `uc ]
-"457
-[; ;main.c: 457:     if (RB0 == 0){
-[e $ ! == -> _RB0 `i -> 0 `i 223  ]
+"428
+[; ;main.c: 428:         if (alteraSenha){
+[e $ ! != _alteraSenha -> -> 0 `i `ui 223  ]
 {
-"458
-[; ;main.c: 458:         _delay((unsigned long)((200)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"459
-[; ;main.c: 459:         liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"460
-[; ;main.c: 460:         LCD_escreve('C');
-[e ( _LCD_escreve (1 -> -> 67 `ui `uc ]
-"461
-[; ;main.c: 461:     }
+"429
+[; ;main.c: 429:             input = 6;
+[e = _input -> -> 6 `i `ui ]
+"430
+[; ;main.c: 430:         }
 }
 [e :U 223 ]
-"465
-[; ;main.c: 465:     if (RB1 == 0){
-[e $ ! == -> _RB1 `i -> 0 `i 224  ]
+"431
+[; ;main.c: 431:     }
+}
+[e :U 221 ]
+"435
+[; ;main.c: 435:     if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 224  ]
 {
-"466
-[; ;main.c: 466:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"436
+[; ;main.c: 436:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"467
-[; ;main.c: 467:         liga_buzzer(0.1);
+"437
+[; ;main.c: 437:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"468
-[; ;main.c: 468:         LCD_escreve('D');
-[e ( _LCD_escreve (1 -> -> 68 `ui `uc ]
-"469
-[; ;main.c: 469:     }
+"438
+[; ;main.c: 438:         LCD_escreve('7');
+[e ( _LCD_escreve (1 -> -> 55 `ui `uc ]
+"439
+[; ;main.c: 439:         if(userFalse){
+[e $ ! != _userFalse -> -> 0 `i `ui 225  ]
+{
+"440
+[; ;main.c: 440:             input = 7;
+[e = _input -> -> 7 `i `ui ]
+"441
+[; ;main.c: 441:         }
+}
+[e :U 225 ]
+"442
+[; ;main.c: 442:         if (alteraSenha){
+[e $ ! != _alteraSenha -> -> 0 `i `ui 226  ]
+{
+"443
+[; ;main.c: 443:             input = 7;
+[e = _input -> -> 7 `i `ui ]
+"444
+[; ;main.c: 444:         }
+}
+[e :U 226 ]
+"445
+[; ;main.c: 445:     }
 }
 [e :U 224 ]
-"473
-[; ;main.c: 473:     if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 225  ]
+"449
+[; ;main.c: 449:     PORTB = 0b10111111;
+[e = _PORTB -> -> 191 `i `uc ]
+"453
+[; ;main.c: 453:     if (RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 227  ]
 {
-"474
-[; ;main.c: 474:         _delay((unsigned long)((200)*(20000000/4000.0)));
+"454
+[; ;main.c: 454:         _delay((unsigned long)((200)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"475
-[; ;main.c: 475:         liga_buzzer(0.1);
+"455
+[; ;main.c: 455:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
+"456
+[; ;main.c: 456:         LCD_escreve('8');
+[e ( _LCD_escreve (1 -> -> 56 `ui `uc ]
+"457
+[; ;main.c: 457:         if(userFalse){
+[e $ ! != _userFalse -> -> 0 `i `ui 228  ]
+{
+"458
+[; ;main.c: 458:             input = 8;
+[e = _input -> -> 8 `i `ui ]
+"459
+[; ;main.c: 459:         }
+}
+[e :U 228 ]
+"460
+[; ;main.c: 460:         if (alteraSenha){
+[e $ ! != _alteraSenha -> -> 0 `i `ui 229  ]
+{
+"461
+[; ;main.c: 461:             input = 8;
+[e = _input -> -> 8 `i `ui ]
+"462
+[; ;main.c: 462:         }
+}
+[e :U 229 ]
+"463
+[; ;main.c: 463:     }
+}
+[e :U 227 ]
+"467
+[; ;main.c: 467:     if (RB1 == 0){
+[e $ ! == -> _RB1 `i -> 0 `i 230  ]
+{
+"468
+[; ;main.c: 468:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"469
+[; ;main.c: 469:         liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"470
+[; ;main.c: 470:         LCD_escreve('9');
+[e ( _LCD_escreve (1 -> -> 57 `ui `uc ]
+"471
+[; ;main.c: 471:         if(userFalse){
+[e $ ! != _userFalse -> -> 0 `i `ui 231  ]
+{
+"472
+[; ;main.c: 472:             input = 9;
+[e = _input -> -> 9 `i `ui ]
+"473
+[; ;main.c: 473:         }
+}
+[e :U 231 ]
+"474
+[; ;main.c: 474:         if (alteraSenha){
+[e $ ! != _alteraSenha -> -> 0 `i `ui 232  ]
+{
+"475
+[; ;main.c: 475:             input = 9;
+[e = _input -> -> 9 `i `ui ]
 "476
-[; ;main.c: 476:         LCD_escreve('E');
-[e ( _LCD_escreve (1 -> -> 69 `ui `uc ]
+[; ;main.c: 476:         }
+}
+[e :U 232 ]
 "477
 [; ;main.c: 477:     }
 }
-[e :U 225 ]
+[e :U 230 ]
 "481
-[; ;main.c: 481:     if (RB3 == 0){
-[e $ ! == -> _RB3 `i -> 0 `i 226  ]
+[; ;main.c: 481:     if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 233  ]
 {
 "482
 [; ;main.c: 482:         _delay((unsigned long)((200)*(20000000/4000.0)));
@@ -2337,694 +2434,782 @@ Version 4.0 HI-TECH Software Intermediate Code
 [; ;main.c: 483:         liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
 "484
-[; ;main.c: 484:         LCD_escreve('F');
-[e ( _LCD_escreve (1 -> -> 70 `ui `uc ]
+[; ;main.c: 484:         LCD_escreve('A');
+[e ( _LCD_escreve (1 -> -> 65 `ui `uc ]
 "485
 [; ;main.c: 485:     }
 }
-[e :U 226 ]
-"486
-[; ;main.c: 486: }
-[e :UE 190 ]
+[e :U 233 ]
+"489
+[; ;main.c: 489:     if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 234  ]
+{
+"490
+[; ;main.c: 490:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"491
+[; ;main.c: 491:         liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"492
+[; ;main.c: 492:         LCD_escreve('B');
+[e ( _LCD_escreve (1 -> -> 66 `ui `uc ]
+"493
+[; ;main.c: 493:     }
 }
-"487
-[; ;main.c: 487: void telaInicial(){
+[e :U 234 ]
+"497
+[; ;main.c: 497:     PORTB = 0b01111111;
+[e = _PORTB -> -> 127 `i `uc ]
+"501
+[; ;main.c: 501:     if (RB0 == 0){
+[e $ ! == -> _RB0 `i -> 0 `i 235  ]
+{
+"502
+[; ;main.c: 502:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"503
+[; ;main.c: 503:         liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"504
+[; ;main.c: 504:         LCD_escreve('C');
+[e ( _LCD_escreve (1 -> -> 67 `ui `uc ]
+"505
+[; ;main.c: 505:     }
+}
+[e :U 235 ]
+"509
+[; ;main.c: 509:     if (RB1 == 0){
+[e $ ! == -> _RB1 `i -> 0 `i 236  ]
+{
+"510
+[; ;main.c: 510:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"511
+[; ;main.c: 511:         liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"512
+[; ;main.c: 512:         LCD_escreve('D');
+[e ( _LCD_escreve (1 -> -> 68 `ui `uc ]
+"513
+[; ;main.c: 513:     }
+}
+[e :U 236 ]
+"517
+[; ;main.c: 517:     if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 237  ]
+{
+"518
+[; ;main.c: 518:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"519
+[; ;main.c: 519:         liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"520
+[; ;main.c: 520:         LCD_escreve('E');
+[e ( _LCD_escreve (1 -> -> 69 `ui `uc ]
+"521
+[; ;main.c: 521:     }
+}
+[e :U 237 ]
+"525
+[; ;main.c: 525:     if (RB3 == 0){
+[e $ ! == -> _RB3 `i -> 0 `i 238  ]
+{
+"526
+[; ;main.c: 526:         _delay((unsigned long)((200)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 200 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"527
+[; ;main.c: 527:         liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"528
+[; ;main.c: 528:         LCD_escreve('F');
+[e ( _LCD_escreve (1 -> -> 70 `ui `uc ]
+"529
+[; ;main.c: 529:     }
+}
+[e :U 238 ]
+"530
+[; ;main.c: 530: }
+[e :UE 202 ]
+}
+"531
+[; ;main.c: 531: void telaInicial(){
 [v _telaInicial `(v ~T0 @X0 1 ef ]
 {
 [e :U _telaInicial ]
 [f ]
-"488
-[; ;main.c: 488:     LCD_linha1();
+"532
+[; ;main.c: 532:     LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"489
-[; ;main.c: 489:     LCD_escreve(' ');
+"533
+[; ;main.c: 533:     LCD_escreve(' ');
 [e ( _LCD_escreve (1 -> -> 32 `ui `uc ]
-"490
-[; ;main.c: 490:     for (int i = 0; i <= strlen(msgDigiteSenha)-1; i++){
+"534
+[; ;main.c: 534:     for (int i = 0; i <= strlen(msgDigiteSenha)-1; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 231  ]
-[e :U 228 ]
+[e $U 243  ]
+[e :U 240 ]
 {
-"491
-[; ;main.c: 491:         LCD_escreve(msgDigiteSenha[i]);
+"535
+[; ;main.c: 535:         LCD_escreve(msgDigiteSenha[i]);
 [e ( _LCD_escreve (1 -> *U + &U _msgDigiteSenha * -> -> _i `ui `ux -> -> # *U &U _msgDigiteSenha `ui `ux `uc ]
-"492
-[; ;main.c: 492:     }
+"536
+[; ;main.c: 536:     }
 }
 [e ++ _i -> 1 `i ]
-[e :U 231 ]
-[e $ <= -> _i `ui - ( _strlen (1 -> &U _msgDigiteSenha `*Cuc -> -> 1 `i `ui 228  ]
-[e :U 229 ]
+[e :U 243 ]
+[e $ <= -> _i `ui - ( _strlen (1 -> &U _msgDigiteSenha `*Cuc -> -> 1 `i `ui 240  ]
+[e :U 241 ]
 }
-"493
-[; ;main.c: 493:     LCD_escreve(' ');
+"537
+[; ;main.c: 537:     LCD_escreve(' ');
 [e ( _LCD_escreve (1 -> -> 32 `ui `uc ]
-"494
-[; ;main.c: 494: }
-[e :UE 227 ]
+"538
+[; ;main.c: 538: }
+[e :UE 239 ]
 }
-"495
-[; ;main.c: 495: void Linha2(){
+"539
+[; ;main.c: 539: void Linha2(){
 [v _Linha2 `(v ~T0 @X0 1 ef ]
 {
 [e :U _Linha2 ]
 [f ]
-"496
-[; ;main.c: 496:     LCD_linha2();
+"540
+[; ;main.c: 540:     LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"497
-[; ;main.c: 497:     espacoLivre();
+"541
+[; ;main.c: 541:     espacoLivre();
 [e ( _espacoLivre ..  ]
-"498
-[; ;main.c: 498:     for (int i = 0; i <= strlen(msgMascara)-1; i++){
+"542
+[; ;main.c: 542:     for (int i = 0; i <= strlen(msgMascara)-1; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 236  ]
-[e :U 233 ]
+[e $U 248  ]
+[e :U 245 ]
 {
-"499
-[; ;main.c: 499:         LCD_escreve(msgMascara[i]);
+"543
+[; ;main.c: 543:         LCD_escreve(msgMascara[i]);
 [e ( _LCD_escreve (1 -> *U + &U _msgMascara * -> -> _i `ui `ux -> -> # *U &U _msgMascara `ui `ux `uc ]
-"500
-[; ;main.c: 500:     }
+"544
+[; ;main.c: 544:     }
 }
 [e ++ _i -> 1 `i ]
-[e :U 236 ]
-[e $ <= -> _i `ui - ( _strlen (1 -> &U _msgMascara `*Cuc -> -> 1 `i `ui 233  ]
-[e :U 234 ]
+[e :U 248 ]
+[e $ <= -> _i `ui - ( _strlen (1 -> &U _msgMascara `*Cuc -> -> 1 `i `ui 245  ]
+[e :U 246 ]
 }
-"501
-[; ;main.c: 501:     espacoLivre();
+"545
+[; ;main.c: 545:     espacoLivre();
 [e ( _espacoLivre ..  ]
-"502
-[; ;main.c: 502: }
-[e :UE 232 ]
+"546
+[; ;main.c: 546: }
+[e :UE 244 ]
 }
-"503
-[; ;main.c: 503: void espacoLivre(){
+"547
+[; ;main.c: 547: void espacoLivre(){
 [v _espacoLivre `(v ~T0 @X0 1 ef ]
 {
 [e :U _espacoLivre ]
 [f ]
-"504
-[; ;main.c: 504:     LCD_linha2();
+"548
+[; ;main.c: 548:     LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"505
-[; ;main.c: 505:     for (int i = 0; i < 6; i++){
+"549
+[; ;main.c: 549:     for (int i = 0; i < 6; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $ < _i -> 6 `i 238  ]
-[e $U 239  ]
-[e :U 238 ]
+[e $ < _i -> 6 `i 250  ]
+[e $U 251  ]
+[e :U 250 ]
 {
-"506
-[; ;main.c: 506:         LCD_escreve(' ');
+"550
+[; ;main.c: 550:         LCD_escreve(' ');
 [e ( _LCD_escreve (1 -> -> 32 `ui `uc ]
-"507
-[; ;main.c: 507:     }
+"551
+[; ;main.c: 551:     }
 }
 [e ++ _i -> 1 `i ]
-[e $ < _i -> 6 `i 238  ]
-[e :U 239 ]
+[e $ < _i -> 6 `i 250  ]
+[e :U 251 ]
 }
-"508
-[; ;main.c: 508: }
-[e :UE 237 ]
+"552
+[; ;main.c: 552: }
+[e :UE 249 ]
 }
-"509
-[; ;main.c: 509: void validaUser(){
+"553
+[; ;main.c: 553: void validaUser(){
 [v _validaUser `(v ~T0 @X0 1 ef ]
 {
 [e :U _validaUser ]
 [f ]
-"510
-[; ;main.c: 510:     LCD_init();
+"554
+[; ;main.c: 554:     LCD_init();
 [e ( _LCD_init ..  ]
-"511
-[; ;main.c: 511:     _delay((unsigned long)((20)*(20000000/4000.0)));
+"555
+[; ;main.c: 555:     _delay((unsigned long)((20)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"512
-[; ;main.c: 512:     LCD_limpa();
+"556
+[; ;main.c: 556:     LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"513
-[; ;main.c: 513:     _delay((unsigned long)((20)*(20000000/4000.0)));
+"557
+[; ;main.c: 557:     _delay((unsigned long)((20)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 20 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"514
-[; ;main.c: 514:     telaInicial();
+"558
+[; ;main.c: 558:     telaInicial();
 [e ( _telaInicial ..  ]
-"515
-[; ;main.c: 515:     Linha2();
+"559
+[; ;main.c: 559:     Linha2();
 [e ( _Linha2 ..  ]
-"516
-[; ;main.c: 516:     while(userFalse){
-[e $U 242  ]
-[e :U 243 ]
+"560
+[; ;main.c: 560:     while(userFalse){
+[e $U 254  ]
+[e :U 255 ]
 {
-"517
-[; ;main.c: 517:         for(int n = 0; n < 8; n++){
+"561
+[; ;main.c: 561:         for(int n = 0; n < 8; n++){
 {
 [v _n `i ~T0 @X0 1 a ]
 [e = _n -> 0 `i ]
-[e $ < _n -> 8 `i 245  ]
-[e $U 246  ]
-[e :U 245 ]
+[e $ < _n -> 8 `i 257  ]
+[e $U 258  ]
+[e :U 257 ]
 {
-"518
-[; ;main.c: 518:             input = 10;
+"562
+[; ;main.c: 562:             input = 10;
 [e = _input -> -> 10 `i `ui ]
-"519
-[; ;main.c: 519:             while (input == 10){
-[e $U 248  ]
-[e :U 249 ]
+"563
+[; ;main.c: 563:             while (input == 10){
+[e $U 260  ]
+[e :U 261 ]
 {
-"520
-[; ;main.c: 520:                 teclado();
+"564
+[; ;main.c: 564:                 teclado();
 [e ( _teclado ..  ]
-"521
-[; ;main.c: 521:             }
+"565
+[; ;main.c: 565:             }
 }
-[e :U 248 ]
-"519
-[; ;main.c: 519:             while (input == 10){
-[e $ == _input -> -> 10 `i `ui 249  ]
-[e :U 250 ]
-"522
-[; ;main.c: 522:             senhaUserConfere[n] = confereTeclado(input);
+[e :U 260 ]
+"563
+[; ;main.c: 563:             while (input == 10){
+[e $ == _input -> -> 10 `i `ui 261  ]
+[e :U 262 ]
+"566
+[; ;main.c: 566:             senhaUserConfere[n] = confereTeclado(input);
 [e = *U + &U _senhaUserConfere * -> -> _n `ui `ux -> -> # *U &U _senhaUserConfere `ui `ux ( _confereTeclado (1 _input ]
-"523
-[; ;main.c: 523:             if (n == 3){
-[e $ ! == _n -> 3 `i 251  ]
+"567
+[; ;main.c: 567:             if (n == 3){
+[e $ ! == _n -> 3 `i 263  ]
 {
-"524
-[; ;main.c: 524:                 if ((strcmp(senhaUser, senhaUserConfere) != 0) &&
-[e $ ! && != ( _strcmp (2 , -> &U _senhaUser `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i != ( _strcmp (2 , -> &U _senhaCoa `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i 252  ]
-"525
-[; ;main.c: 525:                         (strcmp(senhaCoa, senhaUserConfere) != 0)){
+"568
+[; ;main.c: 568:                 if ((strcmp(senhaUser, senhaUserConfere) != 0) &&
+[e $ ! && != ( _strcmp (2 , -> &U _senhaUser `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i != ( _strcmp (2 , -> &U _senhaCoa `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i 264  ]
+"569
+[; ;main.c: 569:                         (strcmp(senhaCoa, senhaUserConfere) != 0)){
 {
-"526
-[; ;main.c: 526:                     userFalse = 1;
+"570
+[; ;main.c: 570:                     userFalse = 1;
 [e = _userFalse -> -> 1 `i `ui ]
-"527
-[; ;main.c: 527:                     menu = 0;
+"571
+[; ;main.c: 571:                     menu = 0;
 [e = _menu -> -> 0 `i `ui ]
-"528
-[; ;main.c: 528:                     LCD_limpa();
+"572
+[; ;main.c: 572:                     LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"529
-[; ;main.c: 529:                     LCD_linha1();
+"573
+[; ;main.c: 573:                     LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"530
-[; ;main.c: 530:                     escreveMesagem(msgSenhaErrada);
+"574
+[; ;main.c: 574:                     escreveMesagem(msgSenhaErrada);
 [e ( _escreveMesagem (1 &U _msgSenhaErrada ]
-"531
-[; ;main.c: 531:                     _delay((unsigned long)((2000)*(20000000/4000.0)));
+"575
+[; ;main.c: 575:                     _delay((unsigned long)((2000)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"532
-[; ;main.c: 532:                 }
+"576
+[; ;main.c: 576:                 }
 }
-[e :U 252 ]
-"533
-[; ;main.c: 533:             }
+[e :U 264 ]
+"577
+[; ;main.c: 577:             }
 }
-[e :U 251 ]
-"534
-[; ;main.c: 534:             if (strcmp(senhaUser, senhaUserConfere)==0){
-[e $ ! == ( _strcmp (2 , -> &U _senhaUser `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i 253  ]
+[e :U 263 ]
+"578
+[; ;main.c: 578:             if (strcmp(senhaUser, senhaUserConfere)==0){
+[e $ ! == ( _strcmp (2 , -> &U _senhaUser `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i 265  ]
 {
-"535
-[; ;main.c: 535:                 userFalse = 0;
+"579
+[; ;main.c: 579:                 userFalse = 0;
 [e = _userFalse -> -> 0 `i `ui ]
-"536
-[; ;main.c: 536:                 menu = 1;
+"580
+[; ;main.c: 580:                 menu = 1;
 [e = _menu -> -> 1 `i `ui ]
-"537
-[; ;main.c: 537:                 n = 10;
+"581
+[; ;main.c: 581:                 n = 10;
 [e = _n -> 10 `i ]
-"538
-[; ;main.c: 538:                 LCD_limpa();
+"582
+[; ;main.c: 582:                 LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"539
-[; ;main.c: 539:                 LCD_linha1();
+"583
+[; ;main.c: 583:                 LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"540
-[; ;main.c: 540:                 escreveMesagem(msgSenhaCorreta);
+"584
+[; ;main.c: 584:                 escreveMesagem(msgSenhaCorreta);
 [e ( _escreveMesagem (1 &U _msgSenhaCorreta ]
-"541
-[; ;main.c: 541:                 _delay((unsigned long)((2000)*(20000000/4000.0)));
+"585
+[; ;main.c: 585:                 _delay((unsigned long)((2000)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"542
-[; ;main.c: 542:             }
+"586
+[; ;main.c: 586:             }
 }
-[e $U 254  ]
-"543
-[; ;main.c: 543:             else if (strcmp(senhaCoa, senhaUserConfere)==0){
-[e :U 253 ]
-[e $ ! == ( _strcmp (2 , -> &U _senhaCoa `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i 255  ]
+[e $U 266  ]
+"587
+[; ;main.c: 587:             else if (strcmp(senhaCoa, senhaUserConfere)==0){
+[e :U 265 ]
+[e $ ! == ( _strcmp (2 , -> &U _senhaCoa `*Cuc -> &U _senhaUserConfere `*Cuc -> 0 `i 267  ]
 {
-"544
-[; ;main.c: 544:                 unsigned char pos;
+"588
+[; ;main.c: 588:                 unsigned char pos;
 [v _pos `uc ~T0 @X0 1 a ]
-"545
-[; ;main.c: 545:                 userFalse = 0;
+"589
+[; ;main.c: 589:                 userFalse = 0;
 [e = _userFalse -> -> 0 `i `ui ]
-"546
-[; ;main.c: 546:                 n = 10;
+"590
+[; ;main.c: 590:                 n = 10;
 [e = _n -> 10 `i ]
-"547
-[; ;main.c: 547:                 pos = '1';
+"591
+[; ;main.c: 591:                 pos = '1';
 [e = _pos -> -> 49 `ui `uc ]
-"548
-[; ;main.c: 548:                 senhaCoaAtivo = 1;
+"592
+[; ;main.c: 592:                 senhaCoaAtivo = 1;
 [e = _senhaCoaAtivo -> -> 1 `i `ui ]
-"549
-[; ;main.c: 549:                 LCD_limpa();
+"593
+[; ;main.c: 593:                 LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"550
-[; ;main.c: 550:                 LCD_linha1();
+"594
+[; ;main.c: 594:                 LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"551
-[; ;main.c: 551:                 escreveMesagem(msgSenhaCorreta);
+"595
+[; ;main.c: 595:                 escreveMesagem(msgSenhaCorreta);
 [e ( _escreveMesagem (1 &U _msgSenhaCorreta ]
-"552
-[; ;main.c: 552:                 _delay((unsigned long)((2000)*(20000000/4000.0)));
+"596
+[; ;main.c: 596:                 _delay((unsigned long)((2000)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2000 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"553
-[; ;main.c: 553:                 setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+"597
+[; ;main.c: 597:                 setaZona(msgZonaDisparadas, msgConfigDispara, pos);
 [e ( _setaZona (3 , , &U _msgZonaDisparadas &U _msgConfigDispara -> _pos `*uc ]
-"554
-[; ;main.c: 554:             }
+"598
+[; ;main.c: 598:             }
 }
-[e :U 255 ]
-[e :U 254 ]
-"555
-[; ;main.c: 555:         }
+[e :U 267 ]
+[e :U 266 ]
+"599
+[; ;main.c: 599:         }
 }
 [e ++ _n -> 1 `i ]
-[e $ < _n -> 8 `i 245  ]
-[e :U 246 ]
+[e $ < _n -> 8 `i 257  ]
+[e :U 258 ]
 }
-"556
-[; ;main.c: 556:     }
+"600
+[; ;main.c: 600:     }
 }
-[e :U 242 ]
-"516
-[; ;main.c: 516:     while(userFalse){
-[e $ != _userFalse -> -> 0 `i `ui 243  ]
-[e :U 244 ]
-"557
-[; ;main.c: 557: }
-[e :UE 241 ]
+[e :U 254 ]
+"560
+[; ;main.c: 560:     while(userFalse){
+[e $ != _userFalse -> -> 0 `i `ui 255  ]
+[e :U 256 ]
+"601
+[; ;main.c: 601: }
+[e :UE 253 ]
 }
-"558
-[; ;main.c: 558: void listaZonas(unsigned int valorSensor){
+"602
+[; ;main.c: 602: void listaZonas(unsigned int valorSensor){
 [v _listaZonas `(v ~T0 @X0 1 ef1`ui ]
 {
 [e :U _listaZonas ]
 [v _valorSensor `ui ~T0 @X0 1 r1 ]
 [f ]
-"559
-[; ;main.c: 559:     PORTB = 0b10111111;
-[e = _PORTB -> -> 191 `i `uc ]
-"560
-[; ;main.c: 560:     if (valorSensor <= auxSensor){
-[e $ ! <= _valorSensor _auxSensor 257  ]
-{
-"561
-[; ;main.c: 561:         LCD_init();
-[e ( _LCD_init ..  ]
-"562
-[; ;main.c: 562:         LCD_limpa();
-[e ( _LCD_limpa ..  ]
-"563
-[; ;main.c: 563:         LCD_linha1();
-[e ( _LCD_linha1 ..  ]
-"564
-[; ;main.c: 564:         LCD_escreve('>');
-[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
-"565
-[; ;main.c: 565:         escreveMesagem(msgSenhaConfig);
-[e ( _escreveMesagem (1 &U _msgSenhaConfig ]
-"566
-[; ;main.c: 566:         LCD_linha2();
-[e ( _LCD_linha2 ..  ]
-"567
-[; ;main.c: 567:         escreveMesagem(msgSenhaUsuario);
-[e ( _escreveMesagem (1 &U _msgSenhaUsuario ]
-"568
-[; ;main.c: 568:         if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 258  ]
-{
-"569
-[; ;main.c: 569:             _delay((unsigned long)((100)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"570
-[; ;main.c: 570:             liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"571
-[; ;main.c: 571:             opConfig = 1;
-[e = _opConfig -> -> 1 `i `ui ]
-"572
-[; ;main.c: 572:         }
-}
-[e :U 258 ]
-"573
-[; ;main.c: 573:     }
-}
-[e $U 259  ]
-"574
-[; ;main.c: 574:     else if (valorSensor <= 2*auxSensor){
-[e :U 257 ]
-[e $ ! <= _valorSensor * -> -> 2 `i `ui _auxSensor 260  ]
-{
-"575
-[; ;main.c: 575:         LCD_init();
-[e ( _LCD_init ..  ]
-"576
-[; ;main.c: 576:         LCD_limpa();
-[e ( _LCD_limpa ..  ]
-"577
-[; ;main.c: 577:         LCD_linha1();
-[e ( _LCD_linha1 ..  ]
-"578
-[; ;main.c: 578:         escreveMesagem(msgSenhaConfig);
-[e ( _escreveMesagem (1 &U _msgSenhaConfig ]
-"579
-[; ;main.c: 579:         LCD_linha2();
-[e ( _LCD_linha2 ..  ]
-"580
-[; ;main.c: 580:         LCD_escreve('>');
-[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
-"581
-[; ;main.c: 581:         escreveMesagem(msgSenhaUsuario);
-[e ( _escreveMesagem (1 &U _msgSenhaUsuario ]
-"582
-[; ;main.c: 582:         if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 261  ]
-{
-"583
-[; ;main.c: 583:             _delay((unsigned long)((100)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"584
-[; ;main.c: 584:             liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"585
-[; ;main.c: 585:             opConfig = 2;
-[e = _opConfig -> -> 2 `i `ui ]
-"586
-[; ;main.c: 586:         }
-}
-[e :U 261 ]
-"587
-[; ;main.c: 587:     }
-}
-[e $U 262  ]
-"588
-[; ;main.c: 588:     else if (valorSensor <= 3*auxSensor){
-[e :U 260 ]
-[e $ ! <= _valorSensor * -> -> 3 `i `ui _auxSensor 263  ]
-{
-"589
-[; ;main.c: 589:         LCD_init();
-[e ( _LCD_init ..  ]
-"590
-[; ;main.c: 590:         LCD_limpa();
-[e ( _LCD_limpa ..  ]
-"591
-[; ;main.c: 591:         LCD_linha1();
-[e ( _LCD_linha1 ..  ]
-"592
-[; ;main.c: 592:         LCD_escreve('>');
-[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
-"593
-[; ;main.c: 593:         escreveMesagem(msgSenhaCoacao);
-[e ( _escreveMesagem (1 &U _msgSenhaCoacao ]
-"594
-[; ;main.c: 594:         LCD_linha2();
-[e ( _LCD_linha2 ..  ]
-"595
-[; ;main.c: 595:         escreveMesagem(msgSenhaDisparo);
-[e ( _escreveMesagem (1 &U _msgSenhaDisparo ]
-"596
-[; ;main.c: 596:         if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 264  ]
-{
-"597
-[; ;main.c: 597:             _delay((unsigned long)((100)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"598
-[; ;main.c: 598:             liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"599
-[; ;main.c: 599:             opConfig = 3;
-[e = _opConfig -> -> 3 `i `ui ]
-"600
-[; ;main.c: 600:         }
-}
-[e :U 264 ]
-"601
-[; ;main.c: 601:     }
-}
-[e $U 265  ]
-"602
-[; ;main.c: 602:     else if (valorSensor <= 4*auxSensor){
-[e :U 263 ]
-[e $ ! <= _valorSensor * -> -> 4 `i `ui _auxSensor 266  ]
-{
 "603
-[; ;main.c: 603:         LCD_init();
-[e ( _LCD_init ..  ]
+[; ;main.c: 603:     PORTB = 0b10111111;
+[e = _PORTB -> -> 191 `i `uc ]
 "604
-[; ;main.c: 604:         LCD_limpa();
-[e ( _LCD_limpa ..  ]
+[; ;main.c: 604:     if (valorSensor <= auxSensor){
+[e $ ! <= _valorSensor _auxSensor 269  ]
+{
 "605
-[; ;main.c: 605:         LCD_linha1();
-[e ( _LCD_linha1 ..  ]
+[; ;main.c: 605:         LCD_init();
+[e ( _LCD_init ..  ]
 "606
-[; ;main.c: 606:         escreveMesagem(msgSenhaCoacao);
-[e ( _escreveMesagem (1 &U _msgSenhaCoacao ]
+[; ;main.c: 606:         LCD_limpa();
+[e ( _LCD_limpa ..  ]
 "607
-[; ;main.c: 607:         LCD_linha2();
-[e ( _LCD_linha2 ..  ]
+[; ;main.c: 607:         LCD_linha1();
+[e ( _LCD_linha1 ..  ]
 "608
 [; ;main.c: 608:         LCD_escreve('>');
 [e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
 "609
-[; ;main.c: 609:         escreveMesagem(msgSenhaDisparo);
-[e ( _escreveMesagem (1 &U _msgSenhaDisparo ]
+[; ;main.c: 609:         escreveMesagem(msgSenhaConfig);
+[e ( _escreveMesagem (1 &U _msgSenhaConfig ]
 "610
-[; ;main.c: 610:         if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 267  ]
-{
-"611
-[; ;main.c: 611:             _delay((unsigned long)((100)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"612
-[; ;main.c: 612:             liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
-"613
-[; ;main.c: 613:             opConfig = 4;
-[e = _opConfig -> -> 4 `i `ui ]
-"614
-[; ;main.c: 614:         }
-}
-[e :U 267 ]
-"615
-[; ;main.c: 615:     }
-}
-[e $U 268  ]
-"616
-[; ;main.c: 616:     else if (valorSensor <= 5*auxSensor){
-[e :U 266 ]
-[e $ ! <= _valorSensor * -> -> 5 `i `ui _auxSensor 269  ]
-{
-"617
-[; ;main.c: 617:         LCD_init();
-[e ( _LCD_init ..  ]
-"618
-[; ;main.c: 618:         LCD_limpa();
-[e ( _LCD_limpa ..  ]
-"619
-[; ;main.c: 619:         LCD_linha1();
-[e ( _LCD_linha1 ..  ]
-"620
-[; ;main.c: 620:         LCD_escreve('>');
-[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
-"621
-[; ;main.c: 621:         escreveMesagem(msgDesativarZona);
-[e ( _escreveMesagem (1 &U _msgDesativarZona ]
-"622
-[; ;main.c: 622:         LCD_linha2();
+[; ;main.c: 610:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
-"623
-[; ;main.c: 623:         escreveMesagem(msgReativar);
-[e ( _escreveMesagem (1 &U _msgReativar ]
-"624
-[; ;main.c: 624:         if (RB2 == 0){
+"611
+[; ;main.c: 611:         escreveMesagem(msgSenhaUsuario);
+[e ( _escreveMesagem (1 &U _msgSenhaUsuario ]
+"612
+[; ;main.c: 612:         if (RB2 == 0){
 [e $ ! == -> _RB2 `i -> 0 `i 270  ]
 {
-"625
-[; ;main.c: 625:             _delay((unsigned long)((100)*(20000000/4000.0)));
+"613
+[; ;main.c: 613:             _delay((unsigned long)((100)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"626
-[; ;main.c: 626:             liga_buzzer(0.1);
+"614
+[; ;main.c: 614:             liga_buzzer(0.1);
 [e ( _liga_buzzer (1 -> .0.1 `f ]
-"627
-[; ;main.c: 627:             opConfig = 5;
-[e = _opConfig -> -> 5 `i `ui ]
-"628
-[; ;main.c: 628:         }
+"615
+[; ;main.c: 615:             opConfig = 1;
+[e = _opConfig -> -> 1 `i `ui ]
+"616
+[; ;main.c: 616:         }
 }
 [e :U 270 ]
-"629
-[; ;main.c: 629:     }
+"617
+[; ;main.c: 617:     }
 }
 [e $U 271  ]
-"630
-[; ;main.c: 630:     else if (valorSensor <= 6*auxSensor){
+"618
+[; ;main.c: 618:     else if (valorSensor <= 2*auxSensor){
 [e :U 269 ]
-[e $ ! <= _valorSensor * -> -> 6 `i `ui _auxSensor 272  ]
+[e $ ! <= _valorSensor * -> -> 2 `i `ui _auxSensor 272  ]
 {
-"631
-[; ;main.c: 631:         LCD_init();
+"619
+[; ;main.c: 619:         LCD_init();
 [e ( _LCD_init ..  ]
-"632
-[; ;main.c: 632:         LCD_limpa();
+"620
+[; ;main.c: 620:         LCD_limpa();
 [e ( _LCD_limpa ..  ]
-"633
-[; ;main.c: 633:         LCD_linha1();
+"621
+[; ;main.c: 621:         LCD_linha1();
 [e ( _LCD_linha1 ..  ]
-"634
-[; ;main.c: 634:         escreveMesagem(msgDesativarZona);
-[e ( _escreveMesagem (1 &U _msgDesativarZona ]
-"635
-[; ;main.c: 635:         LCD_linha2();
+"622
+[; ;main.c: 622:         escreveMesagem(msgSenhaConfig);
+[e ( _escreveMesagem (1 &U _msgSenhaConfig ]
+"623
+[; ;main.c: 623:         LCD_linha2();
 [e ( _LCD_linha2 ..  ]
+"624
+[; ;main.c: 624:         LCD_escreve('>');
+[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
+"625
+[; ;main.c: 625:         escreveMesagem(msgSenhaUsuario);
+[e ( _escreveMesagem (1 &U _msgSenhaUsuario ]
+"626
+[; ;main.c: 626:         if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 273  ]
+{
+"627
+[; ;main.c: 627:             _delay((unsigned long)((100)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"628
+[; ;main.c: 628:             liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"629
+[; ;main.c: 629:             opConfig = 2;
+[e = _opConfig -> -> 2 `i `ui ]
+"630
+[; ;main.c: 630:         }
+}
+[e :U 273 ]
+"631
+[; ;main.c: 631:     }
+}
+[e $U 274  ]
+"632
+[; ;main.c: 632:     else if (valorSensor <= 3*auxSensor){
+[e :U 272 ]
+[e $ ! <= _valorSensor * -> -> 3 `i `ui _auxSensor 275  ]
+{
+"633
+[; ;main.c: 633:         LCD_init();
+[e ( _LCD_init ..  ]
+"634
+[; ;main.c: 634:         LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"635
+[; ;main.c: 635:         LCD_linha1();
+[e ( _LCD_linha1 ..  ]
 "636
 [; ;main.c: 636:         LCD_escreve('>');
 [e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
 "637
-[; ;main.c: 637:         escreveMesagem(msgReativar);
-[e ( _escreveMesagem (1 &U _msgReativar ]
+[; ;main.c: 637:         escreveMesagem(msgSenhaCoacao);
+[e ( _escreveMesagem (1 &U _msgSenhaCoacao ]
 "638
-[; ;main.c: 638:         if (RB2 == 0){
-[e $ ! == -> _RB2 `i -> 0 `i 273  ]
-{
+[; ;main.c: 638:         LCD_linha2();
+[e ( _LCD_linha2 ..  ]
 "639
-[; ;main.c: 639:             _delay((unsigned long)((100)*(20000000/4000.0)));
-[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+[; ;main.c: 639:         escreveMesagem(msgSenhaDisparo);
+[e ( _escreveMesagem (1 &U _msgSenhaDisparo ]
 "640
-[; ;main.c: 640:             liga_buzzer(0.1);
-[e ( _liga_buzzer (1 -> .0.1 `f ]
+[; ;main.c: 640:         if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 276  ]
+{
 "641
-[; ;main.c: 641:             opConfig = 6;
-[e = _opConfig -> -> 6 `i `ui ]
+[; ;main.c: 641:             _delay((unsigned long)((100)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
 "642
-[; ;main.c: 642:         }
-}
-[e :U 273 ]
+[; ;main.c: 642:             liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
 "643
-[; ;main.c: 643:     }
-}
-[e :U 272 ]
-[e :U 271 ]
-[e :U 268 ]
-[e :U 265 ]
-[e :U 262 ]
-[e :U 259 ]
+[; ;main.c: 643:             opConfig = 3;
+[e = _opConfig -> -> 3 `i `ui ]
 "644
-[; ;main.c: 644: }
-[e :UE 256 ]
+[; ;main.c: 644:         }
 }
+[e :U 276 ]
 "645
-[; ;main.c: 645: void escreveMesagem(unsigned char *texto){
+[; ;main.c: 645:     }
+}
+[e $U 277  ]
+"646
+[; ;main.c: 646:     else if (valorSensor <= 4*auxSensor){
+[e :U 275 ]
+[e $ ! <= _valorSensor * -> -> 4 `i `ui _auxSensor 278  ]
+{
+"647
+[; ;main.c: 647:         LCD_init();
+[e ( _LCD_init ..  ]
+"648
+[; ;main.c: 648:         LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"649
+[; ;main.c: 649:         LCD_linha1();
+[e ( _LCD_linha1 ..  ]
+"650
+[; ;main.c: 650:         escreveMesagem(msgSenhaCoacao);
+[e ( _escreveMesagem (1 &U _msgSenhaCoacao ]
+"651
+[; ;main.c: 651:         LCD_linha2();
+[e ( _LCD_linha2 ..  ]
+"652
+[; ;main.c: 652:         LCD_escreve('>');
+[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
+"653
+[; ;main.c: 653:         escreveMesagem(msgSenhaDisparo);
+[e ( _escreveMesagem (1 &U _msgSenhaDisparo ]
+"654
+[; ;main.c: 654:         if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 279  ]
+{
+"655
+[; ;main.c: 655:             _delay((unsigned long)((100)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"656
+[; ;main.c: 656:             liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"657
+[; ;main.c: 657:             opConfig = 4;
+[e = _opConfig -> -> 4 `i `ui ]
+"658
+[; ;main.c: 658:         }
+}
+[e :U 279 ]
+"659
+[; ;main.c: 659:     }
+}
+[e $U 280  ]
+"660
+[; ;main.c: 660:     else if (valorSensor <= 5*auxSensor){
+[e :U 278 ]
+[e $ ! <= _valorSensor * -> -> 5 `i `ui _auxSensor 281  ]
+{
+"661
+[; ;main.c: 661:         LCD_init();
+[e ( _LCD_init ..  ]
+"662
+[; ;main.c: 662:         LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"663
+[; ;main.c: 663:         LCD_linha1();
+[e ( _LCD_linha1 ..  ]
+"664
+[; ;main.c: 664:         LCD_escreve('>');
+[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
+"665
+[; ;main.c: 665:         escreveMesagem(msgDesativarZona);
+[e ( _escreveMesagem (1 &U _msgDesativarZona ]
+"666
+[; ;main.c: 666:         LCD_linha2();
+[e ( _LCD_linha2 ..  ]
+"667
+[; ;main.c: 667:         escreveMesagem(msgReativar);
+[e ( _escreveMesagem (1 &U _msgReativar ]
+"668
+[; ;main.c: 668:         if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 282  ]
+{
+"669
+[; ;main.c: 669:             _delay((unsigned long)((100)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"670
+[; ;main.c: 670:             liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"671
+[; ;main.c: 671:             opConfig = 5;
+[e = _opConfig -> -> 5 `i `ui ]
+"672
+[; ;main.c: 672:         }
+}
+[e :U 282 ]
+"673
+[; ;main.c: 673:     }
+}
+[e $U 283  ]
+"674
+[; ;main.c: 674:     else if (valorSensor <= 6*auxSensor){
+[e :U 281 ]
+[e $ ! <= _valorSensor * -> -> 6 `i `ui _auxSensor 284  ]
+{
+"675
+[; ;main.c: 675:         LCD_init();
+[e ( _LCD_init ..  ]
+"676
+[; ;main.c: 676:         LCD_limpa();
+[e ( _LCD_limpa ..  ]
+"677
+[; ;main.c: 677:         LCD_linha1();
+[e ( _LCD_linha1 ..  ]
+"678
+[; ;main.c: 678:         escreveMesagem(msgDesativarZona);
+[e ( _escreveMesagem (1 &U _msgDesativarZona ]
+"679
+[; ;main.c: 679:         LCD_linha2();
+[e ( _LCD_linha2 ..  ]
+"680
+[; ;main.c: 680:         LCD_escreve('>');
+[e ( _LCD_escreve (1 -> -> 62 `ui `uc ]
+"681
+[; ;main.c: 681:         escreveMesagem(msgReativar);
+[e ( _escreveMesagem (1 &U _msgReativar ]
+"682
+[; ;main.c: 682:         if (RB2 == 0){
+[e $ ! == -> _RB2 `i -> 0 `i 285  ]
+{
+"683
+[; ;main.c: 683:             _delay((unsigned long)((100)*(20000000/4000.0)));
+[e ( __delay (1 -> * -> -> 100 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
+"684
+[; ;main.c: 684:             liga_buzzer(0.1);
+[e ( _liga_buzzer (1 -> .0.1 `f ]
+"685
+[; ;main.c: 685:             opConfig = 6;
+[e = _opConfig -> -> 6 `i `ui ]
+"686
+[; ;main.c: 686:         }
+}
+[e :U 285 ]
+"687
+[; ;main.c: 687:     }
+}
+[e :U 284 ]
+[e :U 283 ]
+[e :U 280 ]
+[e :U 277 ]
+[e :U 274 ]
+[e :U 271 ]
+"688
+[; ;main.c: 688: }
+[e :UE 268 ]
+}
+"689
+[; ;main.c: 689: void escreveMesagem(unsigned char *texto){
 [v _escreveMesagem `(v ~T0 @X0 1 ef1`*uc ]
 {
 [e :U _escreveMesagem ]
 [v _texto `*uc ~T0 @X0 1 r1 ]
 [f ]
-"646
-[; ;main.c: 646:     for (int i = 0; texto[i] != '\0'; i++){
+"690
+[; ;main.c: 690:     for (int i = 0; texto[i] != '\0'; i++){
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 278  ]
-[e :U 275 ]
+[e $U 290  ]
+[e :U 287 ]
 {
-"647
-[; ;main.c: 647:         LCD_escreve(texto[i]);
+"691
+[; ;main.c: 691:         LCD_escreve(texto[i]);
 [e ( _LCD_escreve (1 -> *U + _texto * -> _i `x -> -> # *U _texto `i `x `uc ]
-"648
-[; ;main.c: 648:     }
+"692
+[; ;main.c: 692:     }
 }
 [e ++ _i -> 1 `i ]
-[e :U 278 ]
-[e $ != -> *U + _texto * -> _i `x -> -> # *U _texto `i `x `ui -> 0 `ui 275  ]
-[e :U 276 ]
+[e :U 290 ]
+[e $ != -> *U + _texto * -> _i `x -> -> # *U _texto `i `x `ui -> 0 `ui 287  ]
+[e :U 288 ]
 }
-"649
-[; ;main.c: 649: }
-[e :UE 274 ]
+"693
+[; ;main.c: 693: }
+[e :UE 286 ]
 }
-"650
-[; ;main.c: 650: void inicioADC (){
+"694
+[; ;main.c: 694: void inicioADC (){
 [v _inicioADC `(v ~T0 @X0 1 ef ]
 {
 [e :U _inicioADC ]
 [f ]
-"651
-[; ;main.c: 651:     TRISA = 0xFF;
+"695
+[; ;main.c: 695:     TRISA = 0xFF;
 [e = _TRISA -> -> 255 `i `uc ]
-"653
-[; ;main.c: 653:     ADCON0 = 0x81;
+"697
+[; ;main.c: 697:     ADCON0 = 0x81;
 [e = _ADCON0 -> -> 129 `i `uc ]
-"657
-[; ;main.c: 657:     ADCON1 = 0x80;
+"701
+[; ;main.c: 701:     ADCON1 = 0x80;
 [e = _ADCON1 -> -> 128 `i `uc ]
-"658
-[; ;main.c: 658: }
-[e :UE 279 ]
+"702
+[; ;main.c: 702: }
+[e :UE 291 ]
 }
-"659
-[; ;main.c: 659: unsigned int leituraADC (unsigned char canal){
+"703
+[; ;main.c: 703: unsigned int leituraADC (unsigned char canal){
 [v _leituraADC `(ui ~T0 @X0 1 ef1`uc ]
 {
 [e :U _leituraADC ]
 [v _canal `uc ~T0 @X0 1 r1 ]
 [f ]
-"660
-[; ;main.c: 660:     unsigned int leitura;
+"704
+[; ;main.c: 704:     unsigned int leitura;
 [v _leitura `ui ~T0 @X0 1 a ]
-"662
-[; ;main.c: 662:     ADCON0 &= 0xC5;
+"706
+[; ;main.c: 706:     ADCON0 &= 0xC5;
 [e =& _ADCON0 -> -> 197 `i `Vuc ]
-"663
-[; ;main.c: 663:     ADCON0 |= (canal<<3);
+"707
+[; ;main.c: 707:     ADCON0 |= (canal<<3);
 [e =| _ADCON0 -> << -> _canal `i -> 3 `i `Vuc ]
-"664
-[; ;main.c: 664:     _delay((unsigned long)((2)*(20000000/4000.0)));
+"708
+[; ;main.c: 708:     _delay((unsigned long)((2)*(20000000/4000.0)));
 [e ( __delay (1 -> * -> -> 2 `i `d / -> -> 20000000 `l `d .4000.0 `ul ]
-"667
-[; ;main.c: 667:     GO_nDONE = 1;
+"711
+[; ;main.c: 711:     GO_nDONE = 1;
 [e = _GO_nDONE -> -> 1 `i `b ]
-"670
-[; ;main.c: 670:     while (GO_nDONE);
-[e $U 281  ]
-[e :U 282 ]
-[e :U 281 ]
-[e $ _GO_nDONE 282  ]
-[e :U 283 ]
-"672
-[; ;main.c: 672:     leitura = (ADRESH<<8) + ADRESL;
+"714
+[; ;main.c: 714:     while (GO_nDONE);
+[e $U 293  ]
+[e :U 294 ]
+[e :U 293 ]
+[e $ _GO_nDONE 294  ]
+[e :U 295 ]
+"716
+[; ;main.c: 716:     leitura = (ADRESH<<8) + ADRESL;
 [e = _leitura -> + << -> _ADRESH `i -> 8 `i -> _ADRESL `i `ui ]
-"673
-[; ;main.c: 673:     return leitura;
+"717
+[; ;main.c: 717:     return leitura;
 [e ) _leitura ]
-[e $UE 280  ]
-"674
-[; ;main.c: 674: }
-[e :UE 280 ]
+[e $UE 292  ]
+"718
+[; ;main.c: 718: }
+[e :UE 292 ]
 }
