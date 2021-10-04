@@ -3,49 +3,68 @@
 #include <string.h>
 #include "lcd.h"
 #include <xc.h>
+
+//Configuração func
+void inputSenhaAlter();
+unsigned int valida_senha(unsigned char *texto);
+void alteraSenhaUser();
+void validaUser();
 void alteraSenhaUser(unsigned int opConfig);
+unsigned char confereTeclado(unsigned int numero);
+
+//Configuração var
+unsigned int validaSenha = 0;
+unsigned int input = 10;
+unsigned int painel = 1;
+unsigned int userFalse = 1;
+unsigned int menu = 1;
+unsigned char *aux = 0;
+unsigned char senhaUser[5] = "1212";
+unsigned char senhaUserConfere[5] = "0000";
+unsigned char senhaCoa[5] = "5555";
+unsigned char senhaConfig[5] = "0000";
+unsigned int alteraSenha = 1;
+unsigned int opConfig = 0;
+
+//interface func
 void liga_buzzer(float tempoSegundos);
-void escreveMesagem(char *texto);
+void listaZonas(unsigned int valor);
+void escreveMesagem(unsigned char *texto);
 void teclado();
 void telaInicial();
 void Linha2();
 void espacoLivre();
-void validaUser();
-void listaZonas(unsigned int valor);
-void alteraSenhaUser();
+
+//interface var
+unsigned char msgSenhaCancelada[16] = "Senha cancelada";
+unsigned char msgSenhaAtualizada[17] = "Senha Atualizada";
+unsigned char msgSenhaErrada[13] = "Senha errada";
+unsigned char msgSenhaCorreta[14] = "Senha correta";
+unsigned char msgSenhaConfigActive[14] = ">Senha Config";
+unsigned char msgSenhaConfig[13] = "Senha Config";
+unsigned char msgSenhaUsuarioActive[15] = ">Senha Usuario";
+unsigned char msgSenhaUsuario[14] = "Senha Usuario";
+unsigned char msgSenhaCoacaoActive[14] = ">Senha Coacao";
+unsigned char msgSenhaCoacao[13] = "Senha Coacao";
+unsigned char msgSenhaDisparoActive[15] = ">Senha Disparo";
+unsigned char msgSenhaDisparo[14] = "Senha Disparo";
+unsigned char msgDesativarZonaActive[16] = ">Desativar Zona";
+unsigned char msgDesativarZona[15] = "Desativar Zona";
+unsigned char msgReativarActive[10] = ">Reativar";
+unsigned char msgReativar[9] = "Reativar";
+unsigned char msgDigiteSenha[15] = "Digite a senha";
+unsigned char msgDigiteNovaSenha[14] = "   Nova senha";
+unsigned char msgValidaSenha[16] = "Ok:F ou Negar:E";
+unsigned char msgAceitoOuNego[9] = "Digite: ";
+unsigned char msgMascara[5] = "____";
+
+//controle analogico
 void inicioADC ();
 unsigned int leituraADC (unsigned char canal);
 unsigned int auxSensor = 204;
 unsigned int valorSensor = 0;
 unsigned int valorSensorAux = 0;
-int input = 10;
-unsigned int alteraSenha = 0; 
-char *aux;
-char senhaUser[5] = "1212";
-char senhaUserConfere[5] = "0000";
-char senhaCoa[5] = "5555";
-char senhaConfig[5] = "0000";
-int painel = 1;
-int userFalse = 1;
-int menu = 1;
-unsigned int opConfig = 0;
-char msgSenhaErrada[13] = "Senha errada";
-char msgSenhaCorreta[14] = "Senha correta";
-char msgSenhaConfigActive[14] = ">Senha Config";
-char msgSenhaConfig[13] = "Senha Config";
-char msgSenhaUsuarioActive[15] = ">Senha Usuario";
-char msgSenhaUsuario[14] = "Senha Usuario";
-char msgSenhaCoacaoActive[14] = ">Senha Coacao";
-char msgSenhaCoacao[13] = "Senha Coacao";
-char msgSenhaDisparoActive[15] = ">Senha Disparo";
-char msgSenhaDisparo[14] = "Senha Disparo";
-char msgDesativarZonaActive[16] = ">Desativar Zona";
-char msgDesativarZona[15] = "Desativar Zona";
-char msgReativarActive[10] = ">Reativar";
-char msgReativar[9] = "Reativar";
-char msgDigiteSenha[15] = "Digite a senha";
-char msgDigiteNovaSenha[14] = "   Nova senha";
-char msgMascara[5] = "____";
+
 void main(void) {
     TRISE = 0x00; 
     TRISD = 0x00; 
@@ -59,25 +78,20 @@ void main(void) {
 //            telaInicial();
 //            Linha2();
 //            painel = 0;
-//        }
-//        __delay_ms(100);
-//        
+//        } 
 //        while (userFalse){
 //           validaUser();
 //        }
-        
-        userFalse = 0;
+        menu = 1;
         while (menu){
-            valorSensor = leituraADC(2);
-            listaZonas(valorSensor);
-            __delay_ms(100); 
-            opConfig = 2;
-            
+//            valorSensor = leituraADC(2);
+//            listaZonas(valorSensor);
+//            __delay_ms(100); 
+            opConfig = 1;
             if (opConfig > 0){
-                LCD_limpa();
                 switch (opConfig){
                     case 1:
-                        // alterar a senha config
+                        alteraSenhaUser(opConfig);
                         break;
                     case 2:
                         alteraSenhaUser(opConfig);
@@ -101,24 +115,122 @@ void main(void) {
     }
 }
 
+unsigned char confereTeclado(unsigned int numero){
+   switch (numero){
+        case 1: 
+            aux = '1';
+        break;
+        case 2: 
+            aux = '2';
+        break;
+        case 3: 
+            aux = '3';
+        break;
+        case 4: 
+            aux = '4';
+        break;
+        case 5: 
+            aux = '5';
+        break;
+        case 6: 
+            aux = '6';
+        break;
+        case 7: 
+            aux = '7';
+        break;
+        case 8: 
+            aux = '8';
+        break;
+        case 9: 
+            aux = '9';
+        break;
+        case 0: 
+            aux = '0';
+        break;
+    }
+   return aux;
+}
+unsigned int valida_senha(unsigned char *texto){
+    unsigned int aceito = 3;
+    LCD_limpa();
+    LCD_linha1();
+    escreveMesagem(msgValidaSenha);
+    LCD_linha2();
+    escreveMesagem(texto);
+    LCD_escreve(' ');
+    escreveMesagem(msgAceitoOuNego);
+    PORTB = 0b01111111;
+    while (aceito == 3){
+        __delay_ms(200);
+        //Nega senha: E
+        if (RB2 == 0){
+            aceito = 0;
+            LCD_escreve('E');
+        }
+        else if (RB3 == 0){
+            //Aceita senha: F
+            aceito = 1;
+            LCD_escreve('F');
+        }
+    }
+    __delay_ms(2000);
+    return aceito;
+    
+}
+void inputSenhaAlter(){
+    for (int i = 0; i < 4; i++){
+        input = 10;
+        while (input == 10){teclado();}
+        __delay_ms(2);
+        senhaConfig[i] = confereTeclado(input);
+    }
+}
 void alteraSenhaUser(unsigned int opConfig){
     LCD_init();
     LCD_limpa();
     escreveMesagem(msgDigiteNovaSenha);
     Linha2();
-    __delay_ms(3000);
     if (opConfig == 1){
-        for (int i = 0; i <= 4; i++){
-            while (input == 10){teclado();}
-            senhaUser[i] = aux;
+        inputSenhaAlter();
+        validaSenha = valida_senha(senhaConfig);
+        if (validaSenha){
+            LCD_limpa();
+            menu = 1;
+            escreveMesagem(msgSenhaAtualizada);
+            __delay_ms(2000);  
+        }
+        else if(!validaSenha){
+            escreveMesagem(msgSenhaCancelada);
+            LCD_limpa();
+            escreveMesagem(msgDigiteNovaSenha);
+            Linha2();
+            inputSenhaAlter();
+        }
+        if (validaSenha){
+            LCD_limpa();
+            menu = 1;
+            escreveMesagem(msgSenhaAtualizada);
+            __delay_ms(2000);  
         }
     }
 //    else if (opConfig == 2){
-//        for (unsigned int i = 0; i <= 4; i++){;
+//        for (unsigned int i = 0; i <= 4; i++){
+//            input = 10;
 //            while (input == 10){teclado();}
-//            senhaUser[i] = aux;
+//            __delay_ms(2);
+//            senhaUser[i] = confereTeclado(input);
+//        }
+//        validaSenha = valida_senha(senhaConfig);
+//        if (validaSenha){
+//            LCD_limpa();
+//            LCD_escreve('O');
+//            LCD_escreve('K');
+//            __delay_ms(2000);
+//            
 //        }
 //    }
+    
+    
     
 }
 void liga_buzzer(float tempoSegundos){
@@ -148,7 +260,7 @@ void teclado(){
             input = 0;
         }
         if (alteraSenha){
-            aux = '1';
+            input = 0;
         }
     }
     // ***
@@ -159,6 +271,9 @@ void teclado(){
         liga_buzzer(0.1); // buzzer ta ligado, buzzer so liga quando esta com os bits em 0
         LCD_escreve('1');
         if(userFalse){
+            input = 1;
+        }
+        if (alteraSenha){
             input = 1;
         }
     }
@@ -340,39 +455,7 @@ void validaUser(){
             while (input == 10){
                 teclado();
             }
-            switch (input){
-                case 1: 
-                    aux = '1';
-                break;
-                case 2: 
-                    aux = '2';
-                break;
-                case 3: 
-                    aux = '3';
-                break;
-                case 4: 
-                    aux = '4';
-                break;
-                case 5: 
-                    aux = '5';
-                break;
-                case 6: 
-                    aux = '6';
-                break;
-                case 7: 
-                    aux = '7';
-                break;
-                case 8: 
-                    aux = '8';
-                break;
-                case 9: 
-                    aux = '9';
-                break;
-                case 0: 
-                    aux = '0';
-                break;
-            }
-            senhaUserConfere[n] = aux;
+            senhaUserConfere[n] = confereTeclado(input);
             if (n == 3){
                 if (strcmp(senhaUser, senhaUserConfere) != 0){
                     userFalse = 1;
@@ -476,7 +559,7 @@ void listaZonas(unsigned int valorSensor){
         }
     }
 }
-void escreveMesagem(char *texto){
+void escreveMesagem(unsigned char *texto){
     for (int i = 0; texto[i] != '\0'; i++){
         LCD_escreve(texto[i]);
     }
