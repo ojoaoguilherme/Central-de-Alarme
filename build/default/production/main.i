@@ -1876,15 +1876,17 @@ extern __bank0 __bit __timeout;
 
 
 
+
+void setaZona(unsigned char *var1, unsigned char *var2, unsigned char *pos);
 void rotinaValidaSenha(unsigned char* senhaOp);
 void inputSenhaAlter();
 unsigned int valida_senha(unsigned char *texto);
-void alteraSenhaUser();
 void validaUser();
-void alteraSenhaUser(unsigned int opConfig);
+void alteraSenhas(unsigned int opConfig);
 unsigned char confereTeclado(unsigned int numero);
 
 
+unsigned int zonaConfig = 1;
 unsigned int validaSenha = 0;
 unsigned int input = 10;
 unsigned int painel = 1;
@@ -1899,7 +1901,8 @@ unsigned int alteraSenha = 1;
 unsigned int opConfig = 0;
 
 
-
+void infoZonas();
+void configZonas();
 void liga_buzzer(float tempoSegundos);
 void listaZonas(unsigned int valor);
 void escreveMesagem(unsigned char *texto);
@@ -1909,6 +1912,8 @@ void Linha2();
 void espacoLivre();
 
 
+unsigned char msgConfigDispara[15] = " Zona: 1 2 3 4";
+unsigned char msgZonaDisparadas[15] = "       0 0 0 0";
 unsigned char msgSenhaCancelada[16] = "Senha cancelada";
 unsigned char msgSenhaAtualizada[17] = "Senha Atualizada";
 unsigned char msgSenhaErrada[13] = "Senha errada";
@@ -1938,29 +1943,64 @@ void main(void) {
     TRISB = 0x0F;
     PORTE = 0x01;
 
+    LCD_init();
+    _delay((unsigned long)((10)*(20000000/4000.0)));
     while (1){
-# 81 "main.c"
-        menu = 1;
-        opConfig = 1;
-        while (menu){
-
-
-
-            if (opConfig > 0){
-                switch (opConfig){
-                    case 1:
-                        alteraSenhaUser(opConfig);
-                        break;
-                    case 2:
-                        alteraSenhaUser(opConfig);
-                        break;
-# 108 "main.c"
-                }
-            }
+# 94 "main.c"
+        configZonas();
+        zonaConfig = 1;
+# 124 "main.c"
+    }
+}
+void setaZona(unsigned char *msgZonaDisparadas, unsigned char *msgConfigDispara, unsigned char *pos){
+    for (int i = 0; msgZonaDisparadas[i] != '\0'; i++){
+        if(msgZonaDisparadas[i] == '0' && msgConfigDispara[i] == pos){
+            msgZonaDisparadas[i] = '1';
+        }
+        else if(msgZonaDisparadas[i] == '1' && msgConfigDispara[i] == pos){
+            msgZonaDisparadas[i] = '0';
+        }
+        _delay((unsigned long)((2)*(20000000/4000.0)));
+    }
+    zonaConfig = 0;
+    infoZonas();
+}
+void infoZonas(){
+    LCD_limpa();
+    LCD_linha1();
+    escreveMesagem(msgConfigDispara);
+    LCD_linha2();
+    escreveMesagem(msgZonaDisparadas);
+    _delay((unsigned long)((1000)*(20000000/4000.0)));
+}
+void configZonas(){
+    infoZonas();
+    PORTB = 0b11101111;
+    unsigned char pos = '0';
+    while (zonaConfig){
+        _delay((unsigned long)((250)*(20000000/4000.0)));
+        if (RB0 == 0){
+            pos = '1';
+            _delay((unsigned long)((2)*(20000000/4000.0)));
+            setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+        }
+        if (RB1 == 0){
+            pos = '2';
+            _delay((unsigned long)((2)*(20000000/4000.0)));
+            setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+        }
+        if (RB2 == 0){
+            pos = '3';
+            _delay((unsigned long)((2)*(20000000/4000.0)));
+            setaZona(msgZonaDisparadas, msgConfigDispara, pos);
+        }
+        if (RB3 == 0){
+            pos = '4';
+            _delay((unsigned long)((2)*(20000000/4000.0)));
+            setaZona(msgZonaDisparadas, msgConfigDispara, pos);
         }
     }
 }
-
 unsigned char confereTeclado(unsigned int numero){
    switch (numero){
         case 1:
@@ -2045,24 +2085,21 @@ void rotinaValidaSenha(unsigned char* senhaOp){
         }
         _delay((unsigned long)((2000)*(20000000/4000.0)));
 }
-void alteraSenhaUser(unsigned int opConfig){
+void alteraSenhas(unsigned int opConfig){
     LCD_init();
     LCD_limpa();
+    _delay((unsigned long)((2)*(20000000/4000.0)));
     escreveMesagem(msgDigiteNovaSenha);
     Linha2();
     if (opConfig == 1){
-        LCD_escreve('1');
         rotinaValidaSenha(senhaConfig);
-        opConfig = 2;
-
     }
     else if (opConfig == 2){
-        LCD_escreve('2');
         rotinaValidaSenha(senhaUser);
-        opConfig = 1;
     }
-
-
+    else if (opConfig == 3){
+        rotinaValidaSenha(senhaCoa);
+    }
 }
 void liga_buzzer(float tempoSegundos){
     tempoSegundos = tempoSegundos * 1000;
